@@ -482,36 +482,7 @@ Hệ thống CAB bao gồm:
 
 ## 16. REQUIREMENTS TRACEABILITY MATRIX
 
-### 16.1. Ma trận truy vết yêu cầu chức năng
-
-| Business Goal | Business Requirement | Functional Requirement | Acceptance Criteria |
-|---|---|---|---|
-| **BG-01** | **BR-01** | FR-01, FR-02 | AC-01, AC-02 |
-| **BG-02** | **BR-01** | FR-03, FR-04 | AC-03, AC-11 |
-| **BG-01** | **BR-02** | FR-05, FR-06, FR-07 | AC-04, AC-05 |
-| **BG-01** | **BR-03** | FR-08, FR-09 | AC-06, AC-07 |
-| **BG-03** | **BR-04** | FR-10, FR-11 | AC-08, AC-09 |
-| **BG-02** | **BR-05** | FR-12 | AC-10 |
-| **BG-04** | **BR-06** | FR-13, FR-14 | AC-12, AC-13 |
-| **BG-05** | **BR-07** | FR-15 | AC-14 |
-
-### 16.2. Ma trận truy vết yêu cầu phi chức năng
-
-| Business Goal | Business Requirement | Non-Functional Requirement | Acceptance Criteria |
-|---|---|---|---|
-| **BG-06** | **BR-08** | NFR-01 | AC-15 |
-| **BG-06** | **BR-08** | NFR-02 | AC-15 |
-| **BG-06** | **BR-08** | NFR-03 | AC-15 |
-| **BG-06** | **BR-08** | NFR-04 | AC-15 |
-| **BG-06** | **BR-08** | NFR-05 | AC-16 |
-| **BG-06** | **BR-08** | NFR-06 | AC-16 |
-| **BG-06** | **BR-08** | NFR-07 | AC-16 |
-| **BG-06** | **BR-08** | NFR-08 | AC-15 |
-
-
-## 17. REQUIREMENTS TRACEABILITY MATRIX
-
-### 17.1. Bảng truy vết BG – BR – BPM – FR – UC – AC
+### 16.1. Bảng truy vết BG – BR – BPM – FR – UC – AC
 
 | BG | BR | BPM | FR / NFR | UC | AC |
 |---|---|---|---|---|---|
@@ -525,7 +496,7 @@ Hệ thống CAB bao gồm:
 | **BG-05** Cung cấp dữ liệu và báo cáo cho ban lãnh đạo | **BR-07** Cung cấp báo cáo hoạt động | **BPM-03** Quy trình quản lý vận hành và báo cáo | **FR-15** | **UC-14:** Xem báo cáo | **AC-14** |
 | **BG-06** Xây dựng nền tảng CAB ổn định, bảo mật và linh hoạt | **BR-08** Đảm bảo bảo mật, mở rộng và chịu lỗi | **Áp dụng xuyên suốt các BPM** | **NFR-01 → NFR-08** | **Áp dụng cho toàn bộ Use Case liên quan** | **AC-15, AC-16** |
 
-### 17.2. Danh sách Business Process Model
+### 16.2. Danh sách Business Process Model
 
 | Mã | Quy trình nghiệp vụ |
 |:---:|---|
