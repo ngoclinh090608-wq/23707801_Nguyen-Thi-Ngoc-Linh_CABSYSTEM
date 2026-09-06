@@ -3,15 +3,23 @@
 
 ## 1. Stakeholder Analysis
 
-### Stakeholder Matrix
+## Stakeholder Matrix
 
-| Stakeholder | Role | Power | Interest | Management Strategy |
-|---|---|---|---|---|
-| Customer | Book rides, track trips, make payments, rate drivers | Low | High | Keep Informed |
-| Driver | Receive and perform trips, update status and location | Low | High | Keep Informed |
-| Operation Staff | Manage customers, drivers, vehicles and trips | High | High | Manage Closely |
-| Management | Monitor business performance and make decisions | High | High | Manage Closely |
-| Payment Provider | Process electronic payments | High | Medium | Keep Satisfied |
-| Notification Provider | Deliver notifications | Medium | Medium | Monitor / Keep Informed |
-| Business Analyst | Analyze and clarify system requirements | High | High | Manage Closely |
-| Development Team | Design, develop, test and deploy the system | High | High | Manage Closely |
+```mermaid
+quadrantChart
+    title CAB System - Stakeholder Power/Interest Matrix
+    x-axis Low Interest --> High Interest
+    y-axis Low Power --> High Power
+
+    quadrant-1 Manage Closely
+    quadrant-2 Keep Satisfied
+    quadrant-3 Monitor
+    quadrant-4 Keep Informed
+
+    Management: [0.90, 0.90]
+    Operation Staff: [0.85, 0.80]
+    Payment Provider: [0.45, 0.75]
+    Notification Provider: [0.40, 0.55]
+    Customer: [0.90, 0.35]
+    Driver: [0.85, 0.40]
+```
