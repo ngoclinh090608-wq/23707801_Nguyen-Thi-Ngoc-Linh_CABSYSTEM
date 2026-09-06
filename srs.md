@@ -1,6 +1,6 @@
 # ĐẶC TẢ YÊU CẦU PHẦN MỀM - HỆ THỐNG CAB
 
-## 1. XÁC ĐỊNH CÁC BÊN LIÊN QUAN
+## 1. STAKEHOLDERS
 
 | STT | Bên liên quan | Vai trò |
 |:---:|---|---|
@@ -15,7 +15,7 @@
 
 ---
 
-## 2. MA TRẬN CÁC BÊN LIÊN QUAN
+## 2. STAKEHOLDER MATRIX
 
 Ma trận được xây dựng dựa trên hai tiêu chí:
 
@@ -54,7 +54,7 @@ quadrantChart
 
 ---
 
-## 3. MỤC TIÊU KINH DOANH
+## 3. BUSINESS GOALS
 
 - **BG-01:** Tự động hóa quy trình đặt xe và phân công tài xế, giảm sự phụ thuộc vào việc điều phối tài xế thủ công.
 
@@ -78,7 +78,7 @@ quadrantChart
 
 ---
 
-## 4. XÁC ĐỊNH CÁC MODULE MVP
+## 4. MVP MODULES
 
 Do thời gian xây dựng và triển khai sản phẩm là **7 tuần**, phiên bản MVP cần ưu tiên các module bảo đảm thực hiện được quy trình nghiệp vụ chính:
 
@@ -108,7 +108,7 @@ Các yêu cầu sau không nhất thiết được xây dựng thành một modu
 - **Khả năng mở rộng:** Các thành phần quan trọng phải có khả năng mở rộng khi tải tăng.
 - **Khả năng chịu lỗi:** Lỗi của chức năng thanh toán hoặc thông báo không được làm toàn bộ quy trình đặt xe ngừng hoạt động.
 
-## 5. YÊU CẦU NGHIỆP VỤ
+## 5. BUSINESS REQUIREMENTS
 
 | Mã | Yêu cầu nghiệp vụ |
 |:---:|---|
