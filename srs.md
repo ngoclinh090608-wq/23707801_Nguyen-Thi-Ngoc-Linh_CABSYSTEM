@@ -242,3 +242,17 @@ flowchart TD
 | **RULE-10** | Nếu thanh toán điện tử thất bại, hệ thống phải thông báo cho khách hàng và cho phép xử lý lại theo chính sách của doanh nghiệp. |
 | **RULE-11** | Các thao tác quản trị nhạy cảm chỉ được thực hiện bởi người dùng có quyền phù hợp. |
 | **RULE-12** | Các thao tác quan trọng trong hệ thống phải được lưu vết để phục vụ kiểm tra khi xảy ra sự cố. |
+
+## 9. NON-FUNCTIONAL REQUIREMENTS
+
+| Mã | Nhóm yêu cầu | Yêu cầu phi chức năng |
+|:---:|---|---|
+| **NFR-01** | **Hiệu năng và ổn định** | Hệ thống phải hoạt động ổn định trong các thời điểm nhu cầu đặt xe tăng cao. |
+| **NFR-02** | **Khả năng mở rộng** | Các thành phần của hệ thống phải có khả năng mở rộng độc lập khi tải tăng để phục vụ số lượng lớn khách hàng và tài xế. |
+| **NFR-03** | **Khả năng chịu lỗi** | Lỗi xảy ra ở chức năng thanh toán hoặc thông báo không được làm toàn bộ hệ thống đặt xe ngừng hoạt động. |
+| **NFR-04** | **Khả năng triển khai** | Các chức năng mới phải có khả năng được triển khai từng phần và hạn chế ảnh hưởng đến các chức năng đang hoạt động. |
+| **NFR-05** | **Bảo mật và phân quyền** | Khách hàng và tài xế phải được xác thực trước khi sử dụng các chức năng yêu cầu tài khoản; các thao tác quản trị phải được kiểm soát quyền truy cập. |
+| **NFR-06** | **Bảo vệ dữ liệu** | Thông tin cá nhân, thông tin phương tiện, dữ liệu vị trí và dữ liệu giao dịch phải được bảo vệ; thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán không được lưu trực tiếp trong hệ thống CAB. |
+| **NFR-07** | **Khả năng kiểm tra và truy vết** | Hệ thống phải lưu vết các thao tác quan trọng để phục vụ kiểm tra khi xảy ra sự cố. |
+| **NFR-08** | **Khả năng mở rộng chức năng** | Kiến trúc hệ thống phải đủ linh hoạt để có thể bổ sung loại dịch vụ mới, phương thức thanh toán mới, nhà cung cấp thông báo hoặc thay đổi một số thành phần kỹ thuật mà không phải xây dựng lại toàn bộ ứng dụng. |
+
