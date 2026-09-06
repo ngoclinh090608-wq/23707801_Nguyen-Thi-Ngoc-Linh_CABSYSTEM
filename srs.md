@@ -2,7 +2,16 @@
 # Software Requirements Specification - CAB System
 
 ## 1. Stakeholder Analysis
-
+| STT | Stakeholder | Vai trò |
+|:---:|---|---|
+| 1 | **Ban lãnh đạo** | Định hướng phát triển hệ thống, theo dõi hiệu quả hoạt động và sử dụng các báo cáo để hỗ trợ ra quyết định. |
+| 2 | **Khách hàng** | Đăng ký tài khoản, đặt xe, theo dõi chuyến đi, thanh toán, xem lịch sử chuyến và đánh giá tài xế. |
+| 3 | **Tài xế** | Quản lý hồ sơ và phương tiện, nhận hoặc từ chối chuyến, thực hiện chuyến và cập nhật trạng thái, vị trí. |
+| 4 | **Nhân viên vận hành** | Quản lý khách hàng, tài xế, phương tiện và chuyến đi; theo dõi các chuyến đang diễn ra và hỗ trợ xử lý sự cố. |
+| 5 | **Business Analyst** | Phân tích và làm rõ các yêu cầu chưa xác định như cách tính cước, tiêu chí ưu tiên tài xế, thời gian phản hồi, chính sách hủy chuyến, xử lý mất kết nối và thời gian lưu trữ dữ liệu. |
+| 6 | **Nhóm phát triển** | Thiết kế, phát triển, kiểm thử và triển khai hệ thống CAB dựa trên các yêu cầu đã được xác nhận. |
+| 7 | **Nhà cung cấp thanh toán** | Xử lý các giao dịch thanh toán điện tử được tích hợp với CAB System. |
+| 8 | **Nhà cung cấp thông báo** | Hỗ trợ gửi thông báo đến khách hàng và tài xế và có thể được mở rộng thêm trong tương lai. |
 ## Stakeholder Matrix
 ```mermaid
 quadrantChart
