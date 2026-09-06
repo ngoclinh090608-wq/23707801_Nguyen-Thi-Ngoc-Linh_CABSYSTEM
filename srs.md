@@ -225,3 +225,20 @@ flowchart TD
 | **FR-13** | Hệ thống cung cấp giao diện quản trị cho nhân viên vận hành để quản lý khách hàng, tài xế, phương tiện và chuyến đi; xem chuyến đang diễn ra, kiểm tra trạng thái tài xế, hỗ trợ xử lý chuyến bị lỗi và tra cứu lịch sử giao dịch. |
 | **FR-14** | Hệ thống kiểm soát quyền truy cập đối với các chức năng quản trị để nhân viên không có quyền không thể thực hiện các thao tác nhạy cảm. |
 | **FR-15** | Hệ thống cung cấp báo cáo về số lượng chuyến, doanh thu, tỷ lệ chuyến hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế. |
+
+## 8. BUSINESS RULES
+
+| Mã | Quy tắc nghiệp vụ |
+|:---:|---|
+| **RULE-01** | Khách hàng và tài xế phải được xác thực trước khi sử dụng các chức năng yêu cầu tài khoản. |
+| **RULE-02** | Tài xế chỉ được xem xét để nhận chuyến khi có trạng thái sẵn sàng và đáp ứng các tiêu chí vận hành của hệ thống. |
+| **RULE-03** | Khi tìm tài xế, hệ thống ưu tiên tài xế phù hợp và gần khách hàng. |
+| **RULE-04** | Nếu tài xế được đề xuất từ chối hoặc không phản hồi, hệ thống phải tiếp tục tìm tài xế khác mà không yêu cầu khách hàng tạo lại yêu cầu đặt xe. |
+| **RULE-05** | Nếu không tìm được tài xế phù hợp, hệ thống phải thông báo rõ ràng cho khách hàng. |
+| **RULE-06** | Trong quá trình thực hiện chuyến, tài xế phải cập nhật trạng thái chuyến gồm: đã đến điểm đón, đã đón khách, đang di chuyển và hoàn thành chuyến. |
+| **RULE-07** | Cước chuyến đi được xác định sau khi chuyến hoàn thành, dựa trên loại dịch vụ và thông tin chuyến đi. |
+| **RULE-08** | Khách hàng có thể thanh toán bằng tiền mặt hoặc thanh toán điện tử. |
+| **RULE-09** | Thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán không được lưu trực tiếp trong hệ thống CAB. |
+| **RULE-10** | Nếu thanh toán điện tử thất bại, hệ thống phải thông báo cho khách hàng và cho phép xử lý lại theo chính sách của doanh nghiệp. |
+| **RULE-11** | Các thao tác quản trị nhạy cảm chỉ được thực hiện bởi người dùng có quyền phù hợp. |
+| **RULE-12** | Các thao tác quan trọng trong hệ thống phải được lưu vết để phục vụ kiểm tra khi xảy ra sự cố. |
