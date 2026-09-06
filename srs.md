@@ -262,18 +262,201 @@ flowchart TD
 
 | STT | Thực thể | Mô tả |
 |:---:|---|---|
-| 1 | **Tài khoản** | Lưu thông tin tài khoản, vai trò, trạng thái phục vụ xác thực và phân quyền. |
+| 1 | **Tài khoản** | Lưu thông tin phục vụ đăng nhập, xác thực và phân quyền người dùng. |
 | 2 | **Khách hàng** | Lưu thông tin cá nhân của khách hàng sử dụng dịch vụ đặt xe. |
 | 3 | **Tài xế** | Lưu hồ sơ tài xế và trạng thái hoạt động. |
-| 4 | **Nhân viên vận hành** | Lưu thông tin nhân viên sử dụng giao diện quản trị và quyền truy cập. |
+| 4 | **Nhân viên vận hành** | Lưu thông tin nhân viên sử dụng giao diện quản trị. |
 | 5 | **Phương tiện** | Lưu thông tin phương tiện của tài xế. |
-| 6 | **Chuyến đi** | Lưu yêu cầu đặt xe, điểm đón, điểm đến, loại xe/dịch vụ, tài xế được phân công, trạng thái chuyến và số tiền phải trả. |
-| 7 | **Vị trí tài xế** | Lưu thông tin vị trí của tài xế phục vụ tìm tài xế gần khách hàng và dự kiến thời gian đến. |
+| 6 | **Chuyến đi** | Lưu điểm đón, điểm đến, loại xe/dịch vụ, tài xế được phân công, trạng thái chuyến và số tiền phải trả. |
+| 7 | **Vị trí tài xế** | Lưu vị trí tài xế để hỗ trợ tìm tài xế gần khách hàng và dự kiến thời gian đến. |
 | 8 | **Thanh toán** | Lưu phương thức, số tiền và kết quả thanh toán của chuyến đi. |
-| 9 | **Thông báo** | Lưu các thông báo gửi đến khách hàng hoặc tài xế trong quá trình thực hiện chuyến. |
-| 10 | **Đánh giá** | Lưu đánh giá của khách hàng dành cho tài xế sau khi chuyến hoàn thành. |
+| 9 | **Thông báo** | Lưu thông báo gửi đến khách hàng hoặc tài xế trong quá trình đặt và thực hiện chuyến. |
+| 10 | **Đánh giá** | Lưu đánh giá của khách hàng dành cho tài xế sau khi hoàn thành chuyến. |
 | 11 | **Nhật ký hệ thống** | Lưu vết các thao tác quan trọng để phục vụ kiểm tra khi xảy ra sự cố. |
 
+### 10.2. Mô hình quan hệ thực thể
+
+```mermaid
+erDiagram
+
+    TAI_KHOAN ||--o| KHACH_HANG : "thuộc"
+    TAI_KHOAN ||--o| TAI_XE : "thuộc"
+    TAI_KHOAN ||--o| NHAN_VIEN_VAN_HANH : "thuộc"
+
+    TAI_XE ||--o{ PHUONG_TIEN : "có"
+    TAI_XE ||--o{ VI_TRI_TAI_XE : "cập nhật"
+
+    KHACH_HANG ||--o{ CHUYEN_DI : "đặt"
+    TAI_XE o|--o{ CHUYEN_DI : "thực hiện"
+
+    CHUYEN_DI ||--o{ THANH_TOAN : "phát sinh"
+    CHUYEN_DI ||--o{ THONG_BAO : "phát sinh"
+    CHUYEN_DI ||--o| DANH_GIA : "được đánh giá"
+
+    KHACH_HANG ||--o{ DANH_GIA : "thực hiện"
+    TAI_XE ||--o{ DANH_GIA : "nhận"
+
+    TAI_KHOAN ||--o{ THONG_BAO : "nhận"
+    TAI_KHOAN ||--o{ NHAT_KY_HE_THONG : "thực hiện"
+
+    TAI_KHOAN {
+        int account_id PK
+        string username
+        string password_hash
+        string role
+        string status
+    }
+
+    KHACH_HANG {
+        int customer_id PK
+        int account_id FK
+        string thong_tin_ca_nhan
+    }
+
+    TAI_XE {
+        int driver_id PK
+        int account_id FK
+        string thong_tin_ho_so
+        string trang_thai_hoat_dong
+    }
+
+    NHAN_VIEN_VAN_HANH {
+        int staff_id PK
+        int account_id FK
+        string quyen_truy_cap
+    }
+
+    PHUONG_TIEN {
+        int vehicle_id PK
+        int driver_id FK
+        string thong_tin_phuong_tien
+    }
+
+    CHUYEN_DI {
+        int trip_id PK
+        int customer_id FK
+        int driver_id FK
+        string diem_don
+        string diem_den
+        string loai_xe
+        string loai_dich_vu
+        string trang_thai
+        string thoi_gian_du_kien_den
+        decimal so_tien_phai_tra
+    }
+
+    VI_TRI_TAI_XE {
+        int location_id PK
+        int driver_id FK
+        decimal latitude
+        decimal longitude
+        datetime thoi_gian_cap_nhat
+    }
+
+    THANH_TOAN {
+        int payment_id PK
+        int trip_id FK
+        string phuong_thuc
+        decimal so_tien
+        string trang_thai
+    }
+
+    THONG_BAO {
+        int notification_id PK
+        int account_id FK
+        int trip_id FK
+        string loai_thong_bao
+        string noi_dung
+        datetime thoi_gian_gui
+    }
+
+    DANH_GIA {
+        int rating_id PK
+        int trip_id FK
+        int customer_id FK
+        int driver_id FK
+        int diem_danh_gia
+    }
+
+    NHAT_KY_HE_THONG {
+        int log_id PK
+        int account_id FK
+        string thao_tac
+        datetime thoi_gian
+    }
+```
+
+---
+
+## 11. SYSTEM SCOPE
+
+### 11.1. Trong phạm vi
+
+Hệ thống CAB bao gồm:
+
+- Đăng ký, đăng nhập và cập nhật thông tin cá nhân của khách hàng.
+- Quản lý tài khoản, hồ sơ, phương tiện và trạng thái hoạt động của tài xế.
+- Nhập điểm đón, điểm đến, chọn loại xe và gửi yêu cầu đặt xe.
+- Tìm kiếm và phân công tài xế phù hợp.
+- Tiếp tục tìm tài xế khác khi tài xế từ chối hoặc không phản hồi.
+- Theo dõi trạng thái chuyến đi và thời gian dự kiến tài xế đến.
+- Lưu và sử dụng vị trí tài xế.
+- Quản lý quá trình thực hiện và hoàn thành chuyến đi.
+- Tính cước sau khi chuyến đi hoàn thành.
+- Thanh toán bằng tiền mặt hoặc thanh toán điện tử.
+- Tích hợp với nhà cung cấp thanh toán bên ngoài.
+- Gửi thông báo cho khách hàng và tài xế.
+- Xem lịch sử chuyến đi và đánh giá tài xế sau chuyến.
+- Quản lý khách hàng, tài xế, phương tiện và chuyến đi.
+- Theo dõi chuyến đang diễn ra và hỗ trợ xử lý chuyến bị lỗi.
+- Tra cứu lịch sử giao dịch.
+- Cung cấp báo cáo về số lượng chuyến, doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế.
+- Xác thực, phân quyền, bảo vệ dữ liệu và lưu vết các thao tác quan trọng.
+
+### 11.2. Các nội dung chưa được xác định
+
+- Cách tính cước cụ thể.
+- Tiêu chí ưu tiên tài xế.
+- Thời gian tài xế phải phản hồi.
+- Chính sách hủy chuyến.
+- Cách xử lý khi mất kết nối mạng.
+- Thời gian lưu trữ dữ liệu.
+
+---
+
+## 12. ACTORS
+
+| STT | Tác nhân | Vai trò |
+|:---:|---|---|
+| 1 | **Khách hàng** | Đăng ký, đăng nhập, cập nhật thông tin, đặt xe, theo dõi chuyến, thanh toán, xem lịch sử và đánh giá tài xế. |
+| 2 | **Tài xế** | Quản lý hồ sơ, phương tiện, trạng thái hoạt động; nhận hoặc từ chối chuyến; cập nhật vị trí và trạng thái chuyến đi. |
+| 3 | **Nhân viên vận hành** | Quản lý khách hàng, tài xế, phương tiện và chuyến đi; theo dõi chuyến đang diễn ra, kiểm tra trạng thái tài xế, hỗ trợ xử lý sự cố và tra cứu lịch sử giao dịch. |
+| 4 | **Nhà cung cấp thanh toán bên ngoài** | Xử lý giao dịch thanh toán điện tử và trả kết quả giao dịch cho hệ thống CAB. |
+
+---
+
+## 13. EXCEPTION CASES
+
+| Mã | Trường hợp ngoại lệ | Cách xử lý |
+|:---:|---|---|
+| **EX-01** | Tài xế từ chối chuyến. | Hệ thống tiếp tục tìm tài xế khác mà không yêu cầu khách hàng tạo lại yêu cầu. |
+| **EX-02** | Tài xế không phản hồi yêu cầu nhận chuyến. | Hệ thống tiếp tục tìm tài xế khác mà không yêu cầu khách hàng tạo lại yêu cầu. |
+| **EX-03** | Không tìm được tài xế phù hợp. | Hệ thống thông báo rõ ràng cho khách hàng. |
+| **EX-04** | Thanh toán điện tử thất bại. | Hệ thống thông báo cho khách hàng và cho phép xử lý lại theo chính sách của doanh nghiệp. |
+| **EX-05** | Chuyến đi xảy ra lỗi. | Nhân viên vận hành theo dõi và hỗ trợ xử lý trường hợp chuyến bị lỗi. |
+
+---
+
+## 14. OPEN QUESTIONS / TBD
+
+| Mã | Nội dung cần xác nhận |
+|:---:|---|
+| **TBD-01** | Cách tính cước chuyến đi cụ thể như thế nào? |
+| **TBD-02** | Tiêu chí ưu tiên tài xế gồm những tiêu chí nào và thứ tự ưu tiên ra sao? |
+| **TBD-03** | Tài xế có bao nhiêu thời gian để phản hồi yêu cầu nhận chuyến? |
+| **TBD-04** | Chính sách hủy chuyến được quy định như thế nào? |
+| **TBD-05** | Hệ thống xử lý như thế nào khi khách hàng hoặc tài xế mất kết nối mạng? |
+| **TBD-06** | Dữ liệu của hệ thống được lưu trữ trong bao lâu? |
 
 ## 15. ACCEPTANCE CRITERIA
 
