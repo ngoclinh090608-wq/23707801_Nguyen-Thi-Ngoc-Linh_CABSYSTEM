@@ -120,3 +120,145 @@ Các yêu cầu sau không nhất thiết được xây dựng thành một modu
 | **BR-06** | Nhân viên vận hành phải có khả năng quản lý khách hàng, tài xế, phương tiện, chuyến đi, hỗ trợ xử lý sự cố và tra cứu lịch sử giao dịch. |
 | **BR-07** | Hệ thống phải cung cấp báo cáo về số lượng chuyến, doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế. |
 | **BR-08** | Hệ thống phải đảm bảo khả năng mở rộng, bảo mật, phân quyền, bảo vệ dữ liệu và hạn chế ảnh hưởng toàn hệ thống khi một chức năng như thanh toán hoặc thông báo gặp lỗi. |
+
+## 6. BUSINESS PROCESS MODELING
+
+## 6. BUSINESS PROCESS MODELING
+
+Các quy trình nghiệp vụ được xây dựng dựa trên các Business Requirements đã xác định ở Mục 5.
+
+### 6.1. Mapping Business Requirements với Business Process
+
+| Business Requirement | Quy trình nghiệp vụ liên quan |
+|:---:|---|
+| **BR-01** | Quy trình đặt xe và thực hiện chuyến |
+| **BR-02** | Quy trình tìm kiếm và phân công tài xế |
+| **BR-03** | Quy trình theo dõi và hoàn thành chuyến |
+| **BR-04** | Quy trình tính cước và thanh toán |
+| **BR-05** | Quy trình thông báo trong suốt chuyến đi |
+| **BR-06** | Quy trình quản lý và hỗ trợ vận hành |
+| **BR-07** | Quy trình báo cáo và thống kê |
+| **BR-08** | Yêu cầu xuyên suốt về bảo mật, phân quyền, khả năng mở rộng và chịu lỗi |
+
+---
+
+### 6.2. Quy trình đặt xe và thực hiện chuyến
+
+Quy trình này được xây dựng từ **BR-01, BR-02, BR-03 và BR-05**.
+
+```mermaid
+flowchart TD
+    A[Khách hàng đăng nhập] --> B[Nhập điểm đón và điểm đến]
+    B --> C[Chọn loại xe]
+    C --> D[Gửi yêu cầu đặt xe]
+
+    D --> E[Hệ thống tiếp nhận yêu cầu]
+    E --> F[Thông báo đã tiếp nhận yêu cầu]
+    F --> G[Hệ thống tìm tài xế phù hợp]
+
+    G --> H{Có tài xế phù hợp?}
+
+    H -- Không --> I[Thông báo không tìm được tài xế]
+    I --> Z[Kết thúc yêu cầu]
+
+    H -- Có --> J[Gửi yêu cầu nhận chuyến cho tài xế]
+    J --> K{Tài xế chấp nhận?}
+
+    K -- Không hoặc không phản hồi --> G
+    K -- Có --> L[Phân công tài xế]
+
+    L --> M[Thông báo thông tin tài xế cho khách hàng]
+    M --> N[Tài xế di chuyển đến điểm đón]
+    N --> O[Tài xế cập nhật đã đến điểm đón]
+    O --> P[Thông báo tài xế đã đến]
+
+    P --> Q[Tài xế đón khách]
+    Q --> R[Cập nhật trạng thái đang di chuyển]
+    R --> S[Thực hiện chuyến đi]
+    S --> T[Hoàn thành chuyến]
+
+    T --> U[Chuyển sang quy trình tính cước và thanh toán]
+```
+
+---
+
+### 6.3. Quy trình tính cước và thanh toán
+
+Quy trình này được xây dựng từ **BR-04** và một phần **BR-05**.
+
+```mermaid
+flowchart TD
+    A[Chuyến đi hoàn thành] --> B[Hệ thống tính cước]
+    B --> C[Hiển thị số tiền phải trả]
+
+    C --> D{Phương thức thanh toán}
+
+    D -- Tiền mặt --> E[Ghi nhận thanh toán tiền mặt]
+
+    D -- Điện tử --> F[Gửi yêu cầu đến nhà cung cấp thanh toán]
+    F --> G{Thanh toán thành công?}
+
+    G -- Không --> H[Thông báo thanh toán thất bại]
+    H --> I[Cho phép xử lý lại theo chính sách]
+    I --> F
+
+    G -- Có --> J[Ghi nhận thanh toán thành công]
+
+    E --> K[Lưu thông tin giao dịch]
+    J --> K
+
+    K --> L[Thông báo kết quả thanh toán]
+    L --> M[Lưu chuyến vào lịch sử]
+    M --> N[Khách hàng đánh giá tài xế]
+    N --> O[Kết thúc chuyến]
+```
+
+---
+
+### 6.4. Quy trình quản lý vận hành và báo cáo
+
+Quy trình này được xây dựng từ **BR-06 và BR-07**.
+
+```mermaid
+flowchart TD
+    A[Nhân viên vận hành đăng nhập] --> B[Truy cập giao diện quản trị]
+
+    B --> C{Chọn nghiệp vụ}
+
+    C --> D[Quản lý khách hàng]
+    C --> E[Quản lý tài xế và phương tiện]
+    C --> F[Theo dõi chuyến đang diễn ra]
+    C --> G[Tra cứu lịch sử giao dịch]
+    C --> H[Hỗ trợ xử lý chuyến gặp sự cố]
+
+    D --> I[Cập nhật dữ liệu vận hành]
+    E --> I
+    F --> I
+    G --> I
+    H --> I
+
+    I --> J[Tổng hợp dữ liệu hoạt động]
+
+    J --> K[Báo cáo số lượng chuyến]
+    J --> L[Báo cáo doanh thu]
+    J --> M[Báo cáo tỷ lệ hoàn thành và hủy]
+    J --> N[Báo cáo hiệu quả tài xế]
+
+    K --> O[Ban lãnh đạo theo dõi]
+    L --> O
+    M --> O
+    N --> O
+```
+
+---
+
+### 6.5. Các yêu cầu xuyên suốt quy trình
+
+**BR-08** không phải là một quy trình nghiệp vụ tuần tự riêng mà là nhóm yêu cầu phải được áp dụng xuyên suốt các quy trình trên:
+
+- Người dùng phải được xác thực trước khi sử dụng các chức năng yêu cầu tài khoản.
+- Các chức năng quản trị phải được kiểm soát theo quyền truy cập.
+- Thông tin cá nhân, phương tiện, vị trí và giao dịch phải được bảo vệ.
+- Các thao tác quan trọng phải được lưu vết.
+- Hệ thống phải có khả năng mở rộng khi nhu cầu tăng cao.
+- Lỗi ở chức năng thanh toán hoặc thông báo không được làm toàn bộ hệ thống đặt xe ngừng hoạt động.
