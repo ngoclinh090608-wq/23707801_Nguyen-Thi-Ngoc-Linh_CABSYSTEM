@@ -5,23 +5,25 @@
 
 ## Stakeholder Matrix
 
+## Ma trận các bên liên quan
+
 ```mermaid
 quadrantChart
-    title CAB System - Stakeholder Power/Interest Matrix
-    x-axis Low Interest --> High Interest
-    y-axis Low Power --> High Power
+    title Ma trận Quyền lực - Mức độ quan tâm của CAB System
+    x-axis Mức độ quan tâm thấp --> Mức độ quan tâm cao
+    y-axis Quyền lực thấp --> Quyền lực cao
 
-    quadrant-1 Manage Closely
-    quadrant-2 Keep Satisfied
-    quadrant-3 Monitor
-    quadrant-4 Keep Informed
+    quadrant-1 Quản lý chặt chẽ
+    quadrant-2 Duy trì sự hài lòng
+    quadrant-3 Theo dõi
+    quadrant-4 Cập nhật thông tin
 
-    Management: [0.90, 0.90]
-    Operation Staff: [0.85, 0.80]
-    Payment Provider: [0.45, 0.75]
-    Notification Provider: [0.40, 0.55]
-    Customer: [0.90, 0.35]
-    Driver: [0.85, 0.40]
+    Ban lãnh đạo: [0.90, 0.90]
+    Nhân viên vận hành: [0.85, 0.80]
+    Nhà cung cấp thanh toán: [0.45, 0.75]
+    Nhà cung cấp thông báo: [0.40, 0.55]
+    Khách hàng: [0.90, 0.35]
+    Tài xế: [0.85, 0.40]
 ```
 ## Mục tiêu kinh doanh
 
