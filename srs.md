@@ -274,3 +274,24 @@ flowchart TD
 | 10 | **Đánh giá** | Lưu đánh giá của khách hàng dành cho tài xế sau khi chuyến hoàn thành. |
 | 11 | **Nhật ký hệ thống** | Lưu vết các thao tác quan trọng để phục vụ kiểm tra khi xảy ra sự cố. |
 
+
+## 15. ACCEPTANCE CRITERIA
+
+| Mã | Yêu cầu liên quan | Tiêu chí chấp nhận |
+|:---:|---|---|
+| **AC-01** | FR-01 | Khách hàng có thể đăng ký, đăng nhập và cập nhật thông tin cá nhân thành công. |
+| **AC-02** | FR-02 | Khách hàng có thể nhập điểm đón, điểm đến, chọn loại xe và gửi yêu cầu đặt xe. |
+| **AC-03** | FR-03 | Sau khi gửi yêu cầu, khách hàng có thể biết hệ thống đang tìm tài xế, tài xế đã nhận chuyến, thời gian dự kiến tài xế đến và trạng thái hiện tại của chuyến. |
+| **AC-04** | FR-05, FR-06 | Tài xế có thể cập nhật hồ sơ, phương tiện, trạng thái sẵn sàng và chấp nhận hoặc từ chối yêu cầu chuyến. |
+| **AC-05** | FR-07 | Tài xế có thể cập nhật các trạng thái: đã đến điểm đón, đã đón khách, đang di chuyển và hoàn thành chuyến. |
+| **AC-06** | FR-08, FR-09 | Hệ thống có thể tìm tài xế phù hợp dựa trên vị trí và trạng thái sẵn sàng; nếu tài xế từ chối hoặc không phản hồi thì tiếp tục tìm tài xế khác mà khách hàng không cần tạo lại yêu cầu. |
+| **AC-07** | FR-09 | Nếu không tìm được tài xế phù hợp, hệ thống phải thông báo rõ ràng cho khách hàng. |
+| **AC-08** | FR-10 | Sau khi chuyến hoàn thành, hệ thống xác định số tiền phải trả và hỗ trợ thanh toán bằng tiền mặt hoặc thanh toán điện tử. |
+| **AC-09** | FR-11 | Nếu thanh toán điện tử thất bại, hệ thống thông báo cho khách hàng và cho phép xử lý lại theo chính sách của doanh nghiệp. |
+| **AC-10** | FR-12 | Khách hàng nhận được thông báo khi yêu cầu được tiếp nhận, tài xế nhận chuyến, tài xế đến điểm đón, chuyến hoàn thành và có kết quả thanh toán. |
+| **AC-11** | FR-04 | Sau khi chuyến hoàn thành, khách hàng có thể xem lịch sử chuyến, số tiền phải trả và đánh giá tài xế. |
+| **AC-12** | FR-13 | Nhân viên vận hành có thể quản lý khách hàng, tài xế, phương tiện và chuyến đi; xem chuyến đang diễn ra, kiểm tra trạng thái tài xế, hỗ trợ xử lý chuyến lỗi và tra cứu lịch sử giao dịch. |
+| **AC-13** | FR-14 | Các thao tác quản trị nhạy cảm chỉ được thực hiện bởi người dùng có quyền phù hợp. |
+| **AC-14** | FR-15 | Hệ thống cung cấp báo cáo về số lượng chuyến, doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế. |
+| **AC-15** | NFR-01, NFR-02, NFR-03 | Hệ thống vẫn duy trì hoạt động khi tải tăng; lỗi của chức năng thanh toán hoặc thông báo không làm toàn bộ hệ thống đặt xe ngừng hoạt động. |
+| **AC-16** | NFR-05, NFR-06, NFR-07 | Người dùng được xác thực, thao tác quản trị được phân quyền, dữ liệu được bảo vệ và các thao tác quan trọng được lưu vết. |
