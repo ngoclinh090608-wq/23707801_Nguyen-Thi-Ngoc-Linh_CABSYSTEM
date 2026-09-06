@@ -295,3 +295,32 @@ flowchart TD
 | **AC-14** | FR-15 | Hệ thống cung cấp báo cáo về số lượng chuyến, doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế. |
 | **AC-15** | NFR-01, NFR-02, NFR-03 | Hệ thống vẫn duy trì hoạt động khi tải tăng; lỗi của chức năng thanh toán hoặc thông báo không làm toàn bộ hệ thống đặt xe ngừng hoạt động. |
 | **AC-16** | NFR-05, NFR-06, NFR-07 | Người dùng được xác thực, thao tác quản trị được phân quyền, dữ liệu được bảo vệ và các thao tác quan trọng được lưu vết. |
+
+
+## 16. REQUIREMENTS TRACEABILITY MATRIX
+
+### 16.1. Ma trận truy vết yêu cầu chức năng
+
+| Business Goal | Business Requirement | Functional Requirement | Acceptance Criteria |
+|---|---|---|---|
+| **BG-01** | **BR-01** | FR-01, FR-02 | AC-01, AC-02 |
+| **BG-02** | **BR-01** | FR-03, FR-04 | AC-03, AC-11 |
+| **BG-01** | **BR-02** | FR-05, FR-06, FR-07 | AC-04, AC-05 |
+| **BG-01** | **BR-03** | FR-08, FR-09 | AC-06, AC-07 |
+| **BG-03** | **BR-04** | FR-10, FR-11 | AC-08, AC-09 |
+| **BG-02** | **BR-05** | FR-12 | AC-10 |
+| **BG-04** | **BR-06** | FR-13, FR-14 | AC-12, AC-13 |
+| **BG-05** | **BR-07** | FR-15 | AC-14 |
+
+### 16.2. Ma trận truy vết yêu cầu phi chức năng
+
+| Business Goal | Business Requirement | Non-Functional Requirement | Acceptance Criteria |
+|---|---|---|---|
+| **BG-06** | **BR-08** | NFR-01 | AC-15 |
+| **BG-06** | **BR-08** | NFR-02 | AC-15 |
+| **BG-06** | **BR-08** | NFR-03 | AC-15 |
+| **BG-06** | **BR-08** | NFR-04 | AC-15 |
+| **BG-06** | **BR-08** | NFR-05 | AC-16 |
+| **BG-06** | **BR-08** | NFR-06 | AC-16 |
+| **BG-06** | **BR-08** | NFR-07 | AC-16 |
+| **BG-06** | **BR-08** | NFR-08 | AC-15 |
