@@ -509,9 +509,9 @@ Hệ thống CAB bao gồm:
 | **BG-06** | **BR-08** | NFR-08 | AC-15 |
 
 
-## 16. REQUIREMENTS TRACEABILITY MATRIX
+## 17. REQUIREMENTS TRACEABILITY MATRIX
 
-### 16.1. Bảng truy vết BG – BR – BPM – FR – UC – AC
+### 17.1. Bảng truy vết BG – BR – BPM – FR – UC – AC
 
 | BG | BR | BPM | FR / NFR | UC | AC |
 |---|---|---|---|---|---|
@@ -525,7 +525,7 @@ Hệ thống CAB bao gồm:
 | **BG-05** Cung cấp dữ liệu và báo cáo cho ban lãnh đạo | **BR-07** Cung cấp báo cáo hoạt động | **BPM-03** Quy trình quản lý vận hành và báo cáo | **FR-15** | **UC-14:** Xem báo cáo | **AC-14** |
 | **BG-06** Xây dựng nền tảng CAB ổn định, bảo mật và linh hoạt | **BR-08** Đảm bảo bảo mật, mở rộng và chịu lỗi | **Áp dụng xuyên suốt các BPM** | **NFR-01 → NFR-08** | **Áp dụng cho toàn bộ Use Case liên quan** | **AC-15, AC-16** |
 
-### 16.2. Danh sách Business Process Model
+### 17.2. Danh sách Business Process Model
 
 | Mã | Quy trình nghiệp vụ |
 |:---:|---|
