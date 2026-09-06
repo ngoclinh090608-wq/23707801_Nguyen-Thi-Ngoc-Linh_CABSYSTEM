@@ -4,9 +4,6 @@
 ## 1. Stakeholder Analysis
 
 ## Stakeholder Matrix
-
-## Ma trận các bên liên quan
-
 ```mermaid
 quadrantChart
     title Ma trận Quyền lực - Mức độ quan tâm của CAB System
