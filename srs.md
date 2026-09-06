@@ -56,3 +56,22 @@ quadrantChart
 - **BG-08:** Đảm bảo an toàn thông tin, kiểm soát quyền truy cập và lưu vết các thao tác quan trọng trong hệ thống.
 
 - **BG-09:** Xây dựng nền tảng CAB có kiến trúc linh hoạt, cho phép bổ sung loại dịch vụ, phương thức thanh toán, nhà cung cấp thông báo hoặc thay đổi thành phần kỹ thuật trong tương lai mà không phải xây dựng lại toàn bộ hệ thống.
+
+## XÁC ĐỊNH CÁC MODULE CHỨC NĂNG
+
+| STT | Module | Mô tả |
+|:---:|---|---|
+| 1 | **Quản lý tài khoản và xác thực** | Quản lý đăng ký, đăng nhập, hồ sơ và xác thực người dùng. |
+| 2 | **Quản lý khách hàng** | Quản lý thông tin khách hàng và lịch sử chuyến đi. |
+| 3 | **Quản lý tài xế và phương tiện** | Quản lý hồ sơ tài xế, phương tiện và trạng thái hoạt động. |
+| 4 | **Đặt xe** | Tiếp nhận điểm đón, điểm đến, loại xe và yêu cầu đặt chuyến. |
+| 5 | **Tìm kiếm và phân công tài xế** | Tìm, đề xuất và phân công tài xế phù hợp cho chuyến đi. |
+| 6 | **Quản lý chuyến đi** | Quản lý và theo dõi trạng thái chuyến đi từ khi tạo đến khi hoàn thành. |
+| 7 | **Quản lý vị trí** | Theo dõi vị trí tài xế và hỗ trợ ước tính thời gian đến. |
+| 8 | **Tính cước** | Tính số tiền phải trả dựa trên loại dịch vụ và thông tin chuyến đi. |
+| 9 | **Thanh toán** | Quản lý thanh toán tiền mặt, thanh toán điện tử và kết quả giao dịch. |
+| 10 | **Thông báo** | Gửi thông báo về đặt xe, tài xế, chuyến đi và thanh toán. |
+| 11 | **Đánh giá sau chuyến** | Cho phép khách hàng đánh giá tài xế sau khi hoàn thành chuyến. |
+| 12 | **Quản lý vận hành** | Hỗ trợ nhân viên quản lý khách hàng, tài xế, phương tiện và chuyến đi. |
+| 13 | **Báo cáo và thống kê** | Tổng hợp số chuyến, doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy và hiệu quả tài xế. |
+| 14 | **Phân quyền và nhật ký hệ thống** | Kiểm soát quyền truy cập và lưu vết các thao tác quan trọng. |
