@@ -205,3 +205,23 @@ flowchart TD
 - Lưu vết các thao tác quan trọng.
 - Đảm bảo khả năng mở rộng khi tải tăng.
 - Lỗi ở chức năng thanh toán hoặc thông báo không được làm toàn bộ hệ thống đặt xe ngừng hoạt động.
+
+## 7. FUNCTIONAL REQUIREMENTS
+
+| Mã | Yêu cầu chức năng |
+|:---:|---|
+| **FR-01** | Hệ thống cho phép khách hàng đăng ký tài khoản, đăng nhập và cập nhật thông tin cá nhân. |
+| **FR-02** | Hệ thống cho phép khách hàng nhập điểm đón, điểm đến, lựa chọn loại xe và gửi yêu cầu đặt xe. |
+| **FR-03** | Hệ thống cho phép khách hàng theo dõi quá trình tìm tài xế, thông tin tài xế nhận chuyến, thời gian dự kiến tài xế đến và trạng thái hiện tại của chuyến đi. |
+| **FR-04** | Hệ thống cho phép khách hàng xem lịch sử chuyến đi, số tiền phải trả và đánh giá tài xế sau khi chuyến hoàn thành. |
+| **FR-05** | Hệ thống cho phép tài xế đăng ký tài khoản hoặc cho phép nhân viên vận hành tạo tài khoản tài xế; tài xế có thể cập nhật hồ sơ, thông tin phương tiện và trạng thái hoạt động. |
+| **FR-06** | Hệ thống cho phép tài xế chuyển sang trạng thái sẵn sàng nhận chuyến, nhận thông báo chuyến mới và chấp nhận hoặc từ chối chuyến. |
+| **FR-07** | Hệ thống cho phép tài xế cập nhật trạng thái chuyến gồm: đã đến điểm đón, đã đón khách, đang di chuyển và hoàn thành chuyến. |
+| **FR-08** | Hệ thống lưu vị trí tài xế và sử dụng vị trí, trạng thái sẵn sàng cùng các tiêu chí vận hành để tìm tài xế phù hợp và gần khách hàng. |
+| **FR-09** | Nếu tài xế được đề xuất từ chối hoặc không phản hồi, hệ thống tự động tiếp tục tìm tài xế khác mà không yêu cầu khách hàng tạo lại yêu cầu; nếu không tìm được tài xế, hệ thống thông báo cho khách hàng. |
+| **FR-10** | Sau khi chuyến hoàn thành, hệ thống tính số tiền phải trả dựa trên loại dịch vụ và thông tin chuyến đi; hỗ trợ thanh toán bằng tiền mặt hoặc thanh toán điện tử thông qua nhà cung cấp thanh toán bên ngoài. |
+| **FR-11** | Nếu thanh toán điện tử thất bại, hệ thống thông báo cho khách hàng và cho phép xử lý lại theo chính sách của doanh nghiệp. |
+| **FR-12** | Hệ thống gửi thông báo cho khách hàng khi yêu cầu đặt xe được tiếp nhận, có tài xế nhận chuyến, tài xế đến điểm đón, chuyến hoàn thành và có kết quả thanh toán; đồng thời gửi thông báo chuyến mới hoặc thay đổi chuyến cho tài xế. |
+| **FR-13** | Hệ thống cung cấp giao diện quản trị cho nhân viên vận hành để quản lý khách hàng, tài xế, phương tiện và chuyến đi; xem chuyến đang diễn ra, kiểm tra trạng thái tài xế, hỗ trợ xử lý chuyến bị lỗi và tra cứu lịch sử giao dịch. |
+| **FR-14** | Hệ thống kiểm soát quyền truy cập đối với các chức năng quản trị để nhân viên không có quyền không thể thực hiện các thao tác nhạy cảm. |
+| **FR-15** | Hệ thống cung cấp báo cáo về số lượng chuyến, doanh thu, tỷ lệ chuyến hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế. |
