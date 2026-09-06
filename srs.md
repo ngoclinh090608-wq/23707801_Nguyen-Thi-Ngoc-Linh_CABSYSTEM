@@ -384,3 +384,73 @@ erDiagram
         string thao_tac
         datetime thoi_gian
     }
+## 11. SYSTEM SCOPE
+
+### 11.1. Trong phạm vi
+
+Hệ thống CAB bao gồm các chức năng:
+
+- Quản lý đăng ký, đăng nhập và thông tin cá nhân của khách hàng.
+- Quản lý tài khoản, hồ sơ, phương tiện và trạng thái hoạt động của tài xế.
+- Cho phép khách hàng nhập điểm đón, điểm đến, chọn loại xe và gửi yêu cầu đặt xe.
+- Tìm kiếm và phân công tài xế phù hợp.
+- Xử lý trường hợp tài xế từ chối hoặc không phản hồi yêu cầu nhận chuyến.
+- Theo dõi trạng thái chuyến đi và thời gian dự kiến tài xế đến.
+- Lưu và sử dụng vị trí tài xế để hỗ trợ tìm tài xế gần khách hàng.
+- Quản lý quá trình thực hiện và hoàn thành chuyến đi.
+- Tính cước sau khi chuyến đi hoàn thành.
+- Hỗ trợ thanh toán bằng tiền mặt và thanh toán điện tử.
+- Tích hợp với nhà cung cấp thanh toán bên ngoài.
+- Gửi thông báo cho khách hàng và tài xế trong quá trình đặt và thực hiện chuyến.
+- Cho phép khách hàng xem lịch sử chuyến đi và đánh giá tài xế.
+- Hỗ trợ nhân viên vận hành quản lý khách hàng, tài xế, phương tiện và chuyến đi.
+- Theo dõi chuyến đang diễn ra, hỗ trợ xử lý chuyến bị lỗi và tra cứu lịch sử giao dịch.
+- Cung cấp báo cáo về số lượng chuyến, doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế.
+- Xác thực người dùng, kiểm soát quyền truy cập, bảo vệ dữ liệu và lưu vết các thao tác quan trọng.
+
+### 11.2. Ngoài phạm vi / Chưa xác định
+
+Tài liệu yêu cầu hiện tại chưa xác định đầy đủ các nội dung sau:
+
+- Công thức tính cước cụ thể.
+- Tiêu chí và thứ tự ưu tiên tài xế cụ thể.
+- Thời gian tối đa tài xế phải phản hồi.
+- Chính sách hủy chuyến.
+- Cách xử lý khi mất kết nối mạng.
+- Thời gian lưu trữ dữ liệu.
+
+---
+
+## 12. ACTORS
+
+| STT | Tác nhân | Vai trò tương tác với hệ thống |
+|:---:|---|---|
+| 1 | **Khách hàng** | Đăng ký, đăng nhập, cập nhật thông tin cá nhân, đặt xe, theo dõi chuyến, thanh toán, xem lịch sử chuyến và đánh giá tài xế. |
+| 2 | **Tài xế** | Quản lý hồ sơ và phương tiện, cập nhật trạng thái hoạt động, nhận hoặc từ chối chuyến, cập nhật vị trí và trạng thái chuyến đi. |
+| 3 | **Nhân viên vận hành** | Quản lý khách hàng, tài xế, phương tiện và chuyến đi; theo dõi chuyến đang diễn ra, kiểm tra trạng thái tài xế, hỗ trợ xử lý sự cố và tra cứu lịch sử giao dịch. |
+| 4 | **Nhà cung cấp thanh toán bên ngoài** | Tiếp nhận và xử lý các yêu cầu thanh toán điện tử từ hệ thống CAB, sau đó trả kết quả giao dịch cho hệ thống. |
+
+---
+
+## 13. EXCEPTION CASES
+
+| Mã | Trường hợp ngoại lệ | Cách xử lý theo yêu cầu |
+|:---:|---|---|
+| **EX-01** | Tài xế được đề xuất từ chối chuyến. | Hệ thống tiếp tục tìm tài xế khác mà không yêu cầu khách hàng tạo lại yêu cầu đặt xe. |
+| **EX-02** | Tài xế được đề xuất không phản hồi. | Hệ thống tiếp tục tìm tài xế khác mà không yêu cầu khách hàng tạo lại yêu cầu đặt xe. |
+| **EX-03** | Không tìm được tài xế phù hợp. | Hệ thống phải thông báo rõ ràng cho khách hàng. |
+| **EX-04** | Thanh toán điện tử thất bại. | Hệ thống thông báo cho khách hàng và cho phép xử lý lại theo chính sách của doanh nghiệp. |
+| **EX-05** | Chuyến đi xảy ra lỗi trong quá trình vận hành. | Nhân viên vận hành có thể theo dõi và hỗ trợ xử lý trường hợp chuyến bị lỗi. |
+
+---
+
+## 14. OPEN QUESTIONS / TBD
+
+| Mã | Nội dung cần làm rõ |
+|:---:|---|
+| **TBD-01** | Cách tính cước cụ thể của chuyến đi là gì? |
+| **TBD-02** | Các tiêu chí ưu tiên tài xế gồm những tiêu chí nào và thứ tự ưu tiên ra sao? |
+| **TBD-03** | Tài xế có bao nhiêu thời gian để phản hồi yêu cầu nhận chuyến? |
+| **TBD-04** | Chính sách hủy chuyến đối với khách hàng và tài xế được quy định như thế nào? |
+| **TBD-05** | Hệ thống xử lý như thế nào khi khách hàng hoặc tài xế mất kết nối mạng? |
+| **TBD-06** | Thông tin cá nhân, vị trí, chuyến đi và giao dịch được lưu trữ trong bao lâu? |
