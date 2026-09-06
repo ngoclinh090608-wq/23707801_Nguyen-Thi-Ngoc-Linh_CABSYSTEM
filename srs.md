@@ -1,21 +1,25 @@
-## 2. Stakeholder Analysis
-# Software Requirements Specification - CAB System
+# ĐẶC TẢ YÊU CẦU PHẦN MỀM - HỆ THỐNG CAB
 
-## 1. Stakeholder Analysis
-| STT | Stakeholder | Vai trò |
+## 1. PHÂN TÍCH CÁC BÊN LIÊN QUAN
+
+### 1.1. Xác định các bên liên quan và vai trò
+
+| STT | Bên liên quan | Vai trò |
 |:---:|---|---|
 | 1 | **Ban lãnh đạo** | Định hướng phát triển hệ thống, theo dõi hiệu quả hoạt động và sử dụng các báo cáo để hỗ trợ ra quyết định. |
 | 2 | **Khách hàng** | Đăng ký tài khoản, đặt xe, theo dõi chuyến đi, thanh toán, xem lịch sử chuyến và đánh giá tài xế. |
 | 3 | **Tài xế** | Quản lý hồ sơ và phương tiện, nhận hoặc từ chối chuyến, thực hiện chuyến và cập nhật trạng thái, vị trí. |
 | 4 | **Nhân viên vận hành** | Quản lý khách hàng, tài xế, phương tiện và chuyến đi; theo dõi các chuyến đang diễn ra và hỗ trợ xử lý sự cố. |
-| 5 | **Business Analyst** | Phân tích và làm rõ các yêu cầu chưa xác định như cách tính cước, tiêu chí ưu tiên tài xế, thời gian phản hồi, chính sách hủy chuyến, xử lý mất kết nối và thời gian lưu trữ dữ liệu. |
+| 5 | **Chuyên viên phân tích nghiệp vụ (BA)** | Phân tích và làm rõ các yêu cầu chưa xác định như cách tính cước, tiêu chí ưu tiên tài xế, thời gian phản hồi, chính sách hủy chuyến, xử lý mất kết nối và thời gian lưu trữ dữ liệu. |
 | 6 | **Nhóm phát triển** | Thiết kế, phát triển, kiểm thử và triển khai hệ thống CAB dựa trên các yêu cầu đã được xác nhận. |
-| 7 | **Nhà cung cấp thanh toán** | Xử lý các giao dịch thanh toán điện tử được tích hợp với CAB System. |
+| 7 | **Nhà cung cấp thanh toán** | Xử lý các giao dịch thanh toán điện tử được tích hợp với hệ thống CAB. |
 | 8 | **Nhà cung cấp thông báo** | Hỗ trợ gửi thông báo đến khách hàng và tài xế và có thể được mở rộng thêm trong tương lai. |
-## Stakeholder Matrix
+
+### 1.2. Ma trận các bên liên quan
+
 ```mermaid
 quadrantChart
-    title Ma trận Quyền lực - Mức độ quan tâm của CAB System
+    title Ma trận Quyền lực - Mức độ quan tâm của hệ thống CAB
     x-axis Mức độ quan tâm thấp --> Mức độ quan tâm cao
     y-axis Quyền lực thấp --> Quyền lực cao
 
@@ -26,11 +30,12 @@ quadrantChart
 
     Ban lãnh đạo: [0.90, 0.90]
     Nhân viên vận hành: [0.85, 0.80]
+    Chuyên viên BA: [0.80, 0.90]
+    Nhóm phát triển: [0.75, 0.85]
     Nhà cung cấp thanh toán: [0.45, 0.75]
     Nhà cung cấp thông báo: [0.40, 0.55]
     Khách hàng: [0.90, 0.35]
     Tài xế: [0.85, 0.40]
-```
 ## Mục tiêu kinh doanh
 
 - **BG-01:** Tự động hóa toàn bộ quy trình đặt xe và quản lý chuyến đi từ khi khách hàng tạo yêu cầu đến khi hoàn thành chuyến.
