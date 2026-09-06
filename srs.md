@@ -107,3 +107,28 @@ Các yêu cầu sau không nhất thiết được xây dựng thành một modu
 - **Lưu vết:** Ghi nhận các thao tác quan trọng để phục vụ kiểm tra khi xảy ra sự cố.
 - **Khả năng mở rộng:** Các thành phần quan trọng phải có khả năng mở rộng khi tải tăng.
 - **Khả năng chịu lỗi:** Lỗi của chức năng thanh toán hoặc thông báo không được làm toàn bộ quy trình đặt xe ngừng hoạt động.
+
+## 5. YÊU CẦU NGHIỆP VỤ
+
+| Mã | Yêu cầu nghiệp vụ |
+|:---:|---|
+| **BR-01** | Hệ thống CAB phải hỗ trợ toàn bộ quy trình nghiệp vụ đặt xe từ khi khách hàng tạo yêu cầu, tìm và phân công tài xế, thực hiện chuyến, tính cước, thanh toán, thông báo đến đánh giá sau chuyến. |
+| **BR-02** | Hệ thống phải hỗ trợ ba nhóm người dùng chính gồm **Khách hàng, Tài xế và Nhân viên vận hành**, với các chức năng phù hợp với vai trò của từng nhóm. |
+| **BR-03** | Hệ thống phải hỗ trợ tự động tìm và phân công tài xế phù hợp dựa trên vị trí, trạng thái sẵn sàng và các tiêu chí vận hành được doanh nghiệp xác định. |
+| **BR-04** | Khi tài xế được đề xuất không phản hồi hoặc từ chối chuyến, hệ thống phải tiếp tục tìm tài xế khác mà không yêu cầu khách hàng tạo lại yêu cầu đặt xe. |
+| **BR-05** | Hệ thống phải cho phép khách hàng theo dõi trạng thái chuyến đi, bao gồm trạng thái tìm tài xế, tài xế đã nhận chuyến, thời gian dự kiến tài xế đến và trạng thái hiện tại của chuyến. |
+| **BR-06** | Hệ thống phải quản lý quá trình thực hiện chuyến đi và cho phép tài xế cập nhật các trạng thái như đã đến điểm đón, đã đón khách, đang di chuyển và hoàn thành chuyến. |
+| **BR-07** | Hệ thống phải lưu và sử dụng thông tin vị trí của tài xế để hỗ trợ tìm tài xế gần khách hàng và cải thiện khả năng dự kiến thời gian tài xế đến. |
+| **BR-08** | Sau khi chuyến đi hoàn thành, hệ thống phải xác định số tiền khách hàng phải trả dựa trên loại dịch vụ và thông tin chuyến đi. |
+| **BR-09** | Hệ thống phải hỗ trợ thanh toán bằng tiền mặt và thanh toán điện tử thông qua nhà cung cấp thanh toán bên ngoài; thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán không được lưu trực tiếp trong hệ thống CAB. |
+| **BR-10** | Khi thanh toán điện tử thất bại, hệ thống phải thông báo cho khách hàng và hỗ trợ xử lý lại theo chính sách của doanh nghiệp. |
+| **BR-11** | Hệ thống phải cung cấp thông báo cho khách hàng và tài xế tại các thời điểm quan trọng của quá trình đặt và thực hiện chuyến đi. |
+| **BR-12** | Hệ thống thông báo phải có khả năng mở rộng để bổ sung thêm các kênh hoặc nhà cung cấp thông báo trong tương lai mà không phải thay đổi toàn bộ hệ thống. |
+| **BR-13** | Hệ thống phải cung cấp giao diện quản trị cho nhân viên vận hành để quản lý khách hàng, tài xế, phương tiện, chuyến đi, theo dõi chuyến đang diễn ra, hỗ trợ xử lý sự cố và tra cứu lịch sử giao dịch. |
+| **BR-14** | Hệ thống phải cung cấp báo cáo về số lượng chuyến, doanh thu, tỷ lệ chuyến hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế để hỗ trợ ban lãnh đạo theo dõi và ra quyết định. |
+| **BR-15** | Hệ thống phải hoạt động ổn định khi nhu cầu sử dụng tăng cao và các thành phần phải có khả năng mở rộng độc lập khi tải tăng. |
+| **BR-16** | Lỗi xảy ra ở các chức năng như thanh toán hoặc thông báo không được làm toàn bộ hệ thống đặt xe ngừng hoạt động. |
+| **BR-17** | Hệ thống phải cho phép các chức năng mới được triển khai từng phần và hạn chế ảnh hưởng đến các chức năng đang hoạt động. |
+| **BR-18** | Khách hàng và tài xế phải được xác thực trước khi sử dụng các chức năng yêu cầu tài khoản; các thao tác quản trị phải được kiểm soát quyền truy cập. |
+| **BR-19** | Hệ thống phải bảo vệ thông tin cá nhân, thông tin phương tiện, dữ liệu vị trí và dữ liệu giao dịch, đồng thời lưu vết các thao tác quan trọng để phục vụ kiểm tra khi có sự cố. |
+| **BR-20** | Kiến trúc hệ thống phải đủ linh hoạt để trong tương lai có thể bổ sung loại dịch vụ mới, phương thức thanh toán mới, nhà cung cấp thông báo mới hoặc thay đổi một số thành phần kỹ thuật mà không phải xây dựng lại toàn bộ ứng dụng. |
