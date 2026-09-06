@@ -19,7 +19,7 @@
 
 ```mermaid
 quadrantChart
-    title Ma trận Quyền lực - Mức độ quan tâm của hệ thống CAB
+    title Ma trận Quyền lực - Mức độ quan tâm của CAB System
     x-axis Mức độ quan tâm thấp --> Mức độ quan tâm cao
     y-axis Quyền lực thấp --> Quyền lực cao
 
@@ -30,12 +30,13 @@ quadrantChart
 
     Ban lãnh đạo: [0.90, 0.90]
     Nhân viên vận hành: [0.85, 0.80]
-    Chuyên viên BA: [0.80, 0.90]
+    Business Analyst: [0.80, 0.90]
     Nhóm phát triển: [0.75, 0.85]
     Nhà cung cấp thanh toán: [0.45, 0.75]
     Nhà cung cấp thông báo: [0.40, 0.55]
     Khách hàng: [0.90, 0.35]
     Tài xế: [0.85, 0.40]
+```
 ## Mục tiêu kinh doanh
 
 - **BG-01:** Tự động hóa toàn bộ quy trình đặt xe và quản lý chuyến đi từ khi khách hàng tạo yêu cầu đến khi hoàn thành chuyến.
