@@ -256,3 +256,131 @@ flowchart TD
 | **NFR-07** | **Khả năng kiểm tra và truy vết** | Hệ thống phải lưu vết các thao tác quan trọng để phục vụ kiểm tra khi xảy ra sự cố. |
 | **NFR-08** | **Khả năng mở rộng chức năng** | Kiến trúc hệ thống phải đủ linh hoạt để có thể bổ sung loại dịch vụ mới, phương thức thanh toán mới, nhà cung cấp thông báo hoặc thay đổi một số thành phần kỹ thuật mà không phải xây dựng lại toàn bộ ứng dụng. |
 
+## 10. ENTITY MODEL
+
+### 10.1. Các thực thể chính
+
+| STT | Thực thể | Mô tả |
+|:---:|---|---|
+| 1 | **Tài khoản** | Lưu thông tin tài khoản, vai trò, trạng thái phục vụ xác thực và phân quyền. |
+| 2 | **Khách hàng** | Lưu thông tin cá nhân của khách hàng sử dụng dịch vụ đặt xe. |
+| 3 | **Tài xế** | Lưu hồ sơ tài xế và trạng thái hoạt động. |
+| 4 | **Nhân viên vận hành** | Lưu thông tin nhân viên sử dụng giao diện quản trị và quyền truy cập. |
+| 5 | **Phương tiện** | Lưu thông tin phương tiện của tài xế. |
+| 6 | **Chuyến đi** | Lưu yêu cầu đặt xe, điểm đón, điểm đến, loại xe/dịch vụ, tài xế được phân công, trạng thái chuyến và số tiền phải trả. |
+| 7 | **Vị trí tài xế** | Lưu thông tin vị trí của tài xế phục vụ tìm tài xế gần khách hàng và dự kiến thời gian đến. |
+| 8 | **Thanh toán** | Lưu phương thức, số tiền và kết quả thanh toán của chuyến đi. |
+| 9 | **Thông báo** | Lưu các thông báo gửi đến khách hàng hoặc tài xế trong quá trình thực hiện chuyến. |
+| 10 | **Đánh giá** | Lưu đánh giá của khách hàng dành cho tài xế sau khi chuyến hoàn thành. |
+| 11 | **Nhật ký hệ thống** | Lưu vết các thao tác quan trọng để phục vụ kiểm tra khi xảy ra sự cố. |
+
+### 10.2. Mô hình quan hệ thực thể
+
+```mermaid
+erDiagram
+
+    TAI_KHOAN ||--o| KHACH_HANG : "thuộc"
+    TAI_KHOAN ||--o| TAI_XE : "thuộc"
+    TAI_KHOAN ||--o| NHAN_VIEN_VAN_HANH : "thuộc"
+
+    TAI_XE ||--o{ PHUONG_TIEN : "có"
+    TAI_XE ||--o{ VI_TRI_TAI_XE : "cập nhật"
+
+    KHACH_HANG ||--o{ CHUYEN_DI : "đặt"
+    TAI_XE o|--o{ CHUYEN_DI : "thực hiện"
+
+    CHUYEN_DI ||--o{ THANH_TOAN : "phát sinh"
+    CHUYEN_DI ||--o{ THONG_BAO : "phát sinh"
+    CHUYEN_DI ||--o| DANH_GIA : "được đánh giá"
+
+    KHACH_HANG ||--o{ DANH_GIA : "thực hiện"
+    TAI_XE ||--o{ DANH_GIA : "nhận"
+
+    TAI_KHOAN ||--o{ THONG_BAO : "nhận"
+    TAI_KHOAN ||--o{ NHAT_KY_HE_THONG : "thực hiện"
+
+    TAI_KHOAN {
+        int account_id PK
+        string username
+        string password_hash
+        string role
+        string status
+    }
+
+    KHACH_HANG {
+        int customer_id PK
+        int account_id FK
+        string thong_tin_ca_nhan
+    }
+
+    TAI_XE {
+        int driver_id PK
+        int account_id FK
+        string thong_tin_ho_so
+        string trang_thai_hoat_dong
+    }
+
+    NHAN_VIEN_VAN_HANH {
+        int staff_id PK
+        int account_id FK
+        string quyen_truy_cap
+    }
+
+    PHUONG_TIEN {
+        int vehicle_id PK
+        int driver_id FK
+        string thong_tin_phuong_tien
+    }
+
+    CHUYEN_DI {
+        int trip_id PK
+        int customer_id FK
+        int driver_id FK
+        string diem_don
+        string diem_den
+        string loai_xe
+        string loai_dich_vu
+        string trang_thai
+        string thoi_gian_du_kien_den
+        decimal so_tien_phai_tra
+    }
+
+    VI_TRI_TAI_XE {
+        int location_id PK
+        int driver_id FK
+        decimal latitude
+        decimal longitude
+        datetime thoi_gian_cap_nhat
+    }
+
+    THANH_TOAN {
+        int payment_id PK
+        int trip_id FK
+        string phuong_thuc
+        decimal so_tien
+        string trang_thai
+    }
+
+    THONG_BAO {
+        int notification_id PK
+        int account_id FK
+        int trip_id FK
+        string loai_thong_bao
+        string noi_dung
+        datetime thoi_gian_gui
+    }
+
+    DANH_GIA {
+        int rating_id PK
+        int trip_id FK
+        int customer_id FK
+        int driver_id FK
+        int diem_danh_gia
+    }
+
+    NHAT_KY_HE_THONG {
+        int log_id PK
+        int account_id FK
+        string thao_tac
+        datetime thoi_gian
+    }
