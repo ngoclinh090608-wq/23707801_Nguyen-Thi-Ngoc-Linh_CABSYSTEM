@@ -123,10 +123,6 @@ Các yêu cầu sau không nhất thiết được xây dựng thành một modu
 
 ## 6. BUSINESS PROCESS MODELING
 
-## 6. BUSINESS PROCESS MODELING
-
-Các quy trình nghiệp vụ được xây dựng dựa trên các Business Requirements đã xác định ở Mục 5.
-
 ### 6.1. Mapping Business Requirements với Business Process
 
 | Business Requirement | Quy trình nghiệp vụ liên quan |
