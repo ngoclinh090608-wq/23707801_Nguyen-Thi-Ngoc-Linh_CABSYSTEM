@@ -27,13 +27,13 @@ quadrantChart
     quadrant-3 Theo dõi
     quadrant-4 Cập nhật thông tin
 
-    Ban lãnh đạo: [0.90, 0.90]
-    Nhân viên vận hành: [0.85, 0.80]
-    Chuyên viên BA: [0.80, 0.85]
-    Nhóm phát triển: [0.75, 0.80]
-    Nhà cung cấp thanh toán: [0.40, 0.65]
-    Khách hàng: [0.90, 0.35]
-    Tài xế: [0.85, 0.40]
+    Ban lãnh đạo: [0.90, 0.92]
+    Chuyên viên BA: [0.68, 0.84]
+    Nhân viên vận hành: [0.88, 0.72]
+    Nhóm phát triển: [0.66, 0.67]
+    Nhà cung cấp thanh toán: [0.35, 0.64]
+    Tài xế: [0.72, 0.38]
+    Khách hàng: [0.90, 0.27]
 ```
 
 | Nhóm | Bên liên quan |
