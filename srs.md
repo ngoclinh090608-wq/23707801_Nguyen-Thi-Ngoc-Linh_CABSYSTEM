@@ -507,3 +507,29 @@ Hệ thống CAB bao gồm:
 | **BG-06** | **BR-08** | NFR-06 | AC-16 |
 | **BG-06** | **BR-08** | NFR-07 | AC-16 |
 | **BG-06** | **BR-08** | NFR-08 | AC-15 |
+
+
+## 16. REQUIREMENTS TRACEABILITY MATRIX
+
+### 16.1. Bảng truy vết BG – BR – BPM – FR – UC – AC
+
+| BG | BR | BPM | FR / NFR | UC | AC |
+|---|---|---|---|---|---|
+| **BG-01** Tự động hóa quy trình đặt xe và phân công tài xế | **BR-01** Hỗ trợ khách hàng đặt xe | **BPM-01** Quy trình đặt xe và thực hiện chuyến | **FR-01, FR-02** | **UC-01:** Quản lý tài khoản khách hàng<br>**UC-02:** Đặt xe | **AC-01, AC-02** |
+| **BG-01** Tự động hóa quy trình đặt xe và phân công tài xế | **BR-02** Hỗ trợ tài xế quản lý hồ sơ, phương tiện và thực hiện chuyến | **BPM-01** Quy trình đặt xe và thực hiện chuyến | **FR-05, FR-06, FR-07** | **UC-03:** Quản lý hồ sơ tài xế và phương tiện<br>**UC-04:** Chấp nhận/Từ chối chuyến<br>**UC-05:** Cập nhật trạng thái chuyến | **AC-04, AC-05** |
+| **BG-01** Tự động hóa quy trình đặt xe và phân công tài xế | **BR-03** Tự động tìm và phân công tài xế phù hợp | **BPM-01** Quy trình đặt xe và thực hiện chuyến | **FR-08, FR-09** | **UC-06:** Tìm và phân công tài xế | **AC-06, AC-07** |
+| **BG-02** Nâng cao khả năng theo dõi chuyến đi | **BR-01** Hỗ trợ khách hàng theo dõi và xem thông tin chuyến | **BPM-01** Quy trình đặt xe và thực hiện chuyến | **FR-03, FR-04** | **UC-07:** Theo dõi chuyến đi<br>**UC-08:** Xem lịch sử và đánh giá tài xế | **AC-03, AC-11** |
+| **BG-03** Quản lý tập trung chuyến đi, tính cước và thanh toán | **BR-04** Tính cước và hỗ trợ thanh toán | **BPM-02** Quy trình tính cước và thanh toán | **FR-10, FR-11** | **UC-09:** Tính cước và thanh toán<br>**UC-10:** Xử lý thanh toán thất bại | **AC-08, AC-09** |
+| **BG-03** Quản lý tập trung quá trình thực hiện chuyến | **BR-05** Gửi thông báo tại các thời điểm quan trọng | **BPM-01, BPM-02** | **FR-12** | **UC-11:** Gửi thông báo | **AC-10** |
+| **BG-04** Nâng cao hiệu quả quản lý vận hành | **BR-06** Cung cấp giao diện quản lý vận hành | **BPM-03** Quy trình quản lý vận hành và báo cáo | **FR-13, FR-14** | **UC-12:** Quản lý vận hành<br>**UC-13:** Kiểm soát quyền quản trị | **AC-12, AC-13** |
+| **BG-05** Cung cấp dữ liệu và báo cáo cho ban lãnh đạo | **BR-07** Cung cấp báo cáo hoạt động | **BPM-03** Quy trình quản lý vận hành và báo cáo | **FR-15** | **UC-14:** Xem báo cáo | **AC-14** |
+| **BG-06** Xây dựng nền tảng CAB ổn định, bảo mật và linh hoạt | **BR-08** Đảm bảo bảo mật, mở rộng và chịu lỗi | **Áp dụng xuyên suốt các BPM** | **NFR-01 → NFR-08** | **Áp dụng cho toàn bộ Use Case liên quan** | **AC-15, AC-16** |
+
+### 16.2. Danh sách Business Process Model
+
+| Mã | Quy trình nghiệp vụ |
+|:---:|---|
+| **BPM-01** | Quy trình đặt xe và thực hiện chuyến |
+| **BPM-02** | Quy trình tính cước và thanh toán |
+| **BPM-03** | Quy trình quản lý vận hành và báo cáo |
+
