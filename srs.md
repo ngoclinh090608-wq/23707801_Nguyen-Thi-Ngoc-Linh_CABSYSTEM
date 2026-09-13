@@ -9,11 +9,10 @@
 |:---:|---|---|
 | 1 | **Ban lãnh đạo / Ban giám đốc** | Định hướng xây dựng nền tảng CAB, theo dõi hiệu quả hoạt động và sử dụng các báo cáo để hỗ trợ quản lý. |
 | 2 | **Khách hàng** | Đăng ký, đăng nhập, cập nhật thông tin cá nhân, đặt xe, theo dõi chuyến, thanh toán, xem lịch sử và đánh giá tài xế sau chuyến. |
-| 3 | **Tài xế** | Quản lý hồ sơ, phương tiện, trạng thái hoạt động; nhận hoặc từ chối chuyến; cập nhật vị trí và trạng thái chuyến đi. |
+| 3 | **Tài xế** | Cập nhật hồ sơ, thông tin phương tiện, trạng thái hoạt động; nhận hoặc từ chối chuyến; cập nhật vị trí và trạng thái chuyến đi. |
 | 4 | **Nhân viên vận hành** | Quản lý khách hàng, tài xế, phương tiện, chuyến đi; theo dõi chuyến đang diễn ra, kiểm tra trạng thái tài xế, hỗ trợ xử lý chuyến lỗi và tra cứu lịch sử giao dịch. |
 | 5 | **Nhà cung cấp thanh toán bên ngoài** | Xử lý giao dịch thanh toán điện tử được tích hợp với CAB System. |
-| 6 | **Business Analyst (BA)** | Làm rõ phạm vi, tác nhân, quy trình nghiệp vụ, yêu cầu, quy tắc nghiệp vụ, trường hợp ngoại lệ và các vấn đề chưa được xác định. |
-| 7 | **Nhóm phát triển** | Xây dựng giải pháp sau khi các yêu cầu và các vấn đề chưa rõ được xác nhận. |
+| 6 | **Business Analyst (BA)** | Làm rõ phạm vi, tác nhân, quy trình nghiệp vụ, yêu cầu chức năng, yêu cầu phi chức năng, các quy tắc nghiệp vụ, trường hợp ngoại lệ và các vấn đề chưa được xác định. |
 
 ---
 
@@ -75,17 +74,6 @@
 | **BR-08** | Hệ thống phải cung cấp giao diện cho nhân viên vận hành để quản lý khách hàng, tài xế, phương tiện và chuyến đi; hỗ trợ xử lý chuyến lỗi và tra cứu lịch sử giao dịch. |
 | **BR-09** | Các chức năng quản trị nhạy cảm phải được kiểm soát quyền truy cập. |
 | **BR-10** | Hệ thống phải cung cấp báo cáo về số lượng chuyến, doanh thu, tỷ lệ chuyến hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế. |
-
-## 5.1. OPEN QUESTIONS / TBD
-
-| Mã | Nội dung chưa được chốt |
-|:---:|---|
-| **TBD-01** | Cách tính cước cụ thể. |
-| **TBD-02** | Tiêu chí ưu tiên tài xế cụ thể. |
-| **TBD-03** | Thời gian tài xế phải phản hồi. |
-| **TBD-04** | Chính sách hủy chuyến. |
-| **TBD-05** | Cách xử lý khi mất kết nối mạng. |
-| **TBD-06** | Thời gian lưu trữ dữ liệu. |
 
 ---
 
