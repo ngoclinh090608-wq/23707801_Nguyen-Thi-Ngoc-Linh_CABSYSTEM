@@ -1,0 +1,75 @@
+openapi: 3.0.3
+info:
+  title: CAB System API 07 - Driver Trip Response
+  version: 1.0.0
+  description: Đặc tả API tài xế nhận thông tin chuyến và chấp nhận hoặc từ chối chuyến.
+servers:
+- url: /
+  description: Server tương đối để hiển thị đặc tả trên Swagger; URL backend thực tế chưa được SRS xác định.
+paths:
+  /drivers/me/trip-requests/{tripId}:
+    patch:
+      summary: Chấp nhận hoặc từ chối chuyến
+      operationId: respondToTripRequest
+      security:
+      - bearerAuth: []
+      x-traceability:
+        businessGoals:
+        - BG-01
+        businessRequirements:
+        - BR-02
+        - BR-04
+        businessProcesses:
+        - BPM-01
+        functionalRequirements:
+        - FR-06
+        - FR-10
+        useCases:
+        - UC-07
+        businessRules:
+        - RULE-02
+        - RULE-05
+        acceptanceCriteria:
+        - AC-06
+        - AC-09
+        nonFunctionalRequirements:
+        - NFR-01
+        - NFR-02
+        - NFR-05
+        entities:
+        - Tài xế
+        - Chuyến đi
+        note: Thời gian tối đa tài xế phải phản hồi chưa được khách hàng chốt.
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - decision
+              properties:
+                decision:
+                  type: string
+                  enum:
+                  - ACCEPT
+                  - REJECT
+      responses:
+        '200':
+          description: Phản hồi chuyến được ghi nhận
+        '401':
+          description: Chưa xác thực
+        '404':
+          description: Không tìm thấy yêu cầu chuyến
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

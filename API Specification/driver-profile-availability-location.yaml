@@ -1,0 +1,131 @@
+openapi: 3.0.3
+info:
+  title: CAB System API 06 - Driver Profile Availability and Location
+  version: 1.0.0
+  description: Đặc tả API quản lý hồ sơ tài xế, phương tiện, trạng thái sẵn sàng và vị trí.
+servers:
+- url: /
+  description: Server tương đối để hiển thị đặc tả trên Swagger; URL backend thực tế chưa được SRS xác định.
+paths:
+  /drivers/me:
+    patch:
+      summary: Cập nhật hồ sơ, phương tiện và trạng thái hoạt động
+      operationId: updateDriverProfile
+      security:
+      - bearerAuth: []
+      x-traceability:
+        businessGoals:
+        - BG-01
+        - BG-04
+        businessRequirements:
+        - BR-02
+        functionalRequirements:
+        - FR-05
+        useCases:
+        - UC-06
+        acceptanceCriteria:
+        - AC-05
+        nonFunctionalRequirements:
+        - NFR-05
+        - NFR-06
+        entities:
+        - Tài xế
+        - Phương tiện
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Hồ sơ, thông tin phương tiện hoặc trạng thái hoạt động cần cập nhật.
+              additionalProperties: true
+      responses:
+        '200':
+          description: Cập nhật thành công
+        '401':
+          description: Chưa xác thực
+  /drivers/me/availability:
+    patch:
+      summary: Cập nhật trạng thái sẵn sàng nhận chuyến
+      operationId: updateDriverAvailability
+      security:
+      - bearerAuth: []
+      x-traceability:
+        businessGoals:
+        - BG-01
+        businessRequirements:
+        - BR-02
+        functionalRequirements:
+        - FR-06
+        useCases:
+        - UC-06
+        businessRules:
+        - RULE-02
+        acceptanceCriteria:
+        - AC-06
+        nonFunctionalRequirements:
+        - NFR-05
+        entities:
+        - Tài xế
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - available
+              properties:
+                available:
+                  type: boolean
+      responses:
+        '200':
+          description: Cập nhật trạng thái thành công
+        '401':
+          description: Chưa xác thực
+  /drivers/me/location:
+    patch:
+      summary: Cập nhật vị trí tài xế
+      operationId: updateDriverLocation
+      security:
+      - bearerAuth: []
+      x-traceability:
+        businessGoals:
+        - BG-01
+        - BG-02
+        businessRequirements:
+        - BR-02
+        - BR-03
+        functionalRequirements:
+        - FR-08
+        useCases:
+        - UC-08
+        businessRules:
+        - RULE-03
+        - RULE-04
+        acceptanceCriteria:
+        - AC-08
+        nonFunctionalRequirements:
+        - NFR-06
+        entities:
+        - Tài xế
+        - Vị trí tài xế
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Thông tin vị trí tài xế; định dạng tọa độ cụ thể chưa được SRS quy định.
+              additionalProperties: true
+      responses:
+        '200':
+          description: Cập nhật vị trí thành công
+        '401':
+          description: Chưa xác thực
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

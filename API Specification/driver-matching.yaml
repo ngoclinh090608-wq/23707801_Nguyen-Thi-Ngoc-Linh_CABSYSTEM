@@ -1,0 +1,78 @@
+openapi: 3.0.3
+info:
+  title: CAB System API 08 - Driver Matching
+  version: 1.0.0
+  description: Đặc tả API tìm và phân công tài xế phù hợp.
+servers:
+- url: /
+  description: Server tương đối để hiển thị đặc tả trên Swagger; URL backend thực tế chưa được SRS xác định.
+paths:
+  /trips/{tripId}/match:
+    post:
+      summary: Tìm và phân công tài xế
+      operationId: matchDriver
+      security:
+      - bearerAuth: []
+      x-traceability:
+        businessGoals:
+        - BG-01
+        businessRequirements:
+        - BR-03
+        - BR-04
+        businessProcesses:
+        - BPM-01
+        functionalRequirements:
+        - FR-09
+        - FR-10
+        useCases:
+        - UC-09
+        businessRules:
+        - RULE-02
+        - RULE-03
+        - RULE-04
+        - RULE-05
+        - RULE-06
+        acceptanceCriteria:
+        - AC-08
+        - AC-09
+        - AC-10
+        nonFunctionalRequirements:
+        - NFR-01
+        - NFR-02
+        - NFR-03
+        entities:
+        - Chuyến đi
+        - Tài xế
+        - Vị trí tài xế
+        note: Tiêu chí ưu tiên cụ thể và thời gian phản hồi của tài xế chưa được khách hàng chốt.
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Đã tìm và phân công tài xế phù hợp
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tripId:
+                    type: string
+                  driverId:
+                    type: string
+                  estimatedArrivalTime:
+                    type: string
+                    nullable: true
+        '404':
+          description: Không tìm được tài xế phù hợp; khách hàng phải được thông báo
+        '401':
+          description: Chưa xác thực
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

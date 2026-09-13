@@ -1,0 +1,170 @@
+openapi: 3.0.3
+info:
+  title: CAB System API 10 - Notifications Operations and Reports
+  version: 1.0.0
+  description: Đặc tả API thông báo, quản lý vận hành và báo cáo.
+servers:
+- url: /
+  description: Server tương đối để hiển thị đặc tả trên Swagger; URL backend thực tế chưa được SRS xác định.
+paths:
+  /notifications:
+    get:
+      summary: Xem thông báo liên quan đến chuyến
+      operationId: getNotifications
+      security:
+      - bearerAuth: []
+      x-traceability:
+        businessGoals:
+        - BG-02
+        - BG-03
+        businessRequirements:
+        - BR-07
+        businessProcesses:
+        - BPM-01
+        - BPM-02
+        functionalRequirements:
+        - FR-13
+        useCases:
+        - UC-11
+        acceptanceCriteria:
+        - AC-13
+        nonFunctionalRequirements:
+        - NFR-03
+        - NFR-08
+        entities:
+        - Thông báo
+        - Chuyến đi
+      responses:
+        '200':
+          description: Danh sách thông báo
+        '401':
+          description: Chưa xác thực
+  /operations/trips:
+    get:
+      summary: Theo dõi và quản lý chuyến đi
+      operationId: getOperationalTrips
+      security:
+      - bearerAuth: []
+      x-traceability:
+        businessGoals:
+        - BG-04
+        businessRequirements:
+        - BR-08
+        - BR-09
+        businessProcesses:
+        - BPM-03
+        functionalRequirements:
+        - FR-14
+        useCases:
+        - UC-12
+        - UC-13
+        businessRules:
+        - RULE-12
+        - RULE-13
+        acceptanceCriteria:
+        - AC-14
+        nonFunctionalRequirements:
+        - NFR-05
+        - NFR-06
+        - NFR-07
+        entities:
+        - Chuyến đi
+        - Tài xế
+        - Khách hàng
+        - Phương tiện
+        - Nhật ký hệ thống
+      responses:
+        '200':
+          description: Danh sách và trạng thái các chuyến
+        '403':
+          description: Không có quyền thực hiện
+  /operations/transactions:
+    get:
+      summary: Tra cứu lịch sử giao dịch
+      operationId: getTransactionHistory
+      security:
+      - bearerAuth: []
+      x-traceability:
+        businessGoals:
+        - BG-03
+        - BG-04
+        businessRequirements:
+        - BR-08
+        - BR-09
+        businessProcesses:
+        - BPM-03
+        functionalRequirements:
+        - FR-14
+        useCases:
+        - UC-13
+        businessRules:
+        - RULE-12
+        - RULE-13
+        acceptanceCriteria:
+        - AC-14
+        nonFunctionalRequirements:
+        - NFR-05
+        - NFR-06
+        - NFR-07
+        entities:
+        - Thanh toán
+        - Nhật ký hệ thống
+      responses:
+        '200':
+          description: Lịch sử giao dịch
+        '403':
+          description: Không có quyền thực hiện
+  /reports:
+    get:
+      summary: Xem báo cáo hoạt động
+      operationId: getReports
+      security:
+      - bearerAuth: []
+      x-traceability:
+        businessGoals:
+        - BG-05
+        businessRequirements:
+        - BR-10
+        businessProcesses:
+        - BPM-03
+        functionalRequirements:
+        - FR-15
+        useCases:
+        - UC-14
+        acceptanceCriteria:
+        - AC-15
+        nonFunctionalRequirements:
+        - NFR-01
+        - NFR-02
+        - NFR-06
+        entities:
+        - Chuyến đi
+        - Thanh toán
+        - Tài xế
+      responses:
+        '200':
+          description: Báo cáo hoạt động
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tripCount:
+                    type: integer
+                  revenue:
+                    type: number
+                  completionRate:
+                    type: number
+                  cancellationRate:
+                    type: number
+                  driverPerformance:
+                    type: object
+                    additionalProperties: true
+        '403':
+          description: Không có quyền thực hiện
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

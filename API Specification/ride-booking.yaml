@@ -1,0 +1,80 @@
+openapi: 3.0.3
+info:
+  title: CAB System API 03 - Ride Booking
+  version: 1.0.0
+  description: Đặc tả API tạo yêu cầu đặt xe.
+servers:
+- url: /
+  description: Server tương đối để hiển thị đặc tả trên Swagger; URL backend thực tế chưa được SRS xác định.
+paths:
+  /trips:
+    post:
+      summary: Tạo yêu cầu đặt xe
+      operationId: createTrip
+      security:
+      - bearerAuth: []
+      x-traceability:
+        businessGoals:
+        - BG-01
+        businessRequirements:
+        - BR-01
+        businessProcesses:
+        - BPM-01
+        functionalRequirements:
+        - FR-02
+        useCases:
+        - UC-02
+        businessRules:
+        - RULE-01
+        acceptanceCriteria:
+        - AC-02
+        nonFunctionalRequirements:
+        - NFR-01
+        - NFR-02
+        - NFR-05
+        - NFR-06
+        entities:
+        - Khách hàng
+        - Chuyến đi
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - pickup
+              - destination
+              - vehicleType
+              properties:
+                pickup:
+                  type: string
+                  description: Điểm đón
+                destination:
+                  type: string
+                  description: Điểm đến
+                vehicleType:
+                  type: string
+                  description: Loại xe khách hàng lựa chọn
+      responses:
+        '201':
+          description: Yêu cầu đặt xe được tiếp nhận
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tripId:
+                    type: string
+                  status:
+                    type: string
+        '400':
+          description: Dữ liệu yêu cầu không hợp lệ
+        '401':
+          description: Chưa xác thực
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

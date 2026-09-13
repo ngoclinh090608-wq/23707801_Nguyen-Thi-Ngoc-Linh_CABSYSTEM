@@ -1,0 +1,72 @@
+openapi: 3.0.3
+info:
+  title: CAB System API 04 - Trip Tracking
+  version: 1.0.0
+  description: Đặc tả API theo dõi quá trình tìm tài xế và trạng thái chuyến.
+servers:
+- url: /
+  description: Server tương đối để hiển thị đặc tả trên Swagger; URL backend thực tế chưa được SRS xác định.
+paths:
+  /trips/{tripId}:
+    get:
+      summary: Theo dõi chuyến đi
+      operationId: getTripStatus
+      security:
+      - bearerAuth: []
+      x-traceability:
+        businessGoals:
+        - BG-02
+        businessRequirements:
+        - BR-01
+        businessProcesses:
+        - BPM-01
+        functionalRequirements:
+        - FR-03
+        useCases:
+        - UC-03
+        acceptanceCriteria:
+        - AC-03
+        nonFunctionalRequirements:
+        - NFR-01
+        - NFR-02
+        - NFR-06
+        entities:
+        - Chuyến đi
+        - Tài xế
+        - Vị trí tài xế
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Thông tin theo dõi chuyến
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tripId:
+                    type: string
+                  matchingStatus:
+                    type: string
+                  driverId:
+                    type: string
+                    nullable: true
+                  estimatedArrivalTime:
+                    type: string
+                    nullable: true
+                  tripStatus:
+                    type: string
+        '401':
+          description: Chưa xác thực
+        '404':
+          description: Không tìm thấy chuyến
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
