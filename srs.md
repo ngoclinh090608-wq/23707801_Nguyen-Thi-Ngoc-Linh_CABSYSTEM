@@ -220,6 +220,17 @@ flowchart TD
 | **EX-04** | Thanh toán điện tử thất bại | Thông báo cho khách hàng và cho phép xử lý lại theo chính sách doanh nghiệp. |
 | **EX-05** | Chuyến đi xảy ra lỗi | Nhân viên vận hành hỗ trợ xử lý. |
 
+## 8.2. Open Questions / TBD
+
+| Mã | Nội dung cần xác nhận |
+|---|---|
+| TBD-01 | Cách tính cước chuyến đi cụ thể như thế nào? |
+| TBD-02 | Tiêu chí ưu tiên tài xế gồm những tiêu chí nào và thứ tự ưu tiên ra sao? |
+| TBD-03 | Tài xế có bao nhiêu thời gian để phản hồi yêu cầu nhận chuyến? |
+| TBD-04 | Chính sách hủy chuyến được quy định như thế nào? |
+| TBD-05 | Hệ thống xử lý như thế nào khi khách hàng hoặc tài xế mất kết nối mạng? |
+| TBD-06 | Dữ liệu của hệ thống được lưu trữ trong bao lâu? |
+
 ---
 
 # 9. NON-FUNCTIONAL REQUIREMENTS
