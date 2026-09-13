@@ -47,7 +47,6 @@ quadrantChart
 | **Cập nhật thông tin** | Khách hàng, Tài xế |
 | **Theo dõi** | Không xác định thêm bên liên quan cụ thể |
 
-> Mức Power/Interest trong ma trận là kết quả phân tích từ vai trò của các bên liên quan trong đề bài.
 
 ---
 
