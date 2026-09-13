@@ -40,14 +40,6 @@ quadrantChart
     Khách hàng: [0.90, 0.30]
 ```
 
-| Nhóm | Bên liên quan |
-|---|---|
-| **Quản lý chặt chẽ** | Ban lãnh đạo, Nhân viên vận hành, Business Analyst, Nhóm phát triển |
-| **Duy trì sự hài lòng** | Nhà cung cấp thanh toán bên ngoài |
-| **Cập nhật thông tin** | Khách hàng, Tài xế |
-| **Theo dõi** | Không xác định thêm bên liên quan cụ thể |
-
-
 ---
 
 ## 3. BUSINESS GOALS
