@@ -1,0 +1,47 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Trip API
+  version: 1.0.0
+  description: Trip tracking and customer trip-history functions.
+servers:
+- url: /
+  description: Relative server placeholder; actual backend URL is not specified in the SRS.
+x-traceability:
+  businessGoals:
+  - BG-02
+  businessRequirements:
+  - BR-01
+  functionalRequirements:
+  - FR-03
+  - FR-04
+  useCases:
+  - UC-03
+  - UC-04
+  acceptanceCriteria:
+  - AC-03
+  - AC-04
+  entities:
+  - Chuyến đi
+  - Tài xế
+  - Vị trí tài xế
+paths:
+  /trips/{tripId}:
+    get:
+      summary: Track current trip
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Current trip information returned.
+        '404':
+          description: Trip not found.
+  /customers/me/trips:
+    get:
+      summary: View customer trip history
+      responses:
+        '200':
+          description: Trip history returned.

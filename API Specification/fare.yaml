@@ -1,0 +1,40 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Fare API
+  version: 1.0.0
+  description: Fare determination after trip completion. The exact fare formula is not defined in the SRS.
+servers:
+- url: /
+  description: Relative server placeholder; actual backend URL is not specified in the SRS.
+x-traceability:
+  businessRequirements:
+  - BR-05
+  businessProcesses:
+  - BPM-02
+  functionalRequirements:
+  - FR-11
+  useCases:
+  - UC-10
+  acceptanceCriteria:
+  - AC-11
+  businessRules:
+  - RULE-08
+  entities:
+  - Chuyến đi
+  notes:
+  - Fare calculation formula is not specified in the SRS.
+paths:
+  /trips/{tripId}/fare:
+    get:
+      summary: Get amount due after trip completion
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Amount due returned.
+        '409':
+          description: Fare is not yet available because the trip is not completed.

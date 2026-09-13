@@ -1,0 +1,30 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Notification API
+  version: 1.0.0
+  description: Trip and payment notification functions for customers and drivers.
+servers:
+- url: /
+  description: Relative server placeholder; actual backend URL is not specified in the SRS.
+x-traceability:
+  businessRequirements:
+  - BR-07
+  functionalRequirements:
+  - FR-13
+  useCases:
+  - UC-11
+  acceptanceCriteria:
+  - AC-13
+  entities:
+  - Thông báo
+  - Tài khoản
+  nonFunctionalRequirements:
+  - NFR-03
+  - NFR-08
+paths:
+  /notifications:
+    get:
+      summary: Get notifications for the authenticated user
+      responses:
+        '200':
+          description: Notifications returned.

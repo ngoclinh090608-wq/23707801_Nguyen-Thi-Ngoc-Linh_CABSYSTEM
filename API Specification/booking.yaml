@@ -1,0 +1,57 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Booking API
+  version: 1.0.0
+  description: Ride booking function derived from FR-02.
+servers:
+- url: /
+  description: Relative server placeholder; actual backend URL is not specified in the SRS.
+x-traceability:
+  businessGoals:
+  - BG-01
+  businessRequirements:
+  - BR-01
+  businessProcesses:
+  - BPM-01
+  functionalRequirements:
+  - FR-02
+  useCases:
+  - UC-02
+  acceptanceCriteria:
+  - AC-02
+  businessRules:
+  - RULE-01
+  entities:
+  - Khách hàng
+  - Chuyến đi
+paths:
+  /trips:
+    post:
+      summary: Create ride request
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - pickup
+              - destination
+              - vehicleType
+              properties:
+                pickup:
+                  type: string
+                  example: Pickup location
+                destination:
+                  type: string
+                  example: Destination
+                vehicleType:
+                  type: string
+                  example: Vehicle type
+      responses:
+        '201':
+          description: Ride request received.
+        '400':
+          description: Invalid booking data.
+        '401':
+          description: Authentication required.

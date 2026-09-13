@@ -1,0 +1,387 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Operations & Reporting API
+  version: 1.0.0
+  description: Operations management and reporting API. CRUD endpoints are included for customers, drivers, vehicles and trips as a technical interpretation of FR-14 'manage customers, drivers, vehicles and trips'. Reporting and transaction lookup are read-only.
+servers:
+- url: /
+  description: Relative server placeholder; actual backend URL is not specified in the SRS.
+x-traceability:
+  businessGoals:
+  - BG-04
+  - BG-05
+  businessRequirements:
+  - BR-08
+  - BR-09
+  - BR-10
+  businessProcesses:
+  - BPM-03
+  functionalRequirements:
+  - FR-14
+  - FR-15
+  useCases:
+  - UC-12
+  - UC-13
+  - UC-14
+  acceptanceCriteria:
+  - AC-14
+  - AC-15
+  - AC-16
+  businessRules:
+  - RULE-12
+  - RULE-13
+  exceptions:
+  - EX-05
+  entities:
+  - Khách hàng
+  - Tài xế
+  - Phương tiện
+  - Chuyến đi
+  - Thanh toán
+  - Nhật ký hệ thống
+paths:
+  /operations/customers:
+    get:
+      summary: List customers
+      responses:
+        '200':
+          description: Customers returned.
+        '403':
+          description: Insufficient permission.
+    post:
+      summary: Create customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              description: Customer data. Exact fields are not fully specified by the SRS.
+      responses:
+        '201':
+          description: Customer created.
+        '400':
+          description: Invalid request data.
+        '403':
+          description: Insufficient permission.
+  /operations/customers/{customerId}:
+    get:
+      summary: Get customer
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Customer returned.
+        '404':
+          description: Customer not found.
+        '403':
+          description: Insufficient permission.
+    patch:
+      summary: Update customer
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              description: Fields to update for the customer. Exact fields are not fully specified by the SRS.
+      responses:
+        '200':
+          description: Customer updated.
+        '400':
+          description: Invalid request data.
+        '404':
+          description: Customer not found.
+        '403':
+          description: Insufficient permission.
+    delete:
+      summary: Delete customer
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Customer deleted.
+        '404':
+          description: Customer not found.
+        '403':
+          description: Insufficient permission.
+      x-design-note: Physical vs. logical deletion and retention rules are not defined in the SRS; the exact deletion behavior must be confirmed before implementation.
+  /operations/drivers:
+    get:
+      summary: List drivers
+      responses:
+        '200':
+          description: Drivers returned.
+        '403':
+          description: Insufficient permission.
+    post:
+      summary: Create driver
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              description: Driver data. Exact fields are not fully specified by the SRS.
+      responses:
+        '201':
+          description: Driver created.
+        '400':
+          description: Invalid request data.
+        '403':
+          description: Insufficient permission.
+  /operations/drivers/{driverId}:
+    get:
+      summary: Get driver
+      parameters:
+      - name: driverId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Driver returned.
+        '404':
+          description: Driver not found.
+        '403':
+          description: Insufficient permission.
+    patch:
+      summary: Update driver
+      parameters:
+      - name: driverId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              description: Fields to update for the driver. Exact fields are not fully specified by the SRS.
+      responses:
+        '200':
+          description: Driver updated.
+        '400':
+          description: Invalid request data.
+        '404':
+          description: Driver not found.
+        '403':
+          description: Insufficient permission.
+    delete:
+      summary: Delete driver
+      parameters:
+      - name: driverId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Driver deleted.
+        '404':
+          description: Driver not found.
+        '403':
+          description: Insufficient permission.
+      x-design-note: Physical vs. logical deletion and retention rules are not defined in the SRS; the exact deletion behavior must be confirmed before implementation.
+  /operations/vehicles:
+    get:
+      summary: List vehicles
+      responses:
+        '200':
+          description: Vehicles returned.
+        '403':
+          description: Insufficient permission.
+    post:
+      summary: Create vehicle
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              description: Vehicle data. Exact fields are not fully specified by the SRS.
+      responses:
+        '201':
+          description: Vehicle created.
+        '400':
+          description: Invalid request data.
+        '403':
+          description: Insufficient permission.
+  /operations/vehicles/{vehicleId}:
+    get:
+      summary: Get vehicle
+      parameters:
+      - name: vehicleId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Vehicle returned.
+        '404':
+          description: Vehicle not found.
+        '403':
+          description: Insufficient permission.
+    patch:
+      summary: Update vehicle
+      parameters:
+      - name: vehicleId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              description: Fields to update for the vehicle. Exact fields are not fully specified by the SRS.
+      responses:
+        '200':
+          description: Vehicle updated.
+        '400':
+          description: Invalid request data.
+        '404':
+          description: Vehicle not found.
+        '403':
+          description: Insufficient permission.
+    delete:
+      summary: Delete vehicle
+      parameters:
+      - name: vehicleId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Vehicle deleted.
+        '404':
+          description: Vehicle not found.
+        '403':
+          description: Insufficient permission.
+      x-design-note: Physical vs. logical deletion and retention rules are not defined in the SRS; the exact deletion behavior must be confirmed before implementation.
+  /operations/trips:
+    get:
+      summary: List trips
+      responses:
+        '200':
+          description: Trips returned.
+        '403':
+          description: Insufficient permission.
+    post:
+      summary: Create trip
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              description: Trip data. Exact fields are not fully specified by the SRS.
+      responses:
+        '201':
+          description: Trip created.
+        '400':
+          description: Invalid request data.
+        '403':
+          description: Insufficient permission.
+  /operations/trips/{tripId}:
+    get:
+      summary: Get trip
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Trip returned.
+        '404':
+          description: Trip not found.
+        '403':
+          description: Insufficient permission.
+    patch:
+      summary: Update trip
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              description: Fields to update for the trip. Exact fields are not fully specified by the SRS.
+      responses:
+        '200':
+          description: Trip updated.
+        '400':
+          description: Invalid request data.
+        '404':
+          description: Trip not found.
+        '403':
+          description: Insufficient permission.
+    delete:
+      summary: Delete trip
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Trip deleted.
+        '404':
+          description: Trip not found.
+        '403':
+          description: Insufficient permission.
+      x-design-note: Physical vs. logical deletion and retention rules are not defined in the SRS; the exact deletion behavior must be confirmed before implementation.
+  /operations/transactions:
+    get:
+      summary: Lookup transaction history
+      responses:
+        '200':
+          description: Transaction history returned.
+        '403':
+          description: Insufficient permission.
+  /reports:
+    get:
+      summary: Get CAB activity reports
+      responses:
+        '200':
+          description: Reports returned.
+        '403':
+          description: Insufficient permission.
+x-design-note: The SRS uses the term 'manage' for customers, drivers, vehicles and trips but does not spell out CRUD verbs individually. The CRUD mapping below is an API-design interpretation added to satisfy the requested CRUD coverage; business rules for physical deletion/retention remain subject to confirmation.

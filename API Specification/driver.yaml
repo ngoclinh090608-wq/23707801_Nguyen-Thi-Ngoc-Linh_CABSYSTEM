@@ -1,0 +1,84 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Driver API
+  version: 1.0.0
+  description: Driver profile, vehicle, activity status, availability, location and trip-status update functions.
+servers:
+- url: /
+  description: Relative server placeholder; actual backend URL is not specified in the SRS.
+x-traceability:
+  businessRequirements:
+  - BR-02
+  functionalRequirements:
+  - FR-05
+  - FR-06
+  - FR-07
+  - FR-08
+  useCases:
+  - UC-06
+  - UC-08
+  acceptanceCriteria:
+  - AC-05
+  - AC-06
+  - AC-07
+  - AC-08
+  businessRules:
+  - RULE-01
+  - RULE-02
+  - RULE-07
+  entities:
+  - Tài xế
+  - Phương tiện
+  - Vị trí tài xế
+  - Chuyến đi
+paths:
+  /drivers/me:
+    patch:
+      summary: Update driver profile and vehicle information
+      responses:
+        '200':
+          description: Driver information updated.
+        '401':
+          description: Authentication required.
+  /drivers/me/availability:
+    patch:
+      summary: Update driver availability
+      responses:
+        '200':
+          description: Availability updated.
+  /drivers/me/location:
+    patch:
+      summary: Update driver location
+      responses:
+        '200':
+          description: Driver location updated.
+  /trips/{tripId}/status:
+    patch:
+      summary: Update trip status
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - status
+              properties:
+                status:
+                  type: string
+                  enum:
+                  - ARRIVED_AT_PICKUP
+                  - PASSENGER_PICKED_UP
+                  - MOVING
+                  - COMPLETED
+      responses:
+        '200':
+          description: Trip status updated.
+        '404':
+          description: Trip not found.
