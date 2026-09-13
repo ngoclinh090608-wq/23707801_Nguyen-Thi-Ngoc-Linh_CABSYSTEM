@@ -1,0 +1,201 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Driver API
+  version: 1.0.0
+  description: Driver CRUD plus availability, location, and trip-response operations.
+    Driver response timeout and priority criteria remain TBD.
+servers:
+- url: /
+  description: Relative server placeholder for Swagger documentation; backend URL
+    is not specified in the SRS.
+x-traceability:
+  businessRequirements:
+  - BR-02
+  - BR-03
+  - BR-04
+  functionalRequirements:
+  - FR-05
+  - FR-06
+  - FR-08
+  - FR-09
+  - FR-10
+  useCases:
+  - UC-06
+  - UC-07
+  - UC-08
+  - UC-09
+  acceptanceCriteria:
+  - AC-05
+  - AC-06
+  - AC-08
+  - AC-09
+  - AC-10
+  businessRules:
+  - RULE-01
+  - RULE-02
+  - RULE-03
+  - RULE-04
+  - RULE-05
+  - RULE-06
+paths:
+  /drivers:
+    get:
+      summary: List drivers
+      responses:
+        '200':
+          description: Drivers returned.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Driver'
+    post:
+      summary: Create driver
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Driver'
+      responses:
+        '201':
+          description: Driver created.
+  /drivers/{driverId}:
+    get:
+      summary: Get driver
+      parameters:
+      - name: driverId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Driver returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+        '404':
+          description: Driver not found.
+    patch:
+      summary: Update driver
+      parameters:
+      - name: driverId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Driver'
+      responses:
+        '200':
+          description: Driver updated.
+    delete:
+      summary: Delete driver
+      description: CRUD endpoint. Physical deletion vs deactivation is not specified
+        in the SRS.
+      parameters:
+      - name: driverId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Driver deletion request processed.
+  /drivers/{driverId}/availability:
+    patch:
+      summary: Update driver availability
+      parameters:
+      - name: driverId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - available
+              properties:
+                available:
+                  type: boolean
+      responses:
+        '200':
+          description: Availability updated.
+  /drivers/{driverId}/location:
+    patch:
+      summary: Update driver location
+      parameters:
+      - name: driverId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Location'
+      responses:
+        '200':
+          description: Location updated.
+  /drivers/{driverId}/trip-requests/{tripId}:
+    patch:
+      summary: Accept or reject trip request
+      parameters:
+      - name: driverId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - decision
+              properties:
+                decision:
+                  type: string
+                  enum:
+                  - ACCEPT
+                  - REJECT
+      responses:
+        '200':
+          description: Driver response recorded.
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request could not be processed.
+    Driver:
+      type: object
+      description: Driver profile/activity data. Exact fields are not fully specified
+        in the SRS.
+      additionalProperties: true
+    Location:
+      type: object
+      description: Driver location data. Exact coordinate structure is not specified
+        in the SRS.
+      additionalProperties: true

@@ -1,0 +1,145 @@
+openapi: 3.0.3
+info:
+  title: CAB System - User API
+  version: 1.0.0
+  description: CAB System API specification derived from srs.md.
+servers:
+- url: /
+  description: Relative server placeholder for Swagger documentation; backend URL
+    is not specified in the SRS.
+x-traceability:
+  businessRequirements:
+  - BR-01
+  - BR-09
+  functionalRequirements:
+  - FR-01
+  - FR-14
+  useCases:
+  - UC-01
+  - UC-12
+  acceptanceCriteria:
+  - AC-01
+  - AC-14
+  - AC-16
+  businessRules:
+  - RULE-01
+  - RULE-12
+  - RULE-13
+  entities:
+  - Tài khoản
+  - Khách hàng
+  - Nhật ký hệ thống
+paths:
+  /users:
+    get:
+      summary: List users
+      responses:
+        '200':
+          description: Users returned.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      summary: Create user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: User created.
+  /users/{userId}:
+    get:
+      summary: Get user
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: User returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: User not found.
+    patch:
+      summary: Update user
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: User updated.
+    delete:
+      summary: Delete user
+      description: CRUD endpoint required by the API design approach. Physical deletion
+        vs deactivation is not specified in the SRS.
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: User deletion request processed.
+  /auth/register:
+    post:
+      summary: Register customer account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: Registration successful.
+  /auth/login:
+    post:
+      summary: Login
+      description: The SRS requires authentication but does not define JWT, OTP, OAuth,
+        or another specific mechanism.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Login successful.
+        '401':
+          description: Authentication failed.
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request could not be processed.
+    User:
+      type: object
+      description: Account/customer data. Exact database fields are not fully specified
+        in the SRS.
+      additionalProperties: true

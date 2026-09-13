@@ -1,0 +1,192 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Trip API
+  version: 1.0.0
+  description: Trip CRUD plus booking, matching, tracking/history, and trip status
+    operations. Cancellation policy remains TBD.
+servers:
+- url: /
+  description: Relative server placeholder for Swagger documentation; backend URL
+    is not specified in the SRS.
+x-traceability:
+  businessRequirements:
+  - BR-01
+  - BR-03
+  - BR-04
+  - BR-08
+  functionalRequirements:
+  - FR-02
+  - FR-03
+  - FR-04
+  - FR-07
+  - FR-09
+  - FR-10
+  - FR-14
+  useCases:
+  - UC-02
+  - UC-03
+  - UC-04
+  - UC-08
+  - UC-09
+  - UC-12
+  acceptanceCriteria:
+  - AC-02
+  - AC-03
+  - AC-04
+  - AC-07
+  - AC-08
+  - AC-09
+  - AC-10
+  - AC-14
+paths:
+  /trips:
+    get:
+      summary: List trips
+      responses:
+        '200':
+          description: Trips returned.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Trip'
+    post:
+      summary: Create trip
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Trip'
+      responses:
+        '201':
+          description: Trip created.
+  /trips/{tripId}:
+    get:
+      summary: Get trip
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Trip returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trip'
+        '404':
+          description: Trip not found.
+    patch:
+      summary: Update trip
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Trip'
+      responses:
+        '200':
+          description: Trip updated.
+    delete:
+      summary: Delete trip
+      description: CRUD endpoint. Whether DELETE means cancellation, archival, or
+        physical deletion is not defined because the cancellation policy is TBD.
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Trip deletion request processed.
+  /trips/{tripId}/match:
+    post:
+      summary: Find and assign a suitable driver
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Matching process started/completed.
+        '404':
+          description: No suitable driver found.
+  /trips/{tripId}/status:
+    patch:
+      summary: Update trip status
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - status
+              properties:
+                status:
+                  type: string
+                  enum:
+                  - ARRIVED_AT_PICKUP
+                  - PASSENGER_PICKED_UP
+                  - MOVING
+                  - COMPLETED
+      responses:
+        '200':
+          description: Trip status updated.
+  /users/{userId}/trips:
+    get:
+      summary: Get trip history
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Trip history returned.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Trip'
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request could not be processed.
+    Trip:
+      type: object
+      properties:
+        pickup:
+          type: string
+        destination:
+          type: string
+        vehicleType:
+          type: string
+        status:
+          type: string
+      additionalProperties: true

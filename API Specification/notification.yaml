@@ -1,0 +1,107 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Notification API
+  version: 1.0.0
+  description: Notification CRUD. Provider/channel details remain extensible and are
+    not fixed by the SRS.
+servers:
+- url: /
+  description: Relative server placeholder for Swagger documentation; backend URL
+    is not specified in the SRS.
+x-traceability:
+  businessRequirements:
+  - BR-07
+  functionalRequirements:
+  - FR-13
+  useCases:
+  - UC-11
+  acceptanceCriteria:
+  - AC-13
+  nonFunctionalRequirements:
+  - NFR-03
+  - NFR-08
+paths:
+  /notifications:
+    get:
+      summary: List notifications
+      responses:
+        '200':
+          description: Notifications returned.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Notification'
+    post:
+      summary: Create notification
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+      responses:
+        '201':
+          description: Notification created.
+  /notifications/{notificationId}:
+    get:
+      summary: Get notification
+      parameters:
+      - name: notificationId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Notification returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+        '404':
+          description: Notification not found.
+    patch:
+      summary: Update notification
+      parameters:
+      - name: notificationId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+      responses:
+        '200':
+          description: Notification updated.
+    delete:
+      summary: Delete notification
+      description: CRUD endpoint. Notification retention/deletion policy is not specified
+        in the SRS.
+      parameters:
+      - name: notificationId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Notification deletion request processed.
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request could not be processed.
+    Notification:
+      type: object
+      description: Notification data. Exact provider/channel fields are not fixed
+        in the SRS.
+      additionalProperties: true

@@ -1,0 +1,150 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Payment API
+  version: 1.0.0
+  description: Payment CRUD plus fare and retry operations. Sensitive card/account
+    information is not stored directly. Exact fare formula remains TBD.
+servers:
+- url: /
+  description: Relative server placeholder for Swagger documentation; backend URL
+    is not specified in the SRS.
+x-traceability:
+  businessRequirements:
+  - BR-05
+  - BR-06
+  functionalRequirements:
+  - FR-11
+  - FR-12
+  useCases:
+  - UC-10
+  acceptanceCriteria:
+  - AC-11
+  - AC-12
+  businessRules:
+  - RULE-08
+  - RULE-09
+  - RULE-10
+  - RULE-11
+  exceptions:
+  - EX-04
+paths:
+  /payments:
+    get:
+      summary: List payments
+      responses:
+        '200':
+          description: Payments returned.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Payment'
+    post:
+      summary: Create payment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Payment'
+      responses:
+        '201':
+          description: Payment created.
+  /payments/{paymentId}:
+    get:
+      summary: Get payment
+      parameters:
+      - name: paymentId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Payment returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+        '404':
+          description: Payment not found.
+    patch:
+      summary: Update payment
+      parameters:
+      - name: paymentId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Payment'
+      responses:
+        '200':
+          description: Payment updated.
+    delete:
+      summary: Delete payment
+      description: CRUD endpoint. Whether payment records may be deleted is not specified
+        in the SRS and must be confirmed.
+      parameters:
+      - name: paymentId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Payment deletion request processed.
+  /trips/{tripId}/fare:
+    get:
+      summary: Get amount due after trip completion
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Amount due returned.
+        '409':
+          description: Fare is not yet available because the trip is not completed.
+  /payments/{paymentId}/retry:
+    post:
+      summary: Retry failed electronic payment
+      parameters:
+      - name: paymentId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Retry processed.
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request could not be processed.
+    Payment:
+      type: object
+      properties:
+        tripId:
+          type: string
+        method:
+          type: string
+          enum:
+          - CASH
+          - ELECTRONIC
+        amount:
+          type: number
+        status:
+          type: string
+      additionalProperties: true

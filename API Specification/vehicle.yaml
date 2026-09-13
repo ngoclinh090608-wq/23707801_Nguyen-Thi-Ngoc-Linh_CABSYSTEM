@@ -1,0 +1,106 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Vehicle API
+  version: 1.0.0
+  description: CAB System API specification derived from srs.md.
+servers:
+- url: /
+  description: Relative server placeholder for Swagger documentation; backend URL
+    is not specified in the SRS.
+x-traceability:
+  businessRequirements:
+  - BR-02
+  - BR-08
+  functionalRequirements:
+  - FR-05
+  - FR-14
+  useCases:
+  - UC-06
+  - UC-12
+  acceptanceCriteria:
+  - AC-05
+  - AC-14
+paths:
+  /vehicles:
+    get:
+      summary: List vehicles
+      responses:
+        '200':
+          description: Vehicles returned.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Vehicle'
+    post:
+      summary: Create vehicle
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+      responses:
+        '201':
+          description: Vehicle created.
+  /vehicles/{vehicleId}:
+    get:
+      summary: Get vehicle
+      parameters:
+      - name: vehicleId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Vehicle returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehicle'
+        '404':
+          description: Vehicle not found.
+    patch:
+      summary: Update vehicle
+      parameters:
+      - name: vehicleId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+      responses:
+        '200':
+          description: Vehicle updated.
+    delete:
+      summary: Delete vehicle
+      description: CRUD endpoint. Exact deletion behavior is not specified in the
+        SRS.
+      parameters:
+      - name: vehicleId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Vehicle deletion request processed.
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request could not be processed.
+    Vehicle:
+      type: object
+      description: Vehicle data. Exact fields are not fully specified in the SRS.
+      additionalProperties: true

@@ -1,0 +1,67 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Operations API
+  version: 1.0.0
+  description: CAB System API specification derived from srs.md.
+servers:
+- url: /
+  description: Relative server placeholder for Swagger documentation; backend URL
+    is not specified in the SRS.
+x-traceability:
+  businessRequirements:
+  - BR-08
+  - BR-09
+  functionalRequirements:
+  - FR-14
+  useCases:
+  - UC-12
+  - UC-13
+  acceptanceCriteria:
+  - AC-14
+  - AC-16
+  businessRules:
+  - RULE-12
+  - RULE-13
+  exceptions:
+  - EX-05
+paths:
+  /operations/active-trips:
+    get:
+      summary: View active trips
+      responses:
+        '200':
+          description: Active trips returned.
+        '403':
+          description: Insufficient permission.
+  /operations/drivers/status:
+    get:
+      summary: Check driver statuses
+      responses:
+        '200':
+          description: Driver statuses returned.
+        '403':
+          description: Insufficient permission.
+  /operations/failed-trips:
+    get:
+      summary: View trips requiring support
+      responses:
+        '200':
+          description: Trips requiring support returned.
+        '403':
+          description: Insufficient permission.
+  /operations/transactions:
+    get:
+      summary: Lookup transaction history
+      responses:
+        '200':
+          description: Transaction history returned.
+        '403':
+          description: Insufficient permission.
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request could not be processed.

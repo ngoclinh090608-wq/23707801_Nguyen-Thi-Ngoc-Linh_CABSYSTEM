@@ -1,0 +1,103 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Rating API
+  version: 1.0.0
+  description: Rating CRUD. Rating scale/comment format and update/delete policy remain
+    unspecified.
+servers:
+- url: /
+  description: Relative server placeholder for Swagger documentation; backend URL
+    is not specified in the SRS.
+x-traceability:
+  businessRequirements:
+  - BR-01
+  functionalRequirements:
+  - FR-04
+  useCases:
+  - UC-05
+  acceptanceCriteria:
+  - AC-04
+paths:
+  /ratings:
+    get:
+      summary: List ratings
+      responses:
+        '200':
+          description: Ratings returned.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rating'
+    post:
+      summary: Create rating
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rating'
+      responses:
+        '201':
+          description: Rating created.
+  /ratings/{ratingId}:
+    get:
+      summary: Get rating
+      parameters:
+      - name: ratingId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Rating returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rating'
+        '404':
+          description: Rating not found.
+    patch:
+      summary: Update rating
+      parameters:
+      - name: ratingId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rating'
+      responses:
+        '200':
+          description: Rating updated.
+    delete:
+      summary: Delete rating
+      description: CRUD endpoint. Whether a submitted rating may be edited or deleted
+        is not specified in the SRS.
+      parameters:
+      - name: ratingId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Rating deletion request processed.
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request could not be processed.
+    Rating:
+      type: object
+      description: Rating data. The SRS does not define star range or comment format.
+      additionalProperties: true
