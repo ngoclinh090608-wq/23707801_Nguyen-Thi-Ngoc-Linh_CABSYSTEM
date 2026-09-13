@@ -13,6 +13,7 @@
 | 4 | **Nhân viên vận hành** | Quản lý khách hàng, tài xế, phương tiện, chuyến đi; theo dõi chuyến đang diễn ra, kiểm tra trạng thái tài xế, hỗ trợ xử lý chuyến lỗi và tra cứu lịch sử giao dịch. |
 | 5 | **Nhà cung cấp thanh toán bên ngoài** | Xử lý giao dịch thanh toán điện tử được tích hợp với CAB System. |
 | 6 | **Business Analyst (BA)** | Làm rõ phạm vi, tác nhân, quy trình nghiệp vụ, yêu cầu chức năng, yêu cầu phi chức năng, các quy tắc nghiệp vụ, trường hợp ngoại lệ và các vấn đề chưa được xác định. |
+| 7 | **Nhóm phát triển** | Thiết kế, xây dựng và triển khai CAB System dựa trên các yêu cầu đã được làm rõ. |
 
 ---
 
