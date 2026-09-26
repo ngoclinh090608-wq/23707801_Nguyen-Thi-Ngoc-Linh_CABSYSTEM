@@ -23,24 +23,36 @@
 | 6 | Business Analyst | — | Làm rõ cách tính cước, tiêu chí ưu tiên tài xế, thời gian tài xế phải phản hồi, chính sách hủy chuyến, cách xử lý khi mất kết nối mạng và thời gian lưu trữ dữ liệu. | Làm rõ các vấn đề với các bên liên quan trước khi nhóm phát triển xây dựng giải pháp. |
 | 7 | Nhóm phát triển | — | — | Xây dựng giải pháp sau khi Business Analyst làm rõ các vấn đề chưa chốt. |
 
-## Sơ đồ Stakeholder
+## B2: Stakeholder Analysis Matrix
+
+| STT | Stakeholder | Ảnh hưởng (Influence) | Quan tâm (Interest) | Nhóm | Căn cứ trong đề |
+|---|---|---|---|---|---|
+| 1 | Ban lãnh đạo / Ban giám đốc | Cao | Cao | Key Decision Makers | "Ban lãnh đạo mong muốn xây dựng một nền tảng CAB mới…"; "Ban giám đốc kỳ vọng hệ thống mới hỗ trợ ít nhất ba nhóm người dùng chính"; "Ban lãnh đạo cũng mong muốn có báo cáo về số lượng chuyến, doanh thu…" |
+| 2 | Khách hàng | Thấp | Cao | Engaged Supporters | Sử dụng trực tiếp hệ thống để đặt xe, theo dõi chuyến, thanh toán; "khách hàng muốn biết hệ thống đang tìm tài xế, tài xế nào đã nhận chuyến…"; không tham gia quyết định yêu cầu |
+| 3 | Tài xế | Thấp | Cao | Engaged Supporters | Sử dụng trực tiếp hệ thống để nhận thông báo, chấp nhận hoặc từ chối chuyến, cập nhật trạng thái chuyến; không tham gia quyết định yêu cầu |
+| 4 | Nhân viên vận hành | Thấp | Cao | Engaged Supporters | Sử dụng giao diện quản trị để quản lý khách hàng, tài xế, phương tiện, chuyến đi; "bộ phận vận hành gặp khó khăn khi muốn mở rộng hệ thống"; nhân viên thông thường không thể thực hiện thao tác nhạy cảm |
+| 5 | Business Analyst | Thấp | Cao | Engaged Supporters | "Khách hàng mong muốn Business Analyst làm rõ các vấn đề này với các bên liên quan", tức BA làm rõ, không phải người chốt yêu cầu; chịu trách nhiệm xác định phạm vi, tác nhân, quy trình, yêu cầu… |
+| 6 | Nhóm phát triển | Thấp | Cao | Engaged Supporters | Xây dựng giải pháp sau khi Business Analyst làm rõ các vấn đề chưa chốt; không tham gia quyết định yêu cầu |
+| 7 | Nhà cung cấp thanh toán bên ngoài | Cao | Thấp | Potential Influencers | "Doanh nghiệp muốn tích hợp với một nhà cung cấp thanh toán bên ngoài"; thanh toán điện tử phụ thuộc vào nhà cung cấp; "không muốn một lỗi xảy ra ở chức năng thanh toán… làm cho toàn bộ hệ thống đặt xe ngừng hoạt động"; đề không nêu mong muốn nào của nhà cung cấp đối với dự án |
+
+> **Minimal Impact Stakeholders:** không có stakeholder nào trong đề thuộc nhóm này.
+
+### Sơ đồ Stakeholder Analysis Matrix
 
 ```mermaid
-flowchart LR
-    BLD(["Ban lãnh đạo /<br/>Ban giám đốc"])
-    KH(["Khách hàng"])
-    TX(["Tài xế"])
-    NV(["Nhân viên vận hành"])
-    BA(["Business Analyst"])
-    DEV(["Nhóm phát triển"])
-    CAB(("Hệ thống CAB"))
-    TT(["Nhà cung cấp thanh toán<br/>bên ngoài"])
-
-    BLD -->|"Đặt kỳ vọng,<br/>nhận báo cáo"| CAB
-    KH -->|"Đặt xe, theo dõi chuyến,<br/>thanh toán, đánh giá tài xế"| CAB
-    TX -->|"Chấp nhận / từ chối chuyến,<br/>cập nhật trạng thái chuyến"| CAB
-    NV -->|"Quản lý qua<br/>giao diện quản trị"| CAB
-    BA -->|"Làm rõ các vấn đề<br/>chưa chốt"| DEV
-    DEV -->|"Xây dựng giải pháp"| CAB
-    CAB <-->|"Tích hợp<br/>thanh toán điện tử"| TT
+quadrantChart
+    title Stakeholder Analysis Matrix - Hệ thống CAB
+    x-axis Low Influence --> High Influence
+    y-axis Low Interest --> High Interest
+    quadrant-1 Key Decision Makers
+    quadrant-2 Engaged Supporters
+    quadrant-3 Minimal Impact Stakeholders
+    quadrant-4 Potential Influencers
+    "Ban lãnh đạo / Ban giám đốc": [0.80, 0.88]
+    "Khách hàng": [0.12, 0.92]
+    "Tài xế": [0.28, 0.80]
+    "Nhân viên vận hành": [0.16, 0.68]
+    "Business Analyst": [0.40, 0.90]
+    "Nhóm phát triển": [0.36, 0.58]
+    "Nhà cung cấp thanh toán bên ngoài": [0.75, 0.25]
 ```
