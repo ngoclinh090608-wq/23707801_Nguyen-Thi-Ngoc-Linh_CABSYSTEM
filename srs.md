@@ -25,7 +25,7 @@
 
 > **Minimal Impact Stakeholders:** không có stakeholder nào trong đề thuộc nhóm này.
 
-### Sơ đồ Stakeholder Analysis Matrix
+### Sơ đồ Stakeholder Matrix
 
 ```mermaid
 quadrantChart
