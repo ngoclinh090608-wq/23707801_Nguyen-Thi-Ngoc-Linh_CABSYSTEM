@@ -13,18 +13,6 @@
 
 ## B2: Stakeholder Matrix
 
-| STT | Stakeholder | Lợi ích chính từ sản phẩm | Mối quan tâm chính | Ràng buộc |
-|---|---|---|---|---|
-| 1 | Ban lãnh đạo / Ban giám đốc | Nền tảng CAB mới có khả năng phục vụ số lượng lớn khách hàng và tài xế, có thể phát triển thêm tính năng trong tương lai. | Hệ thống hỗ trợ ít nhất ba nhóm người dùng chính. Báo cáo về số lượng chuyến, doanh thu, tỷ lệ chuyến hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế. | — |
-| 2 | Khách hàng | Đặt xe và theo dõi chuyến đi. Biết hệ thống đang tìm tài xế, tài xế nào đã nhận chuyến, thời gian dự kiến tài xế đến và trạng thái hiện tại của chuyến đi. Xem lịch sử chuyến đi, số tiền phải trả và đánh giá tài xế. | Nhận thông báo khi yêu cầu đặt xe được tiếp nhận, khi có tài xế nhận chuyến, khi tài xế đến điểm đón, khi chuyến hoàn thành và khi thanh toán có kết quả. Không phải tạo lại yêu cầu khi tài xế đầu tiên không nhận chuyến. Được thông báo rõ ràng khi không tìm được tài xế. | Phải được xác thực trước khi sử dụng các chức năng yêu cầu tài khoản. |
-| 3 | Tài xế | Nhận thông báo khi có yêu cầu phù hợp; chấp nhận hoặc từ chối chuyến. | Nhận thông báo về các chuyến mới hoặc những thay đổi liên quan đến chuyến đang thực hiện. | Phải được xác thực trước khi sử dụng các chức năng yêu cầu tài khoản. Thông tin vị trí được lưu để hỗ trợ tìm tài xế gần khách hàng. |
-| 4 | Nhân viên vận hành | Giao diện quản trị để quản lý khách hàng, tài xế, phương tiện và chuyến đi. | Xem các chuyến đang diễn ra, kiểm tra trạng thái tài xế, hỗ trợ xử lý các trường hợp chuyến bị lỗi và tra cứu lịch sử giao dịch. | Nhân viên thông thường không thể thực hiện các thao tác nhạy cảm. Các thao tác quản trị phải được kiểm soát quyền truy cập. |
-| 5 | Nhà cung cấp thanh toán bên ngoài | — | — | Thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán không được lưu trực tiếp trong hệ thống CAB. |
-| 6 | Business Analyst | — | Làm rõ cách tính cước, tiêu chí ưu tiên tài xế, thời gian tài xế phải phản hồi, chính sách hủy chuyến, cách xử lý khi mất kết nối mạng và thời gian lưu trữ dữ liệu. | Làm rõ các vấn đề với các bên liên quan trước khi nhóm phát triển xây dựng giải pháp. |
-| 7 | Nhóm phát triển | — | — | Xây dựng giải pháp sau khi Business Analyst làm rõ các vấn đề chưa chốt. |
-
-## B2: Stakeholder Analysis Matrix
-
 | STT | Stakeholder | Ảnh hưởng (Influence) | Quan tâm (Interest) | Nhóm | Căn cứ trong đề |
 |---|---|---|---|---|---|
 | 1 | Ban lãnh đạo / Ban giám đốc | Cao | Cao | Key Decision Makers | "Ban lãnh đạo mong muốn xây dựng một nền tảng CAB mới…"; "Ban giám đốc kỳ vọng hệ thống mới hỗ trợ ít nhất ba nhóm người dùng chính"; "Ban lãnh đạo cũng mong muốn có báo cáo về số lượng chuyến, doanh thu…" |
