@@ -44,7 +44,7 @@ quadrantChart
     "Nhóm phát triển": [0.36, 0.58]
     "Nhà cung cấp thanh toán bên ngoài": [0.75, 0.25]
 ```
-## 3. Business Goals (Mục tiêu kinh doanh)
+## 3. Business Goals (Mục tiêu kinh doanh/ nghiệp vụ)
 
 | Mã BR | Mục tiêu nghiệp vụ | Nguồn | Căn cứ trong đề |
 |---|---|---|---|
