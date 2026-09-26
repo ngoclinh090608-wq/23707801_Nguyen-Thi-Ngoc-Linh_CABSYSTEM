@@ -44,3 +44,18 @@ quadrantChart
     "Nhóm phát triển": [0.36, 0.58]
     "Nhà cung cấp thanh toán bên ngoài": [0.75, 0.25]
 ```
+## 3. Business Goals (Mục tiêu kinh doanh)
+
+| Mã BR | Mục tiêu nghiệp vụ | Nguồn | Căn cứ trong đề |
+|---|---|---|---|
+| BR-01 | Tự động hóa việc tìm và phân công tài xế, ưu tiên tài xế phù hợp và gần khách hàng. | Công ty ABC | "việc phân công tài xế chủ yếu được thực hiện thủ công"; "Doanh nghiệp mong muốn hệ thống ưu tiên tài xế phù hợp và gần khách hàng" |
+| BR-02 | Giúp khách hàng theo dõi được trạng thái chuyến đi và nhận thông báo trong suốt quá trình đặt xe. | Công ty ABC | "khách hàng khó theo dõi trạng thái chuyến đi"; "khách hàng muốn biết hệ thống đang tìm tài xế, tài xế nào đã nhận chuyến, thời gian dự kiến tài xế đến và trạng thái hiện tại của chuyến đi"; "Thông báo là một thành phần quan trọng" |
+| BR-03 | Quản lý tập trung thông tin thanh toán và tính cước. | Công ty ABC | "thông tin thanh toán chưa được quản lý tập trung"; "Hệ thống cũng phải hỗ trợ thanh toán và tính cước" |
+| BR-04 | Phục vụ số lượng lớn khách hàng và tài xế, mở rộng được khi tải tăng. | Ban lãnh đạo, Công ty ABC | "bộ phận vận hành gặp khó khăn khi muốn mở rộng hệ thống"; "Ban lãnh đạo mong muốn xây dựng một nền tảng CAB mới có khả năng phục vụ số lượng lớn khách hàng và tài xế"; "Các thành phần của hệ thống cần có khả năng mở rộng độc lập khi tải tăng" |
+| BR-05 | Xây dựng nền tảng phát triển lâu dài, bổ sung được tính năng mới mà không phải xây dựng lại toàn bộ ứng dụng. | Ban lãnh đạo, Công ty ABC | "có thể phát triển thêm các tính năng trong tương lai"; "bổ sung các loại dịch vụ mới, thêm phương thức thanh toán, thêm nhà cung cấp thông báo hoặc thay đổi một số thành phần kỹ thuật mà không phải xây dựng lại toàn bộ ứng dụng"; "muốn một nền tảng CAB có thể phát triển lâu dài" |
+| BR-06 | Hỗ trợ ba nhóm người dùng chính: khách hàng, tài xế và nhân viên vận hành. | Ban giám đốc | "Ban giám đốc kỳ vọng hệ thống mới hỗ trợ ít nhất ba nhóm người dùng chính gồm khách hàng, tài xế và nhân viên vận hành" |
+| BR-07 | Đáp ứng trọn vẹn quy trình từ khi khách hàng tạo yêu cầu đến khi đánh giá sau chuyến. | Công ty ABC | "Hệ thống cần đáp ứng tốt quy trình từ khi khách hàng tạo yêu cầu, tìm và phân công tài xế, thực hiện chuyến, tính cước, thanh toán, thông báo đến đánh giá sau chuyến" |
+| BR-08 | Cung cấp đủ dữ liệu và báo cáo để theo dõi hoạt động kinh doanh. | Ban lãnh đạo, Công ty ABC | "Ban lãnh đạo cũng mong muốn có báo cáo về số lượng chuyến, doanh thu, tỷ lệ chuyến hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế"; "có đủ dữ liệu để theo dõi hoạt động" |
+| BR-09 | Giúp các bộ phận trong doanh nghiệp phối hợp thông qua hệ thống. | Công ty ABC | "Các bộ phận trong doanh nghiệp phải có thể phối hợp thông qua hệ thống" |
+| BR-10 | Duy trì dịch vụ đặt xe ổn định, kể cả vào thời điểm nhu cầu tăng cao. | Công ty ABC | "Hệ thống phải hoạt động ổn định vào các thời điểm nhu cầu tăng cao"; "Doanh nghiệp không muốn một lỗi xảy ra ở chức năng thanh toán hoặc thông báo làm cho toàn bộ hệ thống đặt xe ngừng hoạt động" |
+| BR-11 | Bảo vệ dữ liệu cá nhân, phương tiện, vị trí và giao dịch; kiểm soát được các thao tác quan trọng. | Công ty ABC | "Thông tin cá nhân, thông tin phương tiện, dữ liệu vị trí và dữ liệu giao dịch phải được bảo vệ"; "không muốn thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán được lưu trực tiếp trong hệ thống CAB"; "Doanh nghiệp cần lưu vết các thao tác quan trọng để phục vụ kiểm tra khi có sự cố" |
