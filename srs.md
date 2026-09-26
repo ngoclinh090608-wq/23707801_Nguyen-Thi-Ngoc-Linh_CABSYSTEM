@@ -1,5 +1,5 @@
 
-## B1: Xác định Stakeholder
+## 1. Stakeholder List & Roles (Danh sách & Vai trò Bên liên quan)
 
 | STT | Tên Stakeholder | Vai trò |
 |---|---|---|
@@ -11,7 +11,7 @@
 | 6 | Business Analyst | Làm rõ với các bên liên quan về cách tính cước, tiêu chí ưu tiên tài xế, thời gian tài xế phải phản hồi, chính sách hủy chuyến, cách xử lý khi mất kết nối mạng và thời gian lưu trữ dữ liệu. Xác định phạm vi, tác nhân, quy trình nghiệp vụ, yêu cầu chức năng, yêu cầu phi chức năng, quy tắc nghiệp vụ, các trường hợp ngoại lệ và những điểm còn chưa rõ cần xác nhận với khách hàng. |
 | 7 | Nhóm phát triển | Xây dựng giải pháp sau khi Business Analyst làm rõ các vấn đề chưa chốt. |
 
-## B2: Stakeholder Matrix
+## 2. Stakeholder Matrix (Ma trận Bên liên quan)
 
 | STT | Stakeholder | Ảnh hưởng (Influence) | Quan tâm (Interest) | Nhóm | Căn cứ trong đề |
 |---|---|---|---|---|---|
