@@ -1,5 +1,5 @@
 
-## 1. Stakeholder List & Roles (Danh sách & Vai trò Bên liên quan)
+## 1. Stakeholder List & Roles (Danh sách & Vai trò Bên liên quan) 
 
 | STT | Tên Stakeholder | Vai trò |
 |---|---|---|
@@ -658,21 +658,21 @@ flowchart LR
 
 ### 10.2. Mối kết hợp (Relationship)
 
-| STT | Mối kết hợp | Bản số | Căn cứ trong đề |
+| STT | Mối kết hợp | Bản&nbsp;số | Căn cứ trong đề |
 |---|---|---|---|
-| 1 | KHACH_HANG – tạo yêu cầu – CHUYEN_DI | 1 – n | Khách hàng gửi yêu cầu đặt xe, xem lịch sử chuyến đi. |
-| 2 | LOAI_XE – được chọn – CHUYEN_DI | 1 – n | Khách hàng lựa chọn loại xe khi đặt xe. |
-| 3 | TAI_XE – nhận chuyến – CHUYEN_DI | 0..1 – n | Chuyến đang tìm tài xế chưa có tài xế; tài xế nhận nhiều chuyến. |
-| 4 | CHUYEN_DI – có – PHAN_CONG | 1 – n | Tài xế không phản hồi hoặc từ chối thì tìm tài xế khác → một chuyến có nhiều lượt đề xuất. |
-| 5 | TAI_XE – được đề xuất – PHAN_CONG | 1 – n | Tài xế nhận thông báo và chấp nhận hoặc từ chối chuyến. |
-| 6 | CHUYEN_DI – được đánh giá – DANH_GIA | 1 – 0..1 | Đánh giá tài xế sau khi hoàn thành chuyến. |
-| 7 | CHUYEN_DI – được thanh toán – GIAO_DICH_THANH_TOAN | 1 – n | Giao dịch điện tử thất bại được xử lý lại → một chuyến có thể có nhiều giao dịch. |
-| 8 | CHUYEN_DI – phát sinh – THONG_BAO | 1 – n | Thông báo khi yêu cầu được tiếp nhận, có tài xế nhận, tài xế đến, hoàn thành, thanh toán có kết quả. |
-| 9 | KHACH_HANG / TAI_XE – nhận – THONG_BAO | 0..1 – n | Người nhận thông báo là khách hàng hoặc tài xế. |
-| 10 | TAI_XE – có – PHUONG_TIEN | 1 – n | Tài xế cập nhật thông tin phương tiện. |
-| 11 | LOAI_XE – phân loại – PHUONG_TIEN | 1 – n | Phương tiện thuộc một loại xe. |
-| 12 | TAI_XE – có – VI_TRI_TAI_XE | 1 – n | Lưu thông tin vị trí của tài xế. |
-| 13 | NHAN_VIEN_VAN_HANH – tạo tài khoản – TAI_XE | 0..1 – n | Tài xế đăng ký hoặc được nhân viên vận hành tạo tài khoản. |
+| 1 | KHACH_HANG – tạo yêu cầu – CHUYEN_DI | 1:n | Khách hàng gửi yêu cầu đặt xe, xem lịch sử chuyến đi. |
+| 2 | LOAI_XE – được chọn – CHUYEN_DI | 1:n | Khách hàng lựa chọn loại xe khi đặt xe. |
+| 3 | TAI_XE – nhận chuyến – CHUYEN_DI | 0..1:n | Chuyến đang tìm tài xế chưa có tài xế; tài xế nhận nhiều chuyến. |
+| 4 | CHUYEN_DI – có – PHAN_CONG | 1:n | Tài xế không phản hồi hoặc từ chối thì tìm tài xế khác → một chuyến có nhiều lượt đề xuất. |
+| 5 | TAI_XE – được đề xuất – PHAN_CONG | 1:n | Tài xế nhận thông báo và chấp nhận hoặc từ chối chuyến. |
+| 6 | CHUYEN_DI – được đánh giá – DANH_GIA | 1:0..1 | Đánh giá tài xế sau khi hoàn thành chuyến. |
+| 7 | CHUYEN_DI – được thanh toán – GIAO_DICH_THANH_TOAN | 1:n | Giao dịch điện tử thất bại được xử lý lại → một chuyến có thể có nhiều giao dịch. |
+| 8 | CHUYEN_DI – phát sinh – THONG_BAO | 1:n | Thông báo khi yêu cầu được tiếp nhận, có tài xế nhận, tài xế đến, hoàn thành, thanh toán có kết quả. |
+| 9 | KHACH_HANG / TAI_XE – nhận – THONG_BAO | 0..1:n | Người nhận thông báo là khách hàng hoặc tài xế. |
+| 10 | TAI_XE – có – PHUONG_TIEN | 1:n | Tài xế cập nhật thông tin phương tiện. |
+| 11 | LOAI_XE – phân loại – PHUONG_TIEN | 1:n | Phương tiện thuộc một loại xe. |
+| 12 | TAI_XE – có – VI_TRI_TAI_XE | 1:n | Lưu thông tin vị trí của tài xế. |
+| 13 | NHAN_VIEN_VAN_HANH – tạo tài khoản – TAI_XE | 0..1:n | Tài xế đăng ký hoặc được nhân viên vận hành tạo tài khoản. |
 
 ### 10.3. Sơ đồ ERD
 
