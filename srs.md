@@ -1044,3 +1044,60 @@ flowchart LR
 | 4 | AC‑41 | NFR‑11 | Thực hiện một thao tác quan trọng. | Hệ thống lưu vết thao tác: người thực hiện, thao tác, thời điểm. |
 
 > NFR‑07, NFR‑08, NFR‑10 được kiểm tra qua AC‑04, AC‑36, AC‑25. NFR‑01, NFR‑02, NFR‑04, NFR‑06 đề chưa nêu con số đo được – cần làm rõ với khách hàng trước khi lập tiêu chí. Kết quả nghiệm thu mỗi tiêu chí chỉ ghi **Pass / Fail**.
+
+## 12. Acceptance Criteria (Tiêu chí Chấp nhận)
+
+### 12.1. Tiêu chí chấp nhận cho yêu cầu chức năng (FR)
+
+| STT | Mã AC | FR liên quan | Điều kiện / Hành động | Kết quả mong đợi |
+|---|---|---|---|---|
+| 1 | AC‑01 | FR‑01 | Khách hàng chưa có tài khoản thực hiện đăng ký. | Tài khoản khách hàng được tạo; khách hàng đăng nhập được bằng tài khoản vừa tạo. |
+| 2 | AC‑02 | FR‑02 | Khách hàng nhập thông tin đăng nhập. | Đúng thông tin: đăng nhập thành công. Sai thông tin: không đăng nhập được và có thông báo. |
+| 3 | AC‑03 | FR‑03 | Khách hàng đã đăng nhập cập nhật thông tin cá nhân và lưu. | Thông tin mới được lưu và hiển thị khi xem lại. |
+| 4 | AC‑04 | FR‑04 | Khách hàng hoặc tài xế chưa đăng nhập truy cập chức năng yêu cầu tài khoản. | Hệ thống không cho sử dụng chức năng và yêu cầu đăng nhập. |
+| 5 | AC‑05 | FR‑05 | Tài xế tự đăng ký tài khoản. | Tài khoản tài xế được tạo; tài xế đăng nhập được. |
+| 6 | AC‑06 | FR‑06 | Nhân viên vận hành tạo tài khoản cho tài xế. | Tài khoản tài xế được tạo; tài xế đăng nhập được bằng tài khoản đó. |
+| 7 | AC‑07 | FR‑07 | Tài xế cập nhật hồ sơ, thông tin phương tiện, trạng thái hoạt động. | Thông tin mới được lưu và hiển thị đúng khi xem lại. |
+| 8 | AC‑08 | FR‑08 | Tài xế đang làm việc chuyển sang trạng thái sẵn sàng nhận chuyến. | Trạng thái được cập nhật; tài xế được xét khi hệ thống tìm tài xế. |
+| 9 | AC‑09 | FR‑09 | Tài xế đang làm việc thay đổi vị trí. | Hệ thống lưu vị trí mới của tài xế và dùng vị trí này khi tìm tài xế gần khách hàng, dự kiến thời gian đến. |
+| 10 | AC‑10 | FR‑10 | Khách hàng nhập điểm đón và điểm đến. | Điểm đón và điểm đến được ghi nhận vào yêu cầu đặt xe. |
+| 11 | AC‑11 | FR‑11 | Khách hàng lựa chọn loại xe. | Loại xe được ghi nhận vào yêu cầu đặt xe. |
+| 12 | AC‑12 | FR‑12 | Khách hàng gửi yêu cầu đặt xe. | Yêu cầu đặt xe được tạo với trạng thái đang tìm tài xế. |
+| 13 | AC‑13 | FR‑13 | Có yêu cầu đặt xe mới. | Hệ thống xác định tài xế phù hợp dựa trên vị trí, trạng thái sẵn sàng và tiêu chí vận hành; tài xế không sẵn sàng không được đề xuất. |
+| 14 | AC‑14 | FR‑14 | Có nhiều tài xế phù hợp ở các khoảng cách khác nhau. | Tài xế phù hợp và gần khách hàng hơn được ưu tiên đề xuất trước. |
+| 15 | AC‑15 | FR‑15 | Hệ thống đề xuất một tài xế cho yêu cầu đặt xe. | Tài xế được đề xuất nhận được thông báo có yêu cầu phù hợp. |
+| 16 | AC‑16 | FR‑16 | Tài xế nhận được thông báo có yêu cầu phù hợp. | Chấp nhận: chuyến được gán cho tài xế. Từ chối: chuyến không được gán cho tài xế đó. |
+| 17 | AC‑17 | FR‑17 | Tài xế được đề xuất từ chối hoặc không phản hồi. | Hệ thống tự động đề xuất tài xế khác; khách hàng không phải tạo lại yêu cầu. |
+| 18 | AC‑18 | FR‑18 | Không tìm được tài xế phù hợp. | Khách hàng nhận thông báo rõ ràng là không tìm được tài xế. |
+| 19 | AC‑19 | FR‑19 | Tài xế cập nhật lần lượt: đã đến điểm đón, đã đón khách, đang di chuyển, hoàn thành chuyến. | Trạng thái chuyến đi được cập nhật đúng theo từng bước. |
+| 20 | AC‑20 | FR‑20 | Khách hàng theo dõi chuyến đi đã gửi. | Hiển thị: hệ thống đang tìm tài xế hoặc tài xế nào đã nhận chuyến, thời gian dự kiến tài xế đến, trạng thái hiện tại của chuyến đi. |
+| 21 | AC‑21 | FR‑21 | Khách hàng xem lịch sử chuyến đi. | Hiển thị các chuyến đã đi và số tiền phải trả của từng chuyến. |
+| 22 | AC‑22 | FR‑22 | Khách hàng đánh giá tài xế. | Chuyến đã hoàn thành: đánh giá được lưu. Chuyến chưa hoàn thành: không đánh giá được. |
+| 23 | AC‑23 | FR‑23 | Chuyến đi chuyển sang trạng thái hoàn thành. | Hệ thống xác định số tiền khách hàng phải trả dựa trên loại dịch vụ và thông tin chuyến đi. |
+| 24 | AC‑24 | FR‑24 | Khách hàng chọn thanh toán bằng tiền mặt. | Giao dịch được ghi nhận với phương thức tiền mặt. |
+| 25 | AC‑25 | FR‑25 | Khách hàng thanh toán điện tử. | Giao dịch được xử lý qua nhà cung cấp thanh toán bên ngoài; hệ thống CAB không lưu thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán. |
+| 26 | AC‑26 | FR‑26 | Giao dịch thanh toán điện tử thất bại. | Khách hàng nhận thông báo giao dịch thất bại. |
+| 27 | AC‑27 | FR‑27 | Giao dịch thanh toán điện tử thất bại. | Giao dịch được xử lý lại theo chính sách của doanh nghiệp. |
+| 28 | AC‑28 | FR‑28 | Lần lượt: yêu cầu đặt xe được tiếp nhận, có tài xế nhận chuyến, tài xế đến điểm đón, chuyến hoàn thành, thanh toán có kết quả. | Khách hàng nhận thông báo tại mỗi thời điểm. |
+| 29 | AC‑29 | FR‑29 | Chuyến đang thực hiện có thay đổi. | Tài xế nhận thông báo về thay đổi đó. |
+| 30 | AC‑30 | FR‑30 | Nhân viên vận hành sử dụng giao diện quản trị. | Quản lý được khách hàng, tài xế, phương tiện và chuyến đi. |
+| 31 | AC‑31 | FR‑31 | Nhân viên vận hành xem các chuyến đang diễn ra. | Hiển thị đúng các chuyến đang diễn ra. |
+| 32 | AC‑32 | FR‑32 | Nhân viên vận hành kiểm tra trạng thái tài xế. | Hiển thị đúng trạng thái hiện tại của tài xế. |
+| 33 | AC‑33 | FR‑33 | Có chuyến đi bị lỗi. | Nhân viên vận hành hỗ trợ xử lý được chuyến đó. |
+| 34 | AC‑34 | FR‑34 | Nhân viên vận hành tra cứu lịch sử giao dịch. | Hiển thị đúng lịch sử giao dịch. |
+| 35 | AC‑35 | FR‑35 | Nhân viên thông thường thực hiện thao tác nhạy cảm. | Hệ thống từ chối thao tác. |
+| 36 | AC‑36 | FR‑36 | Người dùng thực hiện thao tác quản trị. | Có quyền: thực hiện được. Không có quyền: hệ thống từ chối. |
+| 37 | AC‑37 | FR‑37 | Ban lãnh đạo xem báo cáo. | Báo cáo có số lượng chuyến, doanh thu, tỷ lệ chuyến hoàn thành, tỷ lệ hủy, hiệu quả hoạt động của tài xế; số liệu khớp với dữ liệu chuyến đi và giao dịch. |
+
+> AC‑14, AC‑17, AC‑23 phụ thuộc các điểm đề ghi **chưa chốt** (tiêu chí ưu tiên tài xế, thời gian tài xế phải phản hồi, cách tính cước); AC‑27 phụ thuộc chính sách xử lý lại của doanh nghiệp (đề chưa nêu chi tiết) – cần bổ sung khi doanh nghiệp chốt.
+
+### 12.2. Tiêu chí chấp nhận cho yêu cầu phi chức năng (NFR)
+
+| STT | Mã AC | NFR liên quan | Điều kiện / Hành động | Kết quả mong đợi |
+|---|---|---|---|---|
+| 1 | AC‑38 | NFR‑03 | Chức năng thanh toán hoặc thông báo bị lỗi. | Khách hàng vẫn đặt xe, tài xế vẫn nhận chuyến bình thường. |
+| 2 | AC‑39 | NFR‑05 | Triển khai thêm hoặc cập nhật một chức năng. | Các chức năng đang hoạt động vẫn sử dụng được. |
+| 3 | AC‑40 | NFR‑09 | Người không có quyền truy cập thông tin cá nhân, thông tin phương tiện, dữ liệu vị trí, dữ liệu giao dịch. | Hệ thống từ chối truy cập. |
+| 4 | AC‑41 | NFR‑11 | Thực hiện một thao tác quan trọng. | Hệ thống lưu vết thao tác: người thực hiện, thao tác, thời điểm. |
+
+> NFR‑07, NFR‑08, NFR‑10 được kiểm tra qua AC‑04, AC‑36, AC‑25. NFR‑01, NFR‑02, NFR‑04, NFR‑06 đề chưa nêu con số đo được – cần làm rõ với khách hàng trước khi lập tiêu chí. Kết quả nghiệm thu mỗi tiêu chí chỉ ghi **Pass / Fail**.
