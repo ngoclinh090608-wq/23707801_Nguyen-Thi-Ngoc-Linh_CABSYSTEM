@@ -781,3 +781,210 @@ erDiagram
 ```
 
 > Đề không nêu chi tiết thuộc tính; các thuộc tính trên (họ tên, số điện thoại, biển số, vĩ độ/kinh độ, điểm/nhận xét…) là tối thiểu, cần xác nhận với khách hàng. Đề dùng cả "loại xe" và "loại dịch vụ" – cần xác nhận có phải là một hay không.
+
+## 11. Use Case Diagram (Mô hình Use Case)
+
+### 11.1. Xác định tác nhân (Actor)
+
+| STT | Tác nhân | Loại | Căn cứ trong đề |
+|---|---|---|---|
+| 1 | Khách hàng | Tác nhân chính | Đăng ký, đăng nhập, đặt xe, theo dõi chuyến đi, thanh toán, đánh giá tài xế. |
+| 2 | Tài xế | Tác nhân chính | Đăng ký tài khoản, cập nhật hồ sơ, trạng thái; chấp nhận hoặc từ chối chuyến; cập nhật trạng thái chuyến đi. |
+| 3 | Nhân viên vận hành | Tác nhân chính | Tạo tài khoản tài xế; quản lý khách hàng, tài xế, phương tiện, chuyến đi qua giao diện quản trị. |
+| 4 | Ban lãnh đạo | Tác nhân chính | Mong muốn có báo cáo về số lượng chuyến, doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy, hiệu quả tài xế. |
+| 5 | Nhà cung cấp thanh toán bên ngoài | Tác nhân phụ (hệ thống ngoài) | Doanh nghiệp muốn tích hợp với một nhà cung cấp thanh toán bên ngoài. |
+
+### 11.2. Danh sách Use Case
+
+| STT | Mã UC | Use case | Tác nhân | FR liên quan | Module |
+|---|---|---|---|---|---|
+| 1 | UC‑01 | Đăng ký tài khoản | Khách hàng, Tài xế | FR‑01, FR‑05 | 1, 2 |
+| 2 | UC‑02 | Đăng nhập | Khách hàng, Tài xế, Nhân viên vận hành | FR‑02, FR‑04 | 1, 2, 6 |
+| 3 | UC‑03 | Cập nhật thông tin cá nhân | Khách hàng | FR‑03 | 1 |
+| 4 | UC‑04 | Tạo tài khoản tài xế | Nhân viên vận hành | FR‑06 | 2 |
+| 5 | UC‑05 | Cập nhật hồ sơ và phương tiện | Tài xế | FR‑07 | 2 |
+| 6 | UC‑06 | Chuyển trạng thái sẵn sàng nhận chuyến | Tài xế | FR‑08 | 2 |
+| 7 | UC‑07 | Cập nhật vị trí | Tài xế | FR‑09 | 2 |
+| 8 | UC‑08 | Đặt xe | Khách hàng | FR‑10, FR‑11, FR‑12 | 3 |
+| 9 | UC‑09 | Tìm tài xế phù hợp | («include» từ UC‑08) | FR‑13, FR‑14, FR‑15, FR‑17, FR‑18 | 3 |
+| 10 | UC‑10 | Chấp nhận / từ chối chuyến | Tài xế | FR‑16 | 3 |
+| 11 | UC‑11 | Cập nhật trạng thái chuyến đi | Tài xế | FR‑19 | 3 |
+| 12 | UC‑12 | Theo dõi chuyến đi | Khách hàng | FR‑20 | 3 |
+| 13 | UC‑13 | Xem lịch sử chuyến đi | Khách hàng | FR‑21 | 3 |
+| 14 | UC‑14 | Đánh giá tài xế | Khách hàng | FR‑22 | 3 |
+| 15 | UC‑15 | Thanh toán | Khách hàng | FR‑24, FR‑25 | 4 |
+| 16 | UC‑16 | Thanh toán tiền mặt | Khách hàng | FR‑24 | 4 |
+| 17 | UC‑17 | Thanh toán điện tử | Khách hàng, Nhà cung cấp thanh toán bên ngoài | FR‑25 | 4 |
+| 18 | UC‑18 | Tính cước | («include» từ UC‑15) | FR‑23 | 4 |
+| 19 | UC‑19 | Xử lý lại giao dịch thất bại | («extend» UC‑17) | FR‑26, FR‑27 | 4 |
+| 20 | UC‑20 | Nhận thông báo | Khách hàng, Tài xế | FR‑28, FR‑29 | 5 |
+| 21 | UC‑21 | Quản lý khách hàng | Nhân viên vận hành | FR‑30 | 6 |
+| 22 | UC‑22 | Quản lý tài xế | Nhân viên vận hành | FR‑30 | 6 |
+| 23 | UC‑23 | Quản lý phương tiện | Nhân viên vận hành | FR‑30 | 6 |
+| 24 | UC‑24 | Quản lý chuyến đi | Nhân viên vận hành | FR‑30 | 6 |
+| 25 | UC‑25 | Xem chuyến đang diễn ra | Nhân viên vận hành | FR‑31 | 6 |
+| 26 | UC‑26 | Kiểm tra trạng thái tài xế | Nhân viên vận hành | FR‑32 | 6 |
+| 27 | UC‑27 | Hỗ trợ xử lý chuyến bị lỗi | Nhân viên vận hành | FR‑33 | 6 |
+| 28 | UC‑28 | Tra cứu lịch sử giao dịch | Nhân viên vận hành | FR‑34 | 6 |
+| 29 | UC‑29 | Xem báo cáo | Ban lãnh đạo | FR‑37 | 7 |
+
+> FR‑35, FR‑36 (phân quyền, kiểm soát quyền truy cập) không tách thành use case riêng mà là ràng buộc áp lên UC‑04, UC‑21 → UC‑28. Các use case (trừ UC‑01) yêu cầu đăng nhập trước (FR‑04).
+
+### 11.3. Quan hệ giữa các Use Case
+
+| STT | Quan hệ | Loại | Căn cứ trong đề |
+|---|---|---|---|
+| 1 | UC‑08 Đặt xe → UC‑09 Tìm tài xế phù hợp | «include» | Khi khách hàng tạo một chuyến đi, hệ thống cần xác định các tài xế phù hợp. |
+| 2 | UC‑15 Thanh toán → UC‑18 Tính cước | «include» | Sau khi chuyến đi hoàn thành, hệ thống cần xác định số tiền khách hàng phải trả. |
+| 3 | UC‑19 Xử lý lại giao dịch thất bại → UC‑17 Thanh toán điện tử | «extend» | Nếu giao dịch thanh toán điện tử thất bại, hệ thống cho phép xử lý lại theo chính sách của doanh nghiệp. |
+| 4 | UC‑16 Thanh toán tiền mặt, UC‑17 Thanh toán điện tử → UC‑15 Thanh toán | Tổng quát hóa (Generalization) | Khách hàng có thể thanh toán bằng tiền mặt hoặc phương thức thanh toán điện tử. |
+
+### 11.4. Sơ đồ Use Case
+
+**Hình 11.1 – Sơ đồ Use Case tổng quát**
+
+```mermaid
+flowchart LR
+    KH["«actor»<br/>Khách hàng"]
+    TX["«actor»<br/>Tài xế"]
+    subgraph SYS["CAB System"]
+        direction TB
+        M1(["Module 1: Quản lý tài khoản khách hàng"])
+        M2(["Module 2: Quản lý tài xế và phương tiện"])
+        M3(["Module 3: Đặt xe và chuyến đi"])
+        M4(["Module 4: Tính cước và thanh toán"])
+        M5(["Module 5: Thông báo"])
+        M6(["Module 6: Quản trị vận hành"])
+        M7(["Module 7: Báo cáo"])
+    end
+    NV["«actor»<br/>Nhân viên vận hành"]
+    BLD["«actor»<br/>Ban lãnh đạo"]
+    NCC["«hệ thống ngoài»<br/>Nhà cung cấp thanh toán bên ngoài"]
+    KH --- M1
+    KH --- M3
+    KH --- M4
+    KH --- M5
+    TX --- M2
+    TX --- M3
+    TX --- M5
+    M2 --- NV
+    M6 --- NV
+    M4 --- NCC
+    M7 --- BLD
+    style SYS fill:#FFFFFF,stroke:#334155,stroke-width:2px
+    classDef actor fill:#DBEAFE,stroke:#1E3A8A,color:#1E3A8A,font-weight:bold
+    classDef uc fill:#FFF7ED,stroke:#EA580C,color:#0F172A
+    class KH,TX,NV,BLD,NCC actor
+    class M1,M2,M3,M4,M5,M6,M7 uc
+```
+
+**Hình 11.2 – Use Case của Khách hàng**
+
+```mermaid
+flowchart LR
+    KH["«actor»<br/>Khách hàng"]
+    subgraph SYS["CAB System"]
+        UC01(["UC‑01: Đăng ký tài khoản"])
+        UC02(["UC‑02: Đăng nhập"])
+        UC03(["UC‑03: Cập nhật thông tin cá nhân"])
+        UC08(["UC‑08: Đặt xe"])
+        UC09(["UC‑09: Tìm tài xế phù hợp"])
+        UC12(["UC‑12: Theo dõi chuyến đi"])
+        UC13(["UC‑13: Xem lịch sử chuyến đi"])
+        UC14(["UC‑14: Đánh giá tài xế"])
+        UC15(["UC‑15: Thanh toán"])
+        UC16(["UC‑16: Thanh toán tiền mặt"])
+        UC17(["UC‑17: Thanh toán điện tử"])
+        UC18(["UC‑18: Tính cước"])
+        UC19(["UC‑19: Xử lý lại giao dịch thất bại"])
+        UC20(["UC‑20: Nhận thông báo"])
+    end
+    NCC["«hệ thống ngoài»<br/>Nhà cung cấp thanh toán bên ngoài"]
+    KH --- UC01
+    KH --- UC02
+    KH --- UC03
+    KH --- UC08
+    KH --- UC12
+    KH --- UC13
+    KH --- UC14
+    KH --- UC15
+    KH --- UC20
+    UC08 -. "«include»" .-> UC09
+    UC15 -. "«include»" .-> UC18
+    UC16 -- "«generalization»" --> UC15
+    UC17 -- "«generalization»" --> UC15
+    UC19 -. "«extend»" .-> UC17
+    UC17 --- NCC
+    style SYS fill:#FFFFFF,stroke:#334155,stroke-width:2px
+    classDef actor fill:#DBEAFE,stroke:#1E3A8A,color:#1E3A8A,font-weight:bold
+    classDef uc fill:#FFF7ED,stroke:#EA580C,color:#0F172A
+    class KH,NCC actor
+    class UC01,UC02,UC03,UC08,UC09,UC12,UC13,UC14,UC15,UC16,UC17,UC18,UC19,UC20 uc
+```
+
+**Hình 11.3 – Use Case của Tài xế**
+
+```mermaid
+flowchart LR
+    TX["«actor»<br/>Tài xế"]
+    subgraph SYS["CAB System"]
+        UC01(["UC‑01: Đăng ký tài khoản"])
+        UC02(["UC‑02: Đăng nhập"])
+        UC05(["UC‑05: Cập nhật hồ sơ và phương tiện"])
+        UC06(["UC‑06: Chuyển trạng thái sẵn sàng nhận chuyến"])
+        UC07(["UC‑07: Cập nhật vị trí"])
+        UC10(["UC‑10: Chấp nhận / từ chối chuyến"])
+        UC11(["UC‑11: Cập nhật trạng thái chuyến đi"])
+        UC20(["UC‑20: Nhận thông báo"])
+    end
+    TX --- UC01
+    TX --- UC02
+    TX --- UC05
+    TX --- UC06
+    TX --- UC07
+    TX --- UC10
+    TX --- UC11
+    TX --- UC20
+    style SYS fill:#FFFFFF,stroke:#334155,stroke-width:2px
+    classDef actor fill:#DBEAFE,stroke:#1E3A8A,color:#1E3A8A,font-weight:bold
+    classDef uc fill:#FFF7ED,stroke:#EA580C,color:#0F172A
+    class TX actor
+    class UC01,UC02,UC05,UC06,UC07,UC10,UC11,UC20 uc
+```
+
+**Hình 11.4 – Use Case của Nhân viên vận hành và Ban lãnh đạo**
+
+```mermaid
+flowchart LR
+    NV["«actor»<br/>Nhân viên vận hành"]
+    BLD["«actor»<br/>Ban lãnh đạo"]
+    subgraph SYS["CAB System"]
+        UC02(["UC‑02: Đăng nhập"])
+        UC04(["UC‑04: Tạo tài khoản tài xế"])
+        UC21(["UC‑21: Quản lý khách hàng"])
+        UC22(["UC‑22: Quản lý tài xế"])
+        UC23(["UC‑23: Quản lý phương tiện"])
+        UC24(["UC‑24: Quản lý chuyến đi"])
+        UC25(["UC‑25: Xem chuyến đang diễn ra"])
+        UC26(["UC‑26: Kiểm tra trạng thái tài xế"])
+        UC27(["UC‑27: Hỗ trợ xử lý chuyến bị lỗi"])
+        UC28(["UC‑28: Tra cứu lịch sử giao dịch"])
+        UC29(["UC‑29: Xem báo cáo"])
+    end
+    NV --- UC02
+    NV --- UC04
+    NV --- UC21
+    NV --- UC22
+    NV --- UC23
+    NV --- UC24
+    NV --- UC25
+    NV --- UC26
+    NV --- UC27
+    NV --- UC28
+    BLD --- UC29
+    style SYS fill:#FFFFFF,stroke:#334155,stroke-width:2px
+    classDef actor fill:#DBEAFE,stroke:#1E3A8A,color:#1E3A8A,font-weight:bold
+    classDef uc fill:#FFF7ED,stroke:#EA580C,color:#0F172A
+    class NV,BLD actor
+    class UC02,UC04,UC21,UC22,UC23,UC24,UC25,UC26,UC27,UC28,UC29 uc
+```
