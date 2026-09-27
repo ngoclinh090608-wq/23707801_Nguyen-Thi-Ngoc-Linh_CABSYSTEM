@@ -74,7 +74,8 @@ quadrantChart
 | 7 | Báo cáo | Báo cáo về số lượng chuyến, doanh thu, tỷ lệ chuyến hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế. | BR-08 |
 
 > **Ngoài phạm vi MVP (đề ghi "trong tương lai"):** bổ sung các loại dịch vụ mới, thêm phương thức thanh toán, thêm nhà cung cấp thông báo, mở rộng thêm các kênh thông báo, thay đổi một số thành phần kỹ thuật. *(BR-05)*
->
+
+
 > ## 5. Business Requirements – CAB System MVP (Yêu cầu nghiệp vụ)
 
 | Mã BR | Yêu cầu nghiệp vụ | Module |
