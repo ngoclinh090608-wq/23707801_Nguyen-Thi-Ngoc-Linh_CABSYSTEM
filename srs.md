@@ -634,3 +634,150 @@ flowchart LR
 | 11 | NFR‑11 | Bảo mật (Security) | Lưu vết các thao tác quan trọng để phục vụ kiểm tra khi có sự cố. | BG‑11 |
 
 > Đề chưa nêu con số cụ thể (số lượng người dùng đồng thời, thời gian phản hồi…), cần BA làm rõ để NFR đo được. Đề cũng ghi doanh nghiệp **chưa chốt**: cách xử lý khi mất kết nối mạng, thời gian lưu trữ dữ liệu.
+
+## 10. Entity Relationship Diagram (Mô hình Dữ liệu ERD)
+
+### 10.1. Xác định thực thể (Entity)
+
+| STT | Entity | Thực thể | Căn cứ trong đề | BR liên quan |
+|---|---|---|---|---|
+| 1 | KHACH_HANG | Khách hàng | Khách hàng cần đăng ký tài khoản, đăng nhập, cập nhật thông tin cá nhân. | BR‑01, BR‑02 |
+| 2 | TAI_XE | Tài xế | Tài xế đăng ký hoặc được nhân viên vận hành tạo tài khoản, cập nhật hồ sơ, trạng thái hoạt động; chuyển sang trạng thái sẵn sàng nhận chuyến. | BR‑02, BR‑03, BR‑04 |
+| 3 | PHUONG_TIEN | Phương tiện | Thông tin phương tiện; nhân viên vận hành quản lý phương tiện. | BR‑03, BR‑19 |
+| 4 | LOAI_XE | Loại xe (loại dịch vụ) | Khách hàng lựa chọn loại xe; số tiền dựa trên loại dịch vụ. | BR‑06, BR‑14 |
+| 5 | VI_TRI_TAI_XE | Vị trí tài xế | Lưu thông tin vị trí của tài xế. | BR‑05 |
+| 6 | NHAN_VIEN_VAN_HANH | Nhân viên vận hành | Nhân viên vận hành tạo tài khoản tài xế, quản lý qua giao diện quản trị; chức năng quản trị được phân quyền. | BR‑03, BR‑19, BR‑20, BR‑21 |
+| 7 | CHUYEN_DI | Chuyến đi (yêu cầu đặt xe) | Nhập điểm đón, điểm đến, lựa chọn loại xe, gửi yêu cầu đặt xe; trạng thái chuyến đi; số tiền phải trả; lịch sử chuyến đi. | BR‑06, BR‑10, BR‑11, BR‑12, BR‑14 |
+| 8 | PHAN_CONG | Phân công tài xế (lượt đề xuất) | Tài xế được đề xuất chấp nhận, từ chối hoặc không phản hồi; hệ thống tiếp tục tìm tài xế khác. | BR‑07, BR‑08, BR‑09 |
+| 9 | DANH_GIA | Đánh giá | Khách hàng đánh giá tài xế sau khi hoàn thành chuyến. | BR‑13 |
+| 10 | GIAO_DICH_THANH_TOAN | Giao dịch thanh toán | Thanh toán tiền mặt hoặc điện tử; giao dịch thất bại được xử lý lại; tra cứu lịch sử giao dịch. | BR‑15, BR‑16, BR‑20 |
+| 11 | THONG_BAO | Thông báo | Khách hàng và tài xế nhận thông báo liên quan đến chuyến đi. | BR‑17, BR‑18 |
+| 12 | NHAT_KY_THAO_TAC | Nhật ký thao tác | Lưu vết các thao tác quan trọng. | NFR‑11 |
+
+> Không lập thực thể: **Nhà cung cấp thanh toán bên ngoài** (tác nhân ngoài hệ thống, chỉ lưu mã giao dịch; không lưu thông tin thẻ), **Ban lãnh đạo** (chỉ xem báo cáo), **Báo cáo** (tổng hợp từ CHUYEN_DI, GIAO_DICH_THANH_TOAN, PHAN_CONG, DANH_GIA – BR‑22).
+
+### 10.2. Mối kết hợp (Relationship)
+
+| STT | Mối kết hợp | Bản số | Căn cứ trong đề |
+|---|---|---|---|
+| 1 | KHACH_HANG – tạo yêu cầu – CHUYEN_DI | 1 – n | Khách hàng gửi yêu cầu đặt xe, xem lịch sử chuyến đi. |
+| 2 | LOAI_XE – được chọn – CHUYEN_DI | 1 – n | Khách hàng lựa chọn loại xe khi đặt xe. |
+| 3 | TAI_XE – nhận chuyến – CHUYEN_DI | 0..1 – n | Chuyến đang tìm tài xế chưa có tài xế; tài xế nhận nhiều chuyến. |
+| 4 | CHUYEN_DI – có – PHAN_CONG | 1 – n | Tài xế không phản hồi hoặc từ chối thì tìm tài xế khác → một chuyến có nhiều lượt đề xuất. |
+| 5 | TAI_XE – được đề xuất – PHAN_CONG | 1 – n | Tài xế nhận thông báo và chấp nhận hoặc từ chối chuyến. |
+| 6 | CHUYEN_DI – được đánh giá – DANH_GIA | 1 – 0..1 | Đánh giá tài xế sau khi hoàn thành chuyến. |
+| 7 | CHUYEN_DI – được thanh toán – GIAO_DICH_THANH_TOAN | 1 – n | Giao dịch điện tử thất bại được xử lý lại → một chuyến có thể có nhiều giao dịch. |
+| 8 | CHUYEN_DI – phát sinh – THONG_BAO | 1 – n | Thông báo khi yêu cầu được tiếp nhận, có tài xế nhận, tài xế đến, hoàn thành, thanh toán có kết quả. |
+| 9 | KHACH_HANG / TAI_XE – nhận – THONG_BAO | 0..1 – n | Người nhận thông báo là khách hàng hoặc tài xế. |
+| 10 | TAI_XE – có – PHUONG_TIEN | 1 – n | Tài xế cập nhật thông tin phương tiện. |
+| 11 | LOAI_XE – phân loại – PHUONG_TIEN | 1 – n | Phương tiện thuộc một loại xe. |
+| 12 | TAI_XE – có – VI_TRI_TAI_XE | 1 – n | Lưu thông tin vị trí của tài xế. |
+| 13 | NHAN_VIEN_VAN_HANH – tạo tài khoản – TAI_XE | 0..1 – n | Tài xế đăng ký hoặc được nhân viên vận hành tạo tài khoản. |
+
+### 10.3. Sơ đồ ERD
+
+```mermaid
+erDiagram
+    KHACH_HANG ||--o{ CHUYEN_DI : "tạo yêu cầu"
+    LOAI_XE ||--o{ CHUYEN_DI : "được chọn"
+    TAI_XE |o--o{ CHUYEN_DI : "nhận chuyến"
+    CHUYEN_DI ||--o{ PHAN_CONG : "có"
+    TAI_XE ||--o{ PHAN_CONG : "được đề xuất"
+    CHUYEN_DI ||--o| DANH_GIA : "được đánh giá"
+    CHUYEN_DI ||--o{ GIAO_DICH_THANH_TOAN : "được thanh toán"
+    CHUYEN_DI ||--o{ THONG_BAO : "phát sinh"
+    KHACH_HANG |o--o{ THONG_BAO : "nhận"
+    TAI_XE |o--o{ THONG_BAO : "nhận"
+    TAI_XE ||--o{ PHUONG_TIEN : "có"
+    LOAI_XE ||--o{ PHUONG_TIEN : "phân loại"
+    TAI_XE ||--o{ VI_TRI_TAI_XE : "có"
+    NHAN_VIEN_VAN_HANH |o--o{ TAI_XE : "tạo tài khoản"
+
+    KHACH_HANG {
+        string ma_kh PK
+        string ho_ten
+        string so_dien_thoai
+        string mat_khau
+    }
+    TAI_XE {
+        string ma_tx PK
+        string ma_nv FK "NV tạo tài khoản (nếu có)"
+        string ho_ten
+        string so_dien_thoai
+        string mat_khau
+        string trang_thai_hoat_dong
+        boolean san_sang_nhan_chuyen
+    }
+    PHUONG_TIEN {
+        string ma_pt PK
+        string ma_tx FK
+        string ma_loai_xe FK
+        string bien_so
+    }
+    LOAI_XE {
+        string ma_loai_xe PK
+        string ten_loai_xe
+    }
+    VI_TRI_TAI_XE {
+        string ma_vi_tri PK
+        string ma_tx FK
+        float vi_do
+        float kinh_do
+        datetime thoi_diem
+    }
+    NHAN_VIEN_VAN_HANH {
+        string ma_nv PK
+        string ho_ten
+        string mat_khau
+        string vai_tro "phân quyền"
+    }
+    CHUYEN_DI {
+        string ma_chuyen PK
+        string ma_kh FK
+        string ma_tx FK "tài xế nhận chuyến"
+        string ma_loai_xe FK
+        string diem_don
+        string diem_den
+        string trang_thai
+        decimal so_tien "số tiền phải trả"
+        datetime thoi_gian_tao
+    }
+    PHAN_CONG {
+        string ma_phan_cong PK
+        string ma_chuyen FK
+        string ma_tx FK
+        string ket_qua "chấp nhận / từ chối / không phản hồi"
+        datetime thoi_diem
+    }
+    DANH_GIA {
+        string ma_danh_gia PK
+        string ma_chuyen FK
+        int diem
+        string nhan_xet
+    }
+    GIAO_DICH_THANH_TOAN {
+        string ma_gd PK
+        string ma_chuyen FK
+        string phuong_thuc "tiền mặt / điện tử"
+        decimal so_tien
+        string ket_qua "thành công / thất bại"
+        string ma_gd_ncc "mã giao dịch từ NCC, không lưu thông tin thẻ"
+        datetime thoi_diem
+    }
+    THONG_BAO {
+        string ma_tb PK
+        string ma_chuyen FK
+        string ma_kh FK "người nhận là KH"
+        string ma_tx FK "người nhận là TX"
+        string noi_dung
+        datetime thoi_diem
+    }
+    NHAT_KY_THAO_TAC {
+        string ma_nk PK
+        string nguoi_thuc_hien
+        string thao_tac
+        datetime thoi_diem
+    }
+```
+
+> Đề không nêu chi tiết thuộc tính; các thuộc tính trên (họ tên, số điện thoại, biển số, vĩ độ/kinh độ, điểm/nhận xét…) là tối thiểu, cần xác nhận với khách hàng. Đề dùng cả "loại xe" và "loại dịch vụ" – cần xác nhận có phải là một hay không.
