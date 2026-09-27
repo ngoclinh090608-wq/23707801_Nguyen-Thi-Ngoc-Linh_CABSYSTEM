@@ -46,22 +46,19 @@ quadrantChart
 ```
 ## 3. Business Goals (Mục tiêu kinh doanh/ nghiệp vụ)
 
-| Mã BR | Mục tiêu nghiệp vụ | Nguồn | Căn cứ trong đề |
-## 3. Business Goals (Mục tiêu kinh doanh/ nghiệp vụ)
-
-| STT | Business Goal | Mục tiêu |
-|---|---|---|
-| 1 | **BG-01.** Tìm và phân công tài xế | Khi khách hàng tạo một chuyến đi, hệ thống cần xác định các tài xế phù hợp dựa trên vị trí, trạng thái sẵn sàng và một số tiêu chí vận hành khác. Doanh nghiệp mong muốn hệ thống ưu tiên tài xế phù hợp và gần khách hàng. |
-| 2 | **BG-02.** Theo dõi chuyến đi và thông báo | Sau khi gửi yêu cầu, khách hàng muốn biết hệ thống đang tìm tài xế, tài xế nào đã nhận chuyến, thời gian dự kiến tài xế đến và trạng thái hiện tại của chuyến đi. Thông báo là một thành phần quan trọng. |
-| 3 | **BG-03.** Thanh toán và tính cước | Hệ thống cũng phải hỗ trợ thanh toán và tính cước. |
-| 4 | **BG-04.** Phục vụ số lượng lớn, mở rộng khi tải tăng | Ban lãnh đạo mong muốn xây dựng một nền tảng CAB mới có khả năng phục vụ số lượng lớn khách hàng và tài xế. Các thành phần của hệ thống cần có khả năng mở rộng độc lập khi tải tăng. |
-| 5 | **BG-05.** Phát triển lâu dài | Khách hàng không chỉ muốn một ứng dụng đặt xe đơn thuần mà muốn một nền tảng CAB có thể phát triển lâu dài, có thể phát triển thêm các tính năng trong tương lai. |
-| 6 | **BG-06.** Hỗ trợ ba nhóm người dùng | Ban giám đốc kỳ vọng hệ thống mới hỗ trợ ít nhất ba nhóm người dùng chính gồm khách hàng, tài xế và nhân viên vận hành. |
-| 7 | **BG-07.** Đáp ứng quy trình đặt xe | Hệ thống cần đáp ứng tốt quy trình từ khi khách hàng tạo yêu cầu, tìm và phân công tài xế, thực hiện chuyến, tính cước, thanh toán, thông báo đến đánh giá sau chuyến. |
-| 8 | **BG-08.** Báo cáo | Ban lãnh đạo cũng mong muốn có báo cáo về số lượng chuyến, doanh thu, tỷ lệ chuyến hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế. |
-| 9 | **BG-09.** Phối hợp giữa các bộ phận | Các bộ phận trong doanh nghiệp phải có thể phối hợp thông qua hệ thống và có đủ dữ liệu để theo dõi hoạt động. |
-| 10 | **BG-10.** Hoạt động ổn định | Hệ thống phải hoạt động ổn định vào các thời điểm nhu cầu tăng cao. Doanh nghiệp không muốn một lỗi xảy ra ở chức năng thanh toán hoặc thông báo làm cho toàn bộ hệ thống đặt xe ngừng hoạt động. |
-| 11 | **BG-11.** Bảo mật | Thông tin cá nhân, thông tin phương tiện, dữ liệu vị trí và dữ liệu giao dịch phải được bảo vệ. Doanh nghiệp cần lưu vết các thao tác quan trọng để phục vụ kiểm tra khi có sự cố. |
+| STT | Mã | Business Goal | Mục tiêu |
+|---|---|---|---|
+| 1 | BG-01 | Tìm và phân công tài xế | Khi khách hàng tạo một chuyến đi, hệ thống cần xác định các tài xế phù hợp dựa trên vị trí, trạng thái sẵn sàng và một số tiêu chí vận hành khác. Doanh nghiệp mong muốn hệ thống ưu tiên tài xế phù hợp và gần khách hàng. |
+| 2 | BG-02 | Theo dõi chuyến đi và thông báo | Sau khi gửi yêu cầu, khách hàng muốn biết hệ thống đang tìm tài xế, tài xế nào đã nhận chuyến, thời gian dự kiến tài xế đến và trạng thái hiện tại của chuyến đi. Thông báo là một thành phần quan trọng. |
+| 3 | BG-03 | Thanh toán và tính cước | Hệ thống cũng phải hỗ trợ thanh toán và tính cước. |
+| 4 | BG-04 | Phục vụ số lượng lớn, mở rộng khi tải tăng | Ban lãnh đạo mong muốn xây dựng một nền tảng CAB mới có khả năng phục vụ số lượng lớn khách hàng và tài xế. Các thành phần của hệ thống cần có khả năng mở rộng độc lập khi tải tăng. |
+| 5 | BG-05 | Phát triển lâu dài | Khách hàng không chỉ muốn một ứng dụng đặt xe đơn thuần mà muốn một nền tảng CAB có thể phát triển lâu dài, có thể phát triển thêm các tính năng trong tương lai. |
+| 6 | BG-06 | Hỗ trợ ba nhóm người dùng | Ban giám đốc kỳ vọng hệ thống mới hỗ trợ ít nhất ba nhóm người dùng chính gồm khách hàng, tài xế và nhân viên vận hành. |
+| 7 | BG-07 | Đáp ứng quy trình đặt xe | Hệ thống cần đáp ứng tốt quy trình từ khi khách hàng tạo yêu cầu, tìm và phân công tài xế, thực hiện chuyến, tính cước, thanh toán, thông báo đến đánh giá sau chuyến. |
+| 8 | BG-08 | Báo cáo | Ban lãnh đạo cũng mong muốn có báo cáo về số lượng chuyến, doanh thu, tỷ lệ chuyến hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế. |
+| 9 | BG-09 | Phối hợp giữa các bộ phận | Các bộ phận trong doanh nghiệp phải có thể phối hợp thông qua hệ thống và có đủ dữ liệu để theo dõi hoạt động. |
+| 10 | BG-10 | Hoạt động ổn định | Hệ thống phải hoạt động ổn định vào các thời điểm nhu cầu tăng cao. Doanh nghiệp không muốn một lỗi xảy ra ở chức năng thanh toán hoặc thông báo làm cho toàn bộ hệ thống đặt xe ngừng hoạt động. |
+| 11 | BG-11 | Bảo mật | Thông tin cá nhân, thông tin phương tiện, dữ liệu vị trí và dữ liệu giao dịch phải được bảo vệ. Doanh nghiệp cần lưu vết các thao tác quan trọng để phục vụ kiểm tra khi có sự cố. |
 
 ## 4. Minimum Viable Product (MVP) Modules
 
