@@ -551,3 +551,46 @@ flowchart LR
     end
     X1 --> X2 --> X3 --> E
 ```
+## 7. Functional Requirements (Yêu cầu Chức năng)
+
+| STT | Mã FR | Yêu cầu chức năng | BR liên quan |
+|---|---|---|---|
+| 1 | FR‑01 | Hệ thống phải cho phép khách hàng đăng ký tài khoản. | BR‑01 |
+| 2 | FR‑02 | Hệ thống phải cho phép khách hàng đăng nhập. | BR‑01 |
+| 3 | FR‑03 | Hệ thống phải cho phép khách hàng cập nhật thông tin cá nhân. | BR‑01 |
+| 4 | FR‑04 | Hệ thống phải xác thực khách hàng và tài xế trước khi cho sử dụng các chức năng yêu cầu tài khoản. | BR‑02 |
+| 5 | FR‑05 | Hệ thống phải cho phép tài xế đăng ký tài khoản. | BR‑03 |
+| 6 | FR‑06 | Hệ thống phải cho phép nhân viên vận hành tạo tài khoản cho tài xế. | BR‑03 |
+| 7 | FR‑07 | Hệ thống phải cho phép tài xế cập nhật hồ sơ, thông tin phương tiện và trạng thái hoạt động. | BR‑03 |
+| 8 | FR‑08 | Hệ thống phải cho phép tài xế chuyển sang trạng thái sẵn sàng nhận chuyến khi đang làm việc. | BR‑04 |
+| 9 | FR‑09 | Hệ thống phải lưu thông tin vị trí của tài xế để hỗ trợ việc tìm tài xế gần khách hàng và cải thiện khả năng dự kiến thời gian đến. | BR‑05 |
+| 10 | FR‑10 | Hệ thống phải cho phép khách hàng nhập điểm đón và điểm đến. | BR‑06 |
+| 11 | FR‑11 | Hệ thống phải cho phép khách hàng lựa chọn loại xe. | BR‑06 |
+| 12 | FR‑12 | Hệ thống phải cho phép khách hàng gửi yêu cầu đặt xe. | BR‑06 |
+| 13 | FR‑13 | Khi khách hàng tạo một chuyến đi, hệ thống phải xác định các tài xế phù hợp dựa trên vị trí, trạng thái sẵn sàng và một số tiêu chí vận hành khác. | BR‑07 |
+| 14 | FR‑14 | Hệ thống phải ưu tiên tài xế phù hợp và gần khách hàng. | BR‑07 |
+| 15 | FR‑15 | Hệ thống phải gửi thông báo cho tài xế khi có yêu cầu phù hợp (chuyến mới). | BR‑08, BR‑18 |
+| 16 | FR‑16 | Hệ thống phải cho phép tài xế chấp nhận hoặc từ chối chuyến. | BR‑08 |
+| 17 | FR‑17 | Nếu tài xế được đề xuất không phản hồi hoặc từ chối, hệ thống phải tiếp tục tìm tài xế khác mà không yêu cầu khách hàng tạo lại yêu cầu. | BR‑09 |
+| 18 | FR‑18 | Hệ thống phải thông báo rõ ràng cho khách hàng khi không tìm được tài xế. | BR‑09 |
+| 19 | FR‑19 | Hệ thống phải cho phép tài xế cập nhật trạng thái chuyến đi: đã đến điểm đón, đã đón khách, đang di chuyển và hoàn thành chuyến. | BR‑10 |
+| 20 | FR‑20 | Hệ thống phải cho phép khách hàng theo dõi chuyến đi: hệ thống đang tìm tài xế, tài xế nào đã nhận chuyến, thời gian dự kiến tài xế đến và trạng thái hiện tại của chuyến đi. | BR‑11 |
+| 21 | FR‑21 | Hệ thống phải cho phép khách hàng xem lịch sử chuyến đi và số tiền phải trả. | BR‑12 |
+| 22 | FR‑22 | Hệ thống phải cho phép khách hàng đánh giá tài xế sau khi hoàn thành chuyến. | BR‑13 |
+| 23 | FR‑23 | Sau khi chuyến đi hoàn thành, hệ thống phải xác định số tiền khách hàng phải trả dựa trên loại dịch vụ và thông tin chuyến đi. | BR‑14 |
+| 24 | FR‑24 | Hệ thống phải cho phép khách hàng thanh toán bằng tiền mặt. | BR‑15 |
+| 25 | FR‑25 | Hệ thống phải cho phép khách hàng thanh toán điện tử qua nhà cung cấp thanh toán bên ngoài; thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán không được lưu trực tiếp trong hệ thống CAB. | BR‑15 |
+| 26 | FR‑26 | Hệ thống phải thông báo cho khách hàng khi giao dịch thanh toán điện tử thất bại. | BR‑16 |
+| 27 | FR‑27 | Hệ thống phải cho phép xử lý lại giao dịch thanh toán điện tử thất bại theo chính sách của doanh nghiệp. | BR‑16 |
+| 28 | FR‑28 | Hệ thống phải gửi thông báo cho khách hàng khi yêu cầu đặt xe được tiếp nhận, khi có tài xế nhận chuyến, khi tài xế đến điểm đón, khi chuyến hoàn thành và khi thanh toán có kết quả. | BR‑17 |
+| 29 | FR‑29 | Hệ thống phải gửi thông báo cho tài xế về những thay đổi liên quan đến chuyến đang thực hiện. | BR‑18 |
+| 30 | FR‑30 | Hệ thống phải cung cấp giao diện quản trị để nhân viên vận hành quản lý khách hàng, tài xế, phương tiện và chuyến đi. | BR‑19 |
+| 31 | FR‑31 | Hệ thống phải cho phép nhân viên vận hành xem các chuyến đang diễn ra. | BR‑20 |
+| 32 | FR‑32 | Hệ thống phải cho phép nhân viên vận hành kiểm tra trạng thái tài xế. | BR‑20 |
+| 33 | FR‑33 | Hệ thống phải cho phép nhân viên vận hành hỗ trợ xử lý các trường hợp chuyến bị lỗi. | BR‑20 |
+| 34 | FR‑34 | Hệ thống phải cho phép nhân viên vận hành tra cứu lịch sử giao dịch. | BR‑20 |
+| 35 | FR‑35 | Hệ thống phải phân quyền một số chức năng quản trị để nhân viên thông thường không thể thực hiện các thao tác nhạy cảm. | BR‑21 |
+| 36 | FR‑36 | Hệ thống phải kiểm soát quyền truy cập đối với các thao tác quản trị. | BR‑21 |
+| 37 | FR‑37 | Hệ thống phải cung cấp báo cáo cho ban lãnh đạo về số lượng chuyến, doanh thu, tỷ lệ chuyến hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế. | BR‑22 |
+
+> Đề ghi doanh nghiệp **chưa chốt**: tiêu chí ưu tiên tài xế (FR‑14), thời gian tài xế phải phản hồi (FR‑17), cách tính cước (FR‑23).
