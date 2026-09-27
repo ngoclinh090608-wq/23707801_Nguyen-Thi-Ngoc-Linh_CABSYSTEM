@@ -594,3 +594,26 @@ flowchart LR
 | 37 | FR‑37 | Hệ thống phải cung cấp báo cáo cho ban lãnh đạo về số lượng chuyến, doanh thu, tỷ lệ chuyến hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế. | BR‑22 |
 
 > Đề ghi doanh nghiệp **chưa chốt**: tiêu chí ưu tiên tài xế (FR‑14), thời gian tài xế phải phản hồi (FR‑17), cách tính cước (FR‑23).
+
+## 8. Business Rules (Quy tắc Nghiệp vụ)
+
+| Mã Rule | Business Rule |
+|---|---|
+| RULE‑01 | Khách hàng và tài xế phải được xác thực trước khi sử dụng các chức năng yêu cầu tài khoản. |
+| RULE‑02 | Tài khoản tài xế do tài xế đăng ký hoặc do nhân viên vận hành tạo. |
+| RULE‑03 | Tài xế chuyển sang trạng thái sẵn sàng nhận chuyến khi đang làm việc. |
+| RULE‑04 | Khi khách hàng tạo một chuyến đi, hệ thống xác định các tài xế phù hợp dựa trên vị trí, trạng thái sẵn sàng và một số tiêu chí vận hành khác. |
+| RULE‑05 | Hệ thống ưu tiên tài xế phù hợp và gần khách hàng. |
+| RULE‑06 | Nếu tài xế được đề xuất không phản hồi hoặc từ chối, hệ thống tiếp tục tìm tài xế khác mà không yêu cầu khách hàng tạo lại yêu cầu. |
+| RULE‑07 | Trong trường hợp không tìm được tài xế, khách hàng phải được thông báo rõ ràng. |
+| RULE‑08 | Khách hàng đánh giá tài xế sau khi hoàn thành chuyến. |
+| RULE‑09 | Sau khi chuyến đi hoàn thành, số tiền khách hàng phải trả được xác định dựa trên loại dịch vụ và thông tin chuyến đi. |
+| RULE‑10 | Khách hàng có thể thanh toán bằng tiền mặt hoặc phương thức thanh toán điện tử. |
+| RULE‑11 | Thanh toán điện tử thực hiện qua nhà cung cấp thanh toán bên ngoài; thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán không được lưu trực tiếp trong hệ thống CAB. |
+| RULE‑12 | Nếu giao dịch thanh toán điện tử thất bại, hệ thống thông báo cho khách hàng và cho phép xử lý lại theo chính sách của doanh nghiệp. |
+| RULE‑13 | Khách hàng nhận thông báo khi yêu cầu đặt xe được tiếp nhận, khi có tài xế nhận chuyến, khi tài xế đến điểm đón, khi chuyến hoàn thành và khi thanh toán có kết quả. |
+| RULE‑14 | Tài xế nhận thông báo khi có yêu cầu phù hợp (chuyến mới) và khi có thay đổi liên quan đến chuyến đang thực hiện. |
+| RULE‑15 | Một số chức năng quản trị được phân quyền để nhân viên thông thường không thể thực hiện các thao tác nhạy cảm. |
+| RULE‑16 | Các thao tác quản trị phải được kiểm soát quyền truy cập. |
+
+> Đề ghi doanh nghiệp **chưa chốt** (BA cần làm rõ với các bên liên quan): tiêu chí ưu tiên tài xế (RULE‑05), thời gian tài xế phải phản hồi (RULE‑06), cách tính cước (RULE‑09), chính sách hủy chuyến, cách xử lý khi mất kết nối mạng, thời gian lưu trữ dữ liệu.
