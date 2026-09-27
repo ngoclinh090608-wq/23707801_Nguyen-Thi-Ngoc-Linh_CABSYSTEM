@@ -74,3 +74,30 @@ quadrantChart
 | 7 | Báo cáo | Báo cáo về số lượng chuyến, doanh thu, tỷ lệ chuyến hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế. | BR-08 |
 
 > **Ngoài phạm vi MVP (đề ghi "trong tương lai"):** bổ sung các loại dịch vụ mới, thêm phương thức thanh toán, thêm nhà cung cấp thông báo, mở rộng thêm các kênh thông báo, thay đổi một số thành phần kỹ thuật. *(BR-05)*
+>
+> ## 5. Business Requirements – CAB System MVP (Yêu cầu nghiệp vụ)
+
+| Mã BR | Yêu cầu nghiệp vụ | Module |
+|---|---|---|
+| BR‑01 | Khách hàng đăng ký tài khoản, đăng nhập, cập nhật thông tin cá nhân. | 1 |
+| BR‑02 | Khách hàng và tài xế phải được xác thực trước khi sử dụng các chức năng yêu cầu tài khoản. | 1, 2 |
+| BR‑03 | Tài xế đăng ký hoặc được nhân viên vận hành tạo tài khoản; cập nhật hồ sơ, thông tin phương tiện và trạng thái hoạt động. | 2 |
+| BR‑04 | Tài xế chuyển sang trạng thái sẵn sàng nhận chuyến khi đang làm việc. | 2 |
+| BR‑05 | Hệ thống lưu thông tin vị trí của tài xế để hỗ trợ việc tìm tài xế gần khách hàng và cải thiện khả năng dự kiến thời gian đến. | 2 |
+| BR‑06 | Khách hàng nhập điểm đón và điểm đến, lựa chọn loại xe và gửi yêu cầu đặt xe. | 3 |
+| BR‑07 | Hệ thống xác định các tài xế phù hợp dựa trên vị trí, trạng thái sẵn sàng và một số tiêu chí vận hành khác; ưu tiên tài xế phù hợp và gần khách hàng. | 3 |
+| BR‑08 | Khi có yêu cầu phù hợp, tài xế nhận được thông báo và có thể chấp nhận hoặc từ chối chuyến. | 3, 5 |
+| BR‑09 | Nếu tài xế được đề xuất không phản hồi hoặc từ chối, hệ thống tiếp tục tìm tài xế khác mà không yêu cầu khách hàng tạo lại yêu cầu. Không tìm được tài xế thì khách hàng phải được thông báo rõ ràng. | 3, 5 |
+| BR‑10 | Tài xế cập nhật trạng thái chuyến đi: đã đến điểm đón, đã đón khách, đang di chuyển và hoàn thành chuyến. | 3 |
+| BR‑11 | Khách hàng theo dõi chuyến đi: hệ thống đang tìm tài xế, tài xế nào đã nhận chuyến, thời gian dự kiến tài xế đến và trạng thái hiện tại của chuyến đi. | 3 |
+| BR‑12 | Khách hàng xem lịch sử chuyến đi và số tiền phải trả. | 3 |
+| BR‑13 | Khách hàng đánh giá tài xế sau khi hoàn thành chuyến. | 3 |
+| BR‑14 | Sau khi chuyến đi hoàn thành, hệ thống xác định số tiền khách hàng phải trả dựa trên loại dịch vụ và thông tin chuyến đi. | 4 |
+| BR‑15 | Khách hàng thanh toán bằng tiền mặt hoặc phương thức thanh toán điện tử qua nhà cung cấp thanh toán bên ngoài; thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán không được lưu trực tiếp trong hệ thống CAB. | 4 |
+| BR‑16 | Giao dịch thanh toán điện tử thất bại thì hệ thống thông báo cho khách hàng và cho phép xử lý lại theo chính sách của doanh nghiệp. | 4, 5 |
+| BR‑17 | Khách hàng nhận thông báo khi yêu cầu đặt xe được tiếp nhận, khi có tài xế nhận chuyến, khi tài xế đến điểm đón, khi chuyến hoàn thành và khi thanh toán có kết quả. | 5 |
+| BR‑18 | Tài xế nhận thông báo về các chuyến mới hoặc những thay đổi liên quan đến chuyến đang thực hiện. | 5 |
+| BR‑19 | Nhân viên vận hành quản lý khách hàng, tài xế, phương tiện và chuyến đi qua giao diện quản trị. | 6 |
+| BR‑20 | Nhân viên vận hành xem các chuyến đang diễn ra, kiểm tra trạng thái tài xế, hỗ trợ xử lý các trường hợp chuyến bị lỗi và tra cứu lịch sử giao dịch. | 6 |
+| BR‑21 | Một số chức năng quản trị được phân quyền để nhân viên thông thường không thể thực hiện các thao tác nhạy cảm; các thao tác quản trị phải được kiểm soát quyền truy cập. | 6 |
+| BR‑22 | Ban lãnh đạo có báo cáo về số lượng chuyến, doanh thu, tỷ lệ chuyến hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế. | 7 |
