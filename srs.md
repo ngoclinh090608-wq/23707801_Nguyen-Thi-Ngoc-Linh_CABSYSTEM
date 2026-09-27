@@ -617,3 +617,20 @@ flowchart LR
 | RULE‑16 | Các thao tác quản trị phải được kiểm soát quyền truy cập. |
 
 > Đề ghi doanh nghiệp **chưa chốt** (BA cần làm rõ với các bên liên quan): tiêu chí ưu tiên tài xế (RULE‑05), thời gian tài xế phải phản hồi (RULE‑06), cách tính cước (RULE‑09), chính sách hủy chuyến, cách xử lý khi mất kết nối mạng, thời gian lưu trữ dữ liệu.
+## 9. Non-Functional Requirements (Yêu cầu Phi chức năng)
+
+| STT | Mã NFR | Loại | Yêu cầu phi chức năng | BG liên quan |
+|---|---|---|---|---|
+| 1 | NFR‑01 | Hiệu năng (Performance) | Hệ thống có khả năng phục vụ số lượng lớn khách hàng và tài xế. | BG‑04 |
+| 2 | NFR‑02 | Tính sẵn sàng (Availability) | Hệ thống phải hoạt động ổn định vào các thời điểm nhu cầu tăng cao. | BG‑10 |
+| 3 | NFR‑03 | Độ tin cậy (Reliability) | Một lỗi xảy ra ở chức năng thanh toán hoặc thông báo không được làm cho toàn bộ hệ thống đặt xe ngừng hoạt động. | BG‑10 |
+| 4 | NFR‑04 | Khả năng mở rộng (Scalability) | Các thành phần của hệ thống cần có khả năng mở rộng độc lập khi tải tăng. | BG‑04 |
+| 5 | NFR‑05 | Khả năng bảo trì (Maintainability) | Các chức năng mới có thể được triển khai từng phần mà hạn chế ảnh hưởng đến các chức năng đang hoạt động. | BG‑05 |
+| 6 | NFR‑06 | Tính linh hoạt (Flexibility) | Kiến trúc đủ linh hoạt để trong tương lai có thể bổ sung các loại dịch vụ mới, thêm phương thức thanh toán, thêm nhà cung cấp thông báo, mở rộng thêm các kênh thông báo hoặc thay đổi một số thành phần kỹ thuật mà không phải xây dựng lại toàn bộ ứng dụng. | BG‑05 |
+| 7 | NFR‑07 | Bảo mật (Security) | Khách hàng và tài xế phải được xác thực trước khi sử dụng các chức năng yêu cầu tài khoản. | BG‑11 |
+| 8 | NFR‑08 | Bảo mật (Security) | Các thao tác quản trị phải được kiểm soát quyền truy cập. | BG‑11 |
+| 9 | NFR‑09 | Bảo mật (Security) | Thông tin cá nhân, thông tin phương tiện, dữ liệu vị trí và dữ liệu giao dịch phải được bảo vệ. | BG‑11 |
+| 10 | NFR‑10 | Bảo mật (Security) | Thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán không được lưu trực tiếp trong hệ thống CAB. | BG‑11 |
+| 11 | NFR‑11 | Bảo mật (Security) | Lưu vết các thao tác quan trọng để phục vụ kiểm tra khi có sự cố. | BG‑11 |
+
+> Đề chưa nêu con số cụ thể (số lượng người dùng đồng thời, thời gian phản hồi…), cần BA làm rõ để NFR đo được. Đề cũng ghi doanh nghiệp **chưa chốt**: cách xử lý khi mất kết nối mạng, thời gian lưu trữ dữ liệu.
